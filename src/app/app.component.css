@@ -31,7 +31,6 @@ box-shadow: 0 0 10px -9px rgb(128, 155, 53) inset;
 .header{
   color: white;
   position: absolute;
-  top: 20px;
   font-family:fantasy;
   width: 100vw;
   text-align: center;
@@ -44,7 +43,7 @@ box-shadow: 0 0 10px -9px rgb(128, 155, 53) inset;
   background: radial-gradient(rgb(7, 138, 181) , rgb(10, 10, 10) 57%);
   width: 700px;
   height: 300px;
-  left: 33.5%;
+  left: 25%;
   top: 32%;
   z-index: -1px;
   filter: blur(103px)
@@ -62,9 +61,10 @@ box-shadow: 0 0 10px -9px rgb(128, 155, 53) inset;
 }
 .title2{
   position: absolute;
-  left: 37%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   letter-spacing: 18px;
-  top: 30%;
+  top: 60%;
   font-size: 7em;
   z-index: 1;
 }
