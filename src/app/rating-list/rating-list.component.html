@@ -1,0 +1,66 @@
+<!--
+<div class="container">
+  <div class="rating" *ngFor="let rating of ratings" [@fade]>
+
+    <div class="header">
+      <p>{{rating.nickName}}</p>
+      <div class="ratingIndicators">
+        <div class="indicator">
+          <app-rating-indicator [points]="rating.overall"></app-rating-indicator>
+        </div>
+        <div class="indicator">
+          <app-rating-indicator [points]="rating.usability"></app-rating-indicator>
+        </div>
+        <div class="indicator">
+          <app-rating-indicator  [points]="rating.design"></app-rating-indicator>
+        </div>
+        <div class="indicator">
+          <app-rating-indicator *ngIf="rating.code"  [points]="rating.code"></app-rating-indicator>
+        </div>
+      </div>
+    </div>
+    <div class="comment">
+      {{rating.comment}}
+    </div>
+  </div>
+</div>
+
+ -->
+
+
+<div class="container" [@fade]>
+  <div class="rating" *ngFor="let rating of ratingObservable | async" [@fade]>
+
+    <div class="header">
+      <p>{{rating.nickName}}</p>
+
+      <p [ngClass]="{'isDeveloper' : true, 'developer' : rating.isDeveloper}">Fejlesztő</p>
+      <div class="ratingIndicators">
+        <div class="indicator">
+          <span>Összahtás:</span>
+          <app-rating-indicator [points]="rating.overall"></app-rating-indicator>
+          10/{{rating.overall}}
+        </div>
+        <div class="indicator">
+          <span>Kezelhetőség:</span>
+          <app-rating-indicator [points]="rating.usability"></app-rating-indicator>
+          10/{{rating.usability}}
+        </div>
+        <div class="indicator">
+          <span>Design:</span>
+          <app-rating-indicator  [points]="rating.design"></app-rating-indicator>
+          10/{{rating.design}}
+        </div>
+        <div class="indicator" *ngIf="rating.code">
+          <span>Kód:</span>
+          <app-rating-indicator [points]="rating.code"></app-rating-indicator>
+          10/{{rating.code}}
+        </div>
+      </div>
+    </div>
+    <div class="comment" *ngIf="!!rating.comment">
+      {{rating.comment}}
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,51 @@
+
+
+
+<div class="card" [ngClass]="{'card' : true, 'cardHelper' : cardAnimationHelper }" (mouseenter)="animationStatus = true" (click)="callAction()">
+  <div class="cardInner">
+    <span class="svg">
+      <ng-container *ngIf="card.svgString === 'skillMap';then skillMap else aboutMe">
+        <ng-template [ngTemplateOutlet]="aboutMe"></ng-template>
+      </ng-container>
+      <ng-template [ngTemplateOutlet]=""></ng-template>
+    </span>
+    <span class="title">
+      {{card.title}}
+    </span>
+  </div>
+</div>
+
+
+
+<!--
+
+<div class="card" (mouseover)="triggerAnimation()">
+  <div class="cardInner">
+    <span class="svg" #svgString [innerHTML]="card.svgString | sanitize" [@hoverCard]="animationStatus">
+
+    </span>
+    <span class="title">
+      {{card.title}}
+    </span>
+  </div>
+</div>
+left: translate(-28px, 40px) rotate(-34deg)
+right: translate(-17px, 7px) rotate(-6deg)
+ -->
+
+
+
+ <ng-template #skillMap>
+  <svg class="cardSvg" [@hoverCard3]="animationStatus"
+  (@hoverCard3.done)="animationStatus = false" width="90px" height="50px" viewBox="0 0 65 75"><path class="cls-1 rightMouth" d="M68.33,56.73l-4.77-1.81c2.28,5.78,1,9,.44,10.08-3.27,6.39-16,8.8-31,3l.46,3.16A62.61,62.61,0,0,0,41.16,73c8.48,1.49,18.53,3.26,23.84-2C65.81,70.2,69.57,66.19,68.33,56.73Z" transform="translate(-11 -14)"/><path class="cls-1 leftMouth" d="M22.79,26.82l3.1,2C20.61,34,18.41,41.17,20.4,47.33a16.21,16.21,0,0,0,5.42,7.61l-.38,3.13a19.5,19.5,0,0,1-9-11.11C14.45,40,16.93,32.12,22.79,26.82Z" transform="translate(-11 -14)"/><path class="cls-1 mapDot" d="M31,14A10,10,0,1,0,41,24,10,10,0,0,0,31,14Zm1.25,16.5a7.25,7.25,0,1,1,7.25-7.25A7.26,7.26,0,0,1,32.25,30.5Z" transform="translate(-11 -14)"/><path class="cls-1 rightEye" d="M74,26A18,18,0,1,0,92,44,18,18,0,0,0,74,26ZM72.78,56a13.1,13.1,0,1,1,13.1-13.1A13.1,13.1,0,0,1,72.78,56Z" transform="translate(-11 -14)"/><path class="cls-1 leftEye" d="M23,54A12,12,0,1,0,35,66,12,12,0,0,0,23,54Zm-.07,19.3a7.25,7.25,0,1,1,7.25-7.25A7.25,7.25,0,0,1,22.93,73.3Z" transform="translate(-11 -14)"/></svg>
+ </ng-template>
+
+ <ng-template #aboutMe>
+  <ng-container #other *ngIf="card.svgString === 'aboutMe'; else rateMe">
+  <svg class="cardSvg" width="90px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 57"><defs><style>.cls-1{fill:#fff;}</style></defs><path class="cls-1" d="M58.64,35.8A5.41,5.41,0,0,1,59,37.72c0,4.26-4.92,7.72-11,7.72S37,42,37,37.72a5.67,5.67,0,0,1,.14-1.17c-.21-.19-.43-.38-.64-.59v26.7h23V34.87C59.23,35.19,58.93,35.49,58.64,35.8Z" transform="translate(-29 -11)"/><path [@hoverCard1]="animationStatus" (@hoverCard1.done)="animationStatus = false" class="cls-1 head" d="M47.9,11c-7.23,0-13.09,6.65-13.09,14.84S40.67,40.69,47.9,40.69,61,34,61,25.84,55.14,11,47.9,11ZM36,24.66a2.77,2.77,0,0,1,2.5-3,2.77,2.77,0,0,1,2.5,3,2.77,2.77,0,0,1-2.5,3A2.77,2.77,0,0,1,36,24.66ZM48,38.31c-6.08,0-11-4.25-11-9.5H59C59,34.06,54.08,38.31,48,38.31Zm9.5-10.68a2.77,2.77,0,0,1-2.5-3,2.54,2.54,0,1,1,5,0A2.77,2.77,0,0,1,57.5,27.63Z" transform="translate(-29 -11)"/><path class="cls-1" d="M34.5,68V33c-4.89,0-5.5,5.65-5.5,5.65V68Z" transform="translate(-29 -11)"/><path class="cls-1" d="M61.5,68V33c4.89,0,5.5,5.65,5.5,5.65V68Z" transform="translate(-29 -11)"/></svg>
+</ng-container>
+ </ng-template>
+
+ <ng-template #rateMe>
+  <svg class="cardSvg" width="90px" height="50px" viewBox="0 0 80 65"><path class="cls-1" d="M60.64,40.8A5.41,5.41,0,0,1,61,42.72c0,4.26-4.92,7.72-11,7.72S39,47,39,42.72a5.67,5.67,0,0,1,.14-1.17c-.21-.19-.43-.38-.64-.59v26.7h23V39.87C61.23,40.19,60.93,40.49,60.64,40.8Z" transform="translate(-19 -17.19)"/><path class="cls-1" d="M49.9,17.19c-7.23,0-13.09,6.65-13.09,14.84S42.67,46.88,49.9,46.88,63,40.23,63,32,57.14,17.19,49.9,17.19Zm1.72,13.67.75-.69a2.9,2.9,0,0,0,.15-4.08l-.7-.75a.41.41,0,0,1,0-.57l.51-.47a.41.41,0,0,1,.57,0l.69.75a2.89,2.89,0,0,0,4.08.15l.89-.82a.39.39,0,0,1,.57,0l.47.5a.42.42,0,0,1,0,.58l-.89.82a2.89,2.89,0,0,0-.15,4.07l.82.89a.39.39,0,0,1,0,.57l-.5.47a.42.42,0,0,1-.58,0l-.82-.89a2.89,2.89,0,0,0-4.07-.15l-.75.7a.41.41,0,0,1-.57,0l-.47-.5A.42.42,0,0,1,51.62,30.86Zm-11.08.21.73-.68a2.81,2.81,0,0,0,.14-4l-.67-.73a.4.4,0,0,1,0-.56l.49-.45a.4.4,0,0,1,.56,0l.67.73a2.82,2.82,0,0,0,4,.14l.86-.8a.4.4,0,0,1,.56,0l.45.49a.4.4,0,0,1,0,.56l-.86.8a2.81,2.81,0,0,0-.14,4l.8.86a.4.4,0,0,1,0,.56l-.49.45a.4.4,0,0,1-.56,0l-.8-.86a2.81,2.81,0,0,0-4-.14l-.73.67a.4.4,0,0,1-.56,0l-.45-.49A.4.4,0,0,1,40.54,31.07ZM50,44.5c-6.08,0-11-4.25-11-9.5H61C61,40.25,56.08,44.5,50,44.5Z" transform="translate(-19 -17.19)"/><path [@hoverCard2]="{value : animationStatus, params : {delay: '0ms'}}" class="cls-1" d="M31,74.2l6.88-34.35c-4.8-1-6.51,4.46-6.51,4.46L25.61,73.12Z" transform="translate(-19 -17.19)"/><path [@hoverCard2]="{value : animationStatus, params : {delay: '100ms'}}" (@hoverCard2.done)="animationStatus = false" class="cls-1" d="M68.72,73.21,62.38,38.76c4.8-.89,6.43,4.56,6.43,4.56l5.31,28.89Z" transform="translate(-19 -17.19)"/><path class="cls-1" d="M62,29.5v.06c0-.07,0-.14,0-.2A.66.66,0,0,1,62,29.5Z" transform="translate(-19 -17.19)"/><path class="cls-1" d="M91,78H29L19,70H78Z" transform="translate(-19 -17.19)"/></svg>
+ </ng-template>

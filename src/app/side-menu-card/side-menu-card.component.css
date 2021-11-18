@@ -1,0 +1,50 @@
+.card{
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.0);
+  background: #050b17 url('/assets/images/holeBg.png') center/cover;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+.card::before{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transform: translate(-19px, -21px);
+  border:2px rgb(246, 26, 151);
+  border-radius: 10px;
+  border-style: dashed solid ;
+  background:rgb(246, 26, 151, 0.12);
+  z-index: 1;
+  transition: 300ms all ease;
+}
+.card:hover::before{
+  background: rgba(16, 90, 55, 0.2);
+  transform: translate(3px, 3px);
+  width: 90px;
+  height: 90px;
+}
+.cardHelper{}
+.cardHelper::before{
+  transform: translate(3px, 3px);
+  width: 90px;
+  height: 90px;
+}
+
+.cardInner{
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  transform: translate(-23px, 14px);
+  font-family: fantasy;
+}
+
+.cardSvg{
+  overflow: visible;
+}

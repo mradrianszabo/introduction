@@ -1,0 +1,5 @@
+<div class="indicator">
+  <span class="point" *ngFor="let point of rating; let i = index" (click)="sendRating(i)">
+    <span *ngIf="point" class="load" [@raise]></span>
+  </span>
+</div>

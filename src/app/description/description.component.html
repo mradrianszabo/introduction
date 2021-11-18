@@ -1,0 +1,34 @@
+
+<div class="container">
+
+    <div class="relatedItems">
+      <div class="itemCard" *ngFor="let item of techFamily; let i = index" (click)="clickCard(item, i)"   [@moveyeah]="{value : item.isSelected, params : {verticalModifier : verticalPositionModifier}}">
+        <img [attr.src]="item.imageUrl" alt="">
+      </div>
+    </div>
+    <div class="description">
+      <div class="selectedItem" >
+        <div class="itemCard selectedItemCard" *ngIf="!!selected" [@hellyeah]="{value : selected.isSelected, params : {verticalModifier : verticalPositionModifier}}">
+          <img [attr.src]="selected.imageUrl" alt="">
+        </div>
+
+        <p class="selectedTitle">{{selected.name}}</p>
+
+        <div class="selectedItemProperties">
+          {{selected.itemLevel}}level {{selected.percentage}}%
+        </div>
+      </div>
+      <div class="textDescription" [@fade]>
+        {{selected.description}}
+      </div>
+    </div>
+
+  </div>
+
+
+<!--
+ <div class="contiProba">
+a
+   <div class="titleProba">DESCRIPTION</div>
+  </div>
+ -->

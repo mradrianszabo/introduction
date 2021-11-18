@@ -1,23 +1,30 @@
-enum ItemLevel{
+export enum ItemLevel{
   Zero,
   Beginner,
   Advance,
   Expert
 }
 
+export enum Category{
+  Personal = -70,
+  Future =  0,
+  Tech = 90,
+}
 export class MenuItem{
   constructor(
     public name: string,
-    public imageUrl: string,
     public description: string,
-    public isOpen: boolean,
-    public position: string,
+    public percentage: number = 0,
     public itemLevel: number = ItemLevel.Zero,
-    public itemPercentage: number = 0,
-    public subItems?: MenuItem[],
+    public category: number,
+    public imageUrl?: string,
+    public isOpen: boolean = true,
+    public isInspected: boolean = false,
+    public isSelected: boolean = false,
+    public subItems: MenuItem[] = [],
 
   ){
-    this.itemPercentage = this.percentageRange(this.itemPercentage);
+    this.percentage = this.percentageRange(this.percentage);
   }
 
   private percentageRange(percentage: number): number{

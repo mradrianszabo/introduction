@@ -1,0 +1,139 @@
+.container{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  color: white;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.middle{
+  display: flex;
+  flex-flow : row nowrap;
+  justify-content: space-evenly;
+  height: 100%;
+}
+.relatedItems{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color:rgb(21, 30, 45);
+  height: max-content;
+  position: relative;
+}
+
+.relatedItems::before{
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgb(6, 11, 23) url('/assets/images/holeBg.png') center/135px 140px repeat;
+  z-index: -1;
+  border-radius: 10px;
+  left: -15px;
+  top: 14px;
+}
+.selectedItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 15px;
+  background-color: rgb(21, 30, 45);
+  position: relative;
+}
+.selectedItem::before{
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: -15px;
+  left: 15px;
+  background: rgb(6, 11, 23) url('/assets/images/holeBg.png') center/135px 140px repeat;
+  border-radius: 10px;
+  z-index: -1;
+}
+.itemCard{
+  border-radius: 10px;
+  background-color:rgb(18, 26, 40);
+  border: 1px solid rgb(145, 192, 214);
+  box-shadow: 0 0 10px -3px rgb(246, 26, 151);
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+  z-index:1;
+}
+.selectedItemCard{
+  width: 100px;
+  height: 100px;
+  margin: 0;
+}
+
+.itemCard img{
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+}
+.selectedItemProperties{
+  font-family: fantasy;
+  height: 100px;
+  width: 200px;
+  background-color: rgb(18, 26, 40);
+  border-radius: 10px;
+}
+.description{
+  text-align: center;
+  padding: 6px;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+.selectedTitle{
+  align-self: flex-start;
+  font-family: fantasy;
+}
+.textDescription{
+  position: relative;
+  text-align:left;
+  margin-top: 50px;
+  padding: 20px;
+  align-self: flex-end;
+  width: 86%;
+  border-radius: 10px;
+  min-height: 100px;
+  box-shadow: -5px -5px 10px -11px rgb(246, 26, 151);
+  background-color: rgb(21, 30, 45);
+}
+.textDescription::before{
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: -20px;
+  left: -20px;
+  background: rgb(6, 11, 23) url('/assets/images/holeBg.png') center/135px 140px repeat;
+  border-radius: 10px;
+  z-index: -1;
+}
+.textDescription::after{
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px -11px rgb(145, 192, 214);
+  z-index: -1;
+}

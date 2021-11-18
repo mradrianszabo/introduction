@@ -1,0 +1,24 @@
+.container{
+  width: 500px;
+  min-height: 100px;
+  padding: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  position: absolute;
+  z-index: 1000;
+  top: 100px;
+  left: calc(50vw - 250px);
+  color: white;
+  background-color: cyan;
+  border-radius : 10px;
+}
+
+.error{
+  background-color: rgb(255, 0, 98);
+}
+.success{
+  background-color: rgb(0, 128, 90);
+}
+.info{
+  background-color: rgb(0, 89, 255);
+}

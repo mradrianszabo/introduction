@@ -1,0 +1,56 @@
+<!--
+<div class="menu">
+
+
+  <ul *ngIf="menu.isOpen" [@expand] >
+    <li *ngFor="let item of menu.subItems" class="item">
+      <app-menu-item [menuItem]="item" [parentRadius]="30" [index]="0" [depth]="0"></app-menu-item>
+    </li>
+  </ul>
+
+  <div class="cardContainer" *ngIf="!menu.isOpen" [@cardContainer] (@cardContainer.done)="cardAnimationHelper = false">
+    <ng-container *ngFor="let card of sideMenuCards" >
+     <app-side-menu-card [card]="card"></app-side-menu-card>
+    </ng-container>
+  </div>
+  <span class="name" *ngIf="!menu.isOpen">Szabó Adrián</span>
+  <span class="about" *ngIf="!menu.isOpen">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ad reprehenderit tenetur deleniti, sequi nulla inventore praesentium fugit officiis, itaque facilis! Odit, provident nesciunt! Itaque, iusto! Cumque a magnam quo?
+  Incidunt aut laboriosam, impedit blanditiis, neque illo at tempora et culpa iure unde cupiditate, magni maxime quam quisquam facilis cum. Quaerat nulla ab mollitia provident, quod amet temporibus autem totam!</span>
+</div>
+
+<div [ngClass]="menu.isOpen ? 'menuOpened openButton' : 'menuClosed openButton'" (click)="toggleTechMap()">
+
+</div>
+ -->
+<div class="container">
+  <div class="menu">
+    <ul *ngIf="menu.isOpen" [@expand] >
+      <li *ngFor="let item of menu.subItems" class="item">
+        <app-menu-item [menuItem]="item" [parentRadius]="30" [index]="0" [depth]="0"></app-menu-item>
+      </li>
+    </ul>
+  </div>
+
+  <section class="header">
+
+    <div class="cardContainer" *ngIf="!menu.isOpen" [@cardContainer] (@cardContainer.done)="cardAnimationHelper = false">
+      <ng-container *ngFor="let card of sideMenuCards" >
+     <app-side-menu-card [card]="card"></app-side-menu-card>
+    </ng-container>
+  </div>
+  <div class="titleBox" [@fade] *ngIf="!menu.isOpen">
+    <p class="name">Szabó Adrián</p>
+    <p class="title">Front-End Developer</p>
+  </div>
+</section>
+
+  <section class="article">
+
+    <span class="about" *ngIf="!menu.isOpen" [@fade]>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ad reprehenderit tenetur deleniti, sequi nulla inventore praesentium fugit officiis, itaque facilis! Odit, provident nesciunt! Itaque, iusto! Cumque a magnam quo?
+      Incidunt aut laboriosam, impedit blanditiis, neque illo at tempora et culpa iure unde cupiditate, magni maxime quam quisquam facilis cum. Quaerat nulla ab mollitia provident, quod amet temporibus autem totam!</span>
+
+      <div [ngClass]="menu.isOpen ? 'menuOpened openButton' : 'menuClosed openButton'" (click)="toggleTechMap()">
+      </div>
+    </section>
+    </div>
+

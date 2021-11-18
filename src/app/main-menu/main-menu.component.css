@@ -1,0 +1,108 @@
+
+.cardContainer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  position: relative;
+  width: 350px;
+}
+
+.item{
+  position: absolute;
+  list-style-type: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  z-index: -1;
+  transition: 500ms all ease;
+
+}
+.menuOpened{
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgb(170, 244, 255);
+  box-shadow: 0 0 10px -3px rgb(0, 221, 255);
+  background: url('../../assets/images/brainPng.png') center/contain;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 500ms all ease;
+}
+
+
+
+.menuClosed{
+  width: 250px;
+  height: 250px;
+  background: url('../../assets/images/profilePic.jfif') center/cover no-repeat;
+  box-shadow: 0 0 10px 2px #182132 inset;
+  border-radius: 20px 0 20px 0;
+  top: 60%;
+  left: 56%;
+  transform: translate(4%, -45%);
+  transition: 500ms all ease;
+
+}
+
+
+
+.openButton{
+  position: absolute;
+  cursor: pointer;
+}
+
+
+.menu{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+}
+
+
+span, p{
+  color: white;
+}
+.name{
+  font-family: fantasy;
+  font-size: 2em;
+  width: max-content;
+}
+.titleBox{
+  margin-right: 17px;
+}
+.title{
+  color: #1b6687;
+}
+.about{
+  width: 300px;
+  display: inline-block;
+}
+
+.container{
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+
+}
+.header{
+  padding: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+.article{
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+

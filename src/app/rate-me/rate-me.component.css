@@ -1,0 +1,124 @@
+.container{
+  color: white;
+  position: relative;
+  height: 100%;
+}
+
+form{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.identity{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.identity input[type="text"]{
+  border-radius: 10px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  background-color: #121a28;
+  color: white;
+}
+
+
+.checkboxContainer{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.checkboxLabel{
+  padding-left: 35px;
+}
+.identity input[type="checkbox"]{
+  width: 30px;
+  height: 30px;
+  position:absolute;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+.checkMark{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border-radius: 10px;
+  background-color: rgb(110, 202, 255);
+  box-shadow: 0 0 8px 0px rgb(110, 202, 255);
+}
+.checkboxBorder{
+  position: absolute;
+  z-index: -1;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  background: #121a28;
+}
+.identity input[type="checkbox"]:checked ~ .checkMark{
+}
+
+.ratings{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  height: 60px;
+}
+.comment{
+  display: flex;
+  flex-flow: column nowrap;
+  height: 120px;
+  justify-content: space-between;
+}
+.comment textarea{
+  background: #121a28;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  color: white;
+}
+.buttons{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+button:nth-child(1){
+  background: url('/assets/images/cancel02.png')  30%/contain no-repeat;
+}
+button:nth-child(2){
+  background: url('/assets/images/accept01.png') 50% 50%/contain no-repeat;
+}
+button{
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-family: fantasy;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+}
+
+.ratings label{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 290px;
+}
+.ratings label span{
+  width: 100px;
+}
+input[type="number"]{
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+
