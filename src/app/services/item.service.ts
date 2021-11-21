@@ -74,7 +74,7 @@ export class ItemService {
     let radius = this.randomizer(( itemSize + parentRadius)*(modifier/2), (itemSize + parentRadius))* modifier;
     let posX = (radius * Math.cos(ANGLEINRADIANT * start) + parentRadius) -itemSize/2;
     let posY = (radius * Math.sin(ANGLEINRADIANT * start) + parentRadius) -itemSize/2;
-    let svgLine = this.drawSvgLine( itemSize, posX, posY, parentRadius, radius);
+    let svgLine = this.drawSvgLine( itemSize, posX, posY, parentRadius);
 
     return {itemPos: {'top' : posY+'px', 'left' : posX+'px'}, lineSvg : svgLine};
   }
@@ -91,7 +91,7 @@ export class ItemService {
   private styleItem(position, size, background){
     return {'top' : position.top, 'left' : position.left, 'width' : size+'px', 'height' : size+'px', 'background-image' : `url('${background}')`}
   }
-  public drawSvgLine(size, x, y, parentRadius, lineLength){
+  public drawSvgLine(size, x, y, parentRadius){
     let proba1 = `M ${parentRadius},${parentRadius} L ${x+size/2}, ${y+size/2}`;
     return proba1;
   }

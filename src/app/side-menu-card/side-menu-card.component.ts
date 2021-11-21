@@ -22,7 +22,6 @@ export class SideMenuCardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log(typeof this.card.action)
     this.cardAnimationHelper = true;
     setTimeout(()=>this.cardAnimationHelper = false, 500)
   }

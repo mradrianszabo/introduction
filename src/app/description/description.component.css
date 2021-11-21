@@ -23,7 +23,7 @@
   align-items: center;
   padding: 10px;
   border-radius: 10px;
-  background-color:rgb(21, 30, 45);
+  background-color: rgba(246, 26, 151, 0.25);
   height: max-content;
   position: relative;
 }
@@ -49,22 +49,10 @@
   background-color: rgb(21, 30, 45);
   position: relative;
 }
-.selectedItem::before{
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  top: -15px;
-  left: 15px;
-  background: rgb(6, 11, 23) url('/assets/images/holeBg.png') center/135px 140px repeat;
-  border-radius: 10px;
-  z-index: -1;
-}
 .itemCard{
   border-radius: 10px;
   background-color:rgb(18, 26, 40);
-  border: 1px solid rgb(145, 192, 214);
-  box-shadow: 0 0 10px -3px rgb(246, 26, 151);
+  box-shadow:  none;
   height: 50px;
   width: 50px;
   display: flex;
@@ -77,6 +65,8 @@
   width: 100px;
   height: 100px;
   margin: 0;
+  background-color: rgb(110, 202, 255);
+  box-shadow: 0 0 8px 0px rgb(110, 202, 255);
 }
 
 .itemCard img{
@@ -84,18 +74,21 @@
   height: 60%;
   border-radius: 50%;
 }
+
 .selectedItemProperties{
   font-family: fantasy;
   height: 100px;
   width: 200px;
-  background-color: rgb(18, 26, 40);
   border-radius: 10px;
+  position: relative;
+  z-index: 1;
 }
 .description{
   text-align: center;
   padding: 6px;
   display: flex;
   flex-flow: column nowrap;
+  justify-content: space-between;
   width: 100%;
 }
 .selectedTitle{
@@ -105,35 +98,38 @@
 .textDescription{
   position: relative;
   text-align:left;
-  margin-top: 50px;
   padding: 20px;
   align-self: flex-end;
   width: 86%;
   border-radius: 10px;
-  min-height: 100px;
-  box-shadow: -5px -5px 10px -11px rgb(246, 26, 151);
+  height: 200px;
   background-color: rgb(21, 30, 45);
 }
-.textDescription::before{
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  top: -20px;
-  left: -20px;
-  background: rgb(6, 11, 23) url('/assets/images/holeBg.png') center/135px 140px repeat;
-  border-radius: 10px;
-  z-index: -1;
+
+.level{
+  width: 60px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-.textDescription::after{
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: transparent;
+.level span:nth-child(1){
+  margin-left: 23px;
+  margin-right: 3px;
+}
+
+.buttonBack{
+  align-self: center;
   border-radius: 10px;
-  box-shadow: 5px 5px 10px -11px rgb(145, 192, 214);
-  z-index: -1;
+  color: white;
+  font-family: fantasy;
+  padding: 10px;
+  border: 1px solid white;
+  box-shadow: none;
+  transition: 500ms all ease;
+  background-color: rgba(246, 26, 151, 0.2);
+}
+.buttonBack:hover{
+  background-color: rgb(246, 26, 151);
+  box-shadow: 0 0 8px 0px rgb(246, 26, 151);
 }

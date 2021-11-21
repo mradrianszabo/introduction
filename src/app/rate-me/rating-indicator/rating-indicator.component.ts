@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { GENERAL_ANIMATION } from 'src/app/animations/general-animation';
 import { RATING_ANIMATION } from 'src/app/animations/rating-animation';
 import { RatingService } from 'src/app/services/rating.service';
@@ -12,11 +12,12 @@ import { RatingService } from 'src/app/services/rating.service';
 
   ]
 })
-export class RatingIndicatorComponent implements OnInit {
+export class RatingIndicatorComponent implements OnInit, OnChanges {
 
   public rating : boolean[];
   @Input() public name : string ="";
   @Input() public points : number = 0;
+  @Input() public length : number = 10;
 
   constructor(private rateMeService : RatingService) {
 
@@ -25,21 +26,27 @@ export class RatingIndicatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.createRating();
+
+
+  }
+  ngOnChanges(): void{
+    if(length !== 10){
+      this.createRating();
+    }
+  }
+
+  private createRating(){
+    this.rating = new Array<boolean>(this.length);
+    for(let i = 0; i< this.rating.length; i++){
+      this.rating[i]= false;
+    }
     if(this.points){
       this.injectRating()
     }
   }
 
-  private createRating(){
-    this.rating = new Array<boolean>(10);
-    for(let i = 0; i< this.rating.length; i++){
-      this.rating[i]= false;
-    }
-  }
-
   private setRating(indexOfSelected){
     this.rating = this.rating.map((elem, index)=> index <= indexOfSelected ? true : false)
-
   }
 
   public sendRating(indexOfSelected){

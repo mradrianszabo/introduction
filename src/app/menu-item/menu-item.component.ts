@@ -33,9 +33,12 @@ export class MenuItemComponent implements OnInit, OnDestroy {
       this.itemMap = this.itemService.getMapToItems(this.menuItem.subItems, this.parentRadius, this.index, this.depth);
 
     }
+
   }
+
   ngOnDestroy(): void {
     this.menuService.closeAll();
+
   }
 
   public getRadius(item: MenuItem) : number{

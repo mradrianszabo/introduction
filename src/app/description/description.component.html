@@ -1,7 +1,7 @@
 
 <div class="container">
 
-    <div class="relatedItems">
+    <div class="relatedItems" *ngIf="!!techFamily.length">
       <div class="itemCard" *ngFor="let item of techFamily; let i = index" (click)="clickCard(item, i)"   [@moveyeah]="{value : item.isSelected, params : {verticalModifier : verticalPositionModifier}}">
         <img [attr.src]="item.imageUrl" alt="">
       </div>
@@ -15,14 +15,18 @@
         <p class="selectedTitle">{{selected.name}}</p>
 
         <div class="selectedItemProperties">
-          {{selected.itemLevel}}level {{selected.percentage}}%
+          <div class="level">
+            <span>Level: </span>
+            <app-rating-indicator [length]="3" [points]="selected.itemLevel"></app-rating-indicator>
+          </div>
+          <app-percentage-indicator [percentage]="selected.percentage"></app-percentage-indicator>
         </div>
       </div>
       <div class="textDescription" [@fade]>
         {{selected.description}}
       </div>
+      <button [routerLink]="'/techMap'" class="buttonBack">Vissza</button>
     </div>
-
   </div>
 
 

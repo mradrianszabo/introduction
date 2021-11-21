@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { RatingIndicatorComponent } from './rate-me/rating-indicator/rating-indicator.component';
 import { NotificationComponent } from './notification/notification.component';
 import { RatingListComponent } from './rating-list/rating-list.component';
+import { PercentageIndicatorComponent } from './percentage-indicator/percentage-indicator.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RatingListComponent } from './rating-list/rating-list.component';
     RateMeComponent,
     RatingIndicatorComponent,
     NotificationComponent,
-    RatingListComponent
+    RatingListComponent,
+    PercentageIndicatorComponent
   ],
   imports: [
     BrowserModule,

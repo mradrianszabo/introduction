@@ -3,7 +3,7 @@ import { animate, animateChild, query, stagger, style, transition, trigger, grou
 export const ROUTER_ANIMATION = {
   fromTechMap:
   trigger('routerAnimations', [
-    transition('techMap => *',[
+    transition('techMap => selectedTech',[
 
       query(':leave',[
         style({
@@ -37,6 +37,23 @@ export const ROUTER_ANIMATION = {
           ])
         ]),
       ]),
+    ]),
+
+    transition('techMap => rateMe', [
+      query(':leave', [
+        style({opacity : 1, position: 'absolute'})
+      ]),
+      query(':enter', [
+        style({opacity: 0, position: 'absolute'})
+      ]),
+      sequence([
+        query(':leave',[
+          animate('500ms ease', style({opacity: 0}))
+        ]),
+        query(':enter', [
+          animate('500ms ease', style({opacity: 1}))
+        ])
+      ])
     ]),
 
     transition('selectedTech => techMap',[

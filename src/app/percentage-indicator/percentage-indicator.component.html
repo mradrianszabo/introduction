@@ -1,0 +1,7 @@
+<div class="container">
+  <span>Process: </span>
+  <div class="indicator">
+    <div class="load" [ngStyle]="{'width' : percentage +'px'}"  [@percentageChange]="{value : percentage, params : {percentage : percentage}}"></div>
+  </div>
+  <span>{{percentage}}%</span>
+</div>

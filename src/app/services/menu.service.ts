@@ -167,12 +167,17 @@ public getItem(selected, parent = this.mainMenu){
   }
 }
 public closeAll(item : MenuItem = this.mainMenu){
-  item.isInspected = item.isSelected = false;
-  if(item.subItems.length){
-    for(let subitem of item.subItems){
-      this.closeAll(subitem);
+  if(item.isInspected || item.isSelected){
+
+    item.isInspected = item.isSelected = false;
+
+    if(item.subItems.length){
+      for(let subitem of item.subItems){
+        if(subitem.isInspected || subitem.isSelected)
+        this.closeAll(subitem);
+      }
     }
-  }
+  }else{return}
 }
 
 public emitMenuStatus(status : boolean){

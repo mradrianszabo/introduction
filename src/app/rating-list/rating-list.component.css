@@ -12,7 +12,7 @@
   border-radius: 20px;
   background-color: #182132;
   margin-top: 50px;
-  height: 80vh;
+  max-height: 80vh;
   overflow: auto;
 }
 .indicator{

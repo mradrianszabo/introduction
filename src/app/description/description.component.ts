@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DESCRIPTION_ANIMATION } from '../animations/description-animation';
 import { GENERAL_ANIMATION } from '../animations/general-animation';
 import { MenuItem } from '../menu-item/menuItem';
 import { MenuService } from '../services/menu.service';
@@ -12,9 +13,10 @@ import { MenuService } from '../services/menu.service';
     GENERAL_ANIMATION.moveyeah,
     GENERAL_ANIMATION.hellyeah,
     GENERAL_ANIMATION.fade,
+    DESCRIPTION_ANIMATION.percentageChange,
   ]
 })
-export class DescriptionComponent implements OnInit{
+export class DescriptionComponent implements OnInit, OnDestroy{
   public techFamily : MenuItem[];
   public selected : MenuItem;
   public kaki: boolean = false;
@@ -33,6 +35,9 @@ export class DescriptionComponent implements OnInit{
     this.techFamily = [];
     this.setTechFamily(this.selected);
 
+  }
+  ngOnDestroy(): void{
+    this.menuService.closeAll(this.selected);
   }
 
 
