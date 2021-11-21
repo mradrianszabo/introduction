@@ -10,7 +10,7 @@
 .menu{
 width: 650px;
 height: 400px;
-border-radius: 20px;
+border-radius: 10px;
 backdrop-filter: blur(0);
 transition: 500ms all ease;
 background-color: rgb(24, 33, 50);
@@ -29,7 +29,7 @@ background-color: rgb(24, 33, 50);
 .header{
   color: white;
   position: relative;
-  font-family:fantasy;
+  font-family:Impact, Charcoal, sans-serif;
   width: 100vw;
   text-align: center;
 }
@@ -54,7 +54,7 @@ background-color: rgb(24, 33, 50);
   background: radial-gradient(farthest-side at 50% 100%, rgb(2, 55, 79) 60%,rgb(1, 9, 26) 120%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: rgb(5, 11, 23);
   z-index: -1;
   width: max-content;

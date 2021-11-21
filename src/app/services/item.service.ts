@@ -13,7 +13,6 @@ export interface ItemAddition{
   isInspected: boolean
 }
 
-const MAINRADIUS = 40;
 const ANGLEINRADIANT = Math.PI * 1/180;
 const ITEMD = 10;
 
@@ -56,12 +55,8 @@ export class ItemService {
         max = (sizeOfItems[index+1] + sizeOfItems[index]) * modifier
       }
 
-/*       modifier = 1/(parentIndex+1)
-      min = (sizeOfItems[index+1] + sizeOfItems[index])/1.4;
-      max = (sizeOfItems[index+1] + sizeOfItems[index]) * modifier */
 
       let random = this.randomizer(min, max);
-      //start= start + random > item.category + 120 ? (item.category + 120)-itemSize/4 : start + random;
       start+= random;
     }
     return itemMap;
@@ -97,5 +92,3 @@ export class ItemService {
   }
 
 }
-
-//let proba1 = `M ${parentRadius},${parentRadius} A 5 2 20 0 1 ${x+size/2}, ${y+size/2} Z`;

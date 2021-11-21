@@ -16,7 +16,7 @@ body{
   background-color: transparent;
 }
 ::-webkit-scrollbar-thumb{
-  border-radius: 5px;
+  border-radius: 10px;
   background-color:rgb(246, 26, 151);
 }
 ::-webkit-scrollbar-track-piece{

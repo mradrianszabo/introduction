@@ -76,7 +76,7 @@
 }
 
 .selectedItemProperties{
-  font-family: fantasy;
+  font-family: Impact, Charcoal, sans-serif;
   height: 100px;
   width: 200px;
   border-radius: 10px;
@@ -93,7 +93,7 @@
 }
 .selectedTitle{
   align-self: flex-start;
-  font-family: fantasy;
+  font-family: Impact, Charcoal, sans-serif;
 }
 .textDescription{
   position: relative;
@@ -104,6 +104,7 @@
   border-radius: 10px;
   height: 200px;
   background-color: rgb(21, 30, 45);
+  overflow: auto;
 }
 
 .level{
@@ -122,7 +123,7 @@
   align-self: center;
   border-radius: 10px;
   color: white;
-  font-family: fantasy;
+  font-family: Impact, Charcoal, sans-serif;
   padding: 10px;
   border: 1px solid white;
   box-shadow: none;

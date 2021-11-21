@@ -39,22 +39,30 @@
         <div class="indicator">
           <span>Összahtás:</span>
           <app-rating-indicator [points]="rating.overall"></app-rating-indicator>
-          10/{{rating.overall}}
+          <span class="ratingPoint">
+            10/{{rating.overall}}
+          </span>
         </div>
         <div class="indicator">
           <span>Kezelhetőség:</span>
           <app-rating-indicator [points]="rating.usability"></app-rating-indicator>
-          10/{{rating.usability}}
+          <span class="ratingPoint">
+            10/{{rating.usability}}
+          </span>
         </div>
         <div class="indicator">
           <span>Design:</span>
           <app-rating-indicator  [points]="rating.design"></app-rating-indicator>
-          10/{{rating.design}}
+          <span class="ratingPoint">
+            10/{{rating.design}}
+          </span>
         </div>
         <div class="indicator" *ngIf="rating.code">
           <span>Kód:</span>
           <app-rating-indicator [points]="rating.code"></app-rating-indicator>
-          10/{{rating.code}}
+          <span class="ratingPoint">
+            10/{{rating.code}}
+          </span>
         </div>
       </div>
     </div>

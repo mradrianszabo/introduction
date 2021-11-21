@@ -19,7 +19,6 @@ import { MenuService } from '../services/menu.service';
 export class DescriptionComponent implements OnInit, OnDestroy{
   public techFamily : MenuItem[];
   public selected : MenuItem;
-  public kaki: boolean = false;
   public verticalPositionModifier : number = 0;
 
   constructor(private routes : ActivatedRoute, private menuService : MenuService) {
@@ -41,7 +40,7 @@ export class DescriptionComponent implements OnInit, OnDestroy{
   }
 
 
-  setTechFamily(selected){
+  setTechFamily(selected: MenuItem): void{
     for(let elem of selected.subItems){
       this.techFamily.push(elem)
       if(elem.subItems.length){
@@ -50,7 +49,7 @@ export class DescriptionComponent implements OnInit, OnDestroy{
     }
   }
 
-  clickCard(item, index){
+  clickCard(item: MenuItem, index: number): void{
     this.verticalPositionModifier = index * 60;
     item.isSelected = true;
     this.selected.isSelected = false;
