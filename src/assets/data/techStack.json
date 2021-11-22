@@ -1,0 +1,152 @@
+{
+  "name" : "main",
+  "description" : "none",
+  "percentage" : 0,
+  "itemLevel" : 1,
+  "category" : "tech",
+  "imageUrl" : null,
+  "isOpen" : false,
+  "isInspected" : false,
+  "isSelected" : false,
+  "subItems" : [
+    {
+      "name" : "tech",
+      "description" : "none",
+      "percentage" : 0,
+      "itemLevel" : 1,
+      "category" : "tech",
+      "imageUrl" : null,
+      "isOpen" : true,
+      "isInspected" : false,
+      "isSelected" : false,
+      "subItems" : [
+        {
+          "name" : "other",
+          "description" : "none",
+          "percentage" : 100,
+          "itemLevel" : 1,
+          "category" : "tech",
+          "imageUrl" : null,
+          "isOpen" : true,
+          "isInspected" : false,
+          "isSelected" : false,
+          "subItems" : [
+            {
+              "name" : "Git",
+              "description" : "none",
+              "percentage" : 70,
+              "itemLevel" : 1,
+              "category" : "tech",
+              "imageUrl" : null,
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+
+              ]
+            },
+            {
+              "name" : "Paradigms",
+              "description" : "none",
+              "percentage" : 10,
+              "itemLevel" : 2,
+              "category" : "tech",
+              "imageUrl" : null,
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+
+              ]
+            },
+            {
+              "name" : "Data Structures & Algorithms",
+              "description" : "none",
+              "percentage" : 50,
+              "itemLevel" : 2,
+              "category" : "tech",
+              "imageUrl" : null,
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "Css",
+          "description" : "none",
+          "percentage" : 30,
+          "itemLevel" : 2,
+          "category" : "tech",
+          "imageUrl" : null,
+          "isOpen" : true,
+          "isInspected" : false,
+          "isSelected" : false,
+          "subItems" : [
+
+          ]
+        },
+        {
+          "name" : "Html",
+          "description" : "none",
+          "percentage" : 100,
+          "itemLevel" : 1,
+          "category" : "tech",
+          "imageUrl" : null,
+          "isOpen" : true,
+          "isInspected" : false,
+          "isSelected" : false,
+          "subItems" : [
+
+          ]
+        },
+        {
+          "name" : "Javascript",
+          "description" : "none",
+          "percentage" : 50,
+          "itemLevel" : 2,
+          "category" : "tech",
+          "imageUrl" : null,
+          "isOpen" : true,
+          "isInspected" : false,
+          "isSelected" : false,
+          "subItems" : [
+
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "personal",
+      "description" : "none",
+      "percentage" : 0,
+      "itemLevel" : 1,
+      "category" : "tech",
+      "imageUrl" : null,
+      "isOpen" : true,
+      "isInspected" : false,
+      "isSelected" : false,
+      "subItems" : [
+
+      ]
+    },
+    {
+      "name" : "future",
+      "description" : "none",
+      "percentage" : 0,
+      "itemLevel" : 1,
+      "category" : "tech",
+      "imageUrl" : null,
+      "isOpen" : true,
+      "isInspected" : false,
+      "isSelected" : false,
+      "subItems" : [
+
+      ]
+    }
+  ]
+}
+
