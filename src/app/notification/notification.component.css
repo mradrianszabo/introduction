@@ -8,7 +8,7 @@
   z-index: 1000;
   top: 100px;
   left: calc(50vw - 250px);
-  color: white;
+
   background-color: cyan;
   border-radius : 10px;
 }

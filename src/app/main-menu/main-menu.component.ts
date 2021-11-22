@@ -23,13 +23,9 @@ import { SideMenuCard } from '../side-menu-card/side-menu-card';
 export class MainMenuComponent implements OnInit {
 
   public menu : MenuItem
-  public itemMap :  Map<MenuItem, ItemStyleInterface>;
-  public menuItems : Map<MenuItem, any> = new Map();
   public sideMenuCards : SideMenuCard[] = [];
-  public cardAnimationHelper : boolean = true;
 
-  constructor(private menuService : MenuService, private itemService : ItemService, private cardService : CardService) {
-
+  constructor(private menuService : MenuService, private cardService : CardService) {
     this.menu = this.menuService.getMenu();
    }
 
@@ -42,7 +38,7 @@ export class MainMenuComponent implements OnInit {
     this.menuService.emitMenuStatus(this.menu.isOpen);
   }
 
-  public setSideBarCards(){
+  private setSideBarCards(){
     this.sideMenuCards = this.cardService.getCards();
   }
 }

@@ -1,29 +1,14 @@
 <div class="background">
-  <div class="header">
-    <span class="title2">Portfolio</span>
-    <div class="title">FRONT-END</div>
-  </div>
+  <app-header></app-header>
 
   <div class="container">
     <div [ngClass]="{'menu' : true, 'menuExpanded' : this.menuStatus}" [@routerAnimations]="prepareRoute(outlet)" [@expand]="menuStatus" >
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
-<!--
-    <div class="ratings" *ngIf="!menuStatus" [@fade]></div> -->
     <app-rating-list></app-rating-list>
-
-
   </div>
 
-  <div class="footer" >Copyright</div>
+  <app-footer></app-footer>
 </div>
 
 <app-notification></app-notification>
-<!--
-
-assets/images/PersonIcon2.svg
-
-  rgb(131, 38, 58)
-
-  rgb(246, 26, 151) --jinx pink
- -->

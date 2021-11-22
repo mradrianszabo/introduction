@@ -4,7 +4,7 @@
   background-color: rgba(0, 0, 0, 0.0);
   background: #050b17 url('/assets/images/holeBg.png') center/cover;
   border-radius: 10px;
-  color: white;
+
   cursor: pointer;
 }
 .card::before{

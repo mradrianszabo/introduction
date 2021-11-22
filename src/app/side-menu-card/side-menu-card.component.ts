@@ -18,7 +18,7 @@ export class SideMenuCardComponent implements OnInit, OnDestroy {
   public animationStatus : boolean = false;
   public cardAnimationHelper: boolean;
 
-  constructor(private menuService : MenuService) {
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -26,18 +26,6 @@ export class SideMenuCardComponent implements OnInit, OnDestroy {
     setTimeout(()=>this.cardAnimationHelper = false, 500)
   }
   ngOnDestroy(): void{
-    console.log('destroyhelper: ', this.cardAnimationHelper)
-  }
-
-  resetAnimation(){
-    this.animationStatus = false;
-  }
-  public swichHelper(){
-    this.cardAnimationHelper = false;
-  }
-
-  callAction(){
-    this.card.action()
   }
 
 }

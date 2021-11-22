@@ -16,6 +16,8 @@ import { RatingIndicatorComponent } from './rate-me/rating-indicator/rating-indi
 import { NotificationComponent } from './notification/notification.component';
 import { RatingListComponent } from './rating-list/rating-list.component';
 import { PercentageIndicatorComponent } from './percentage-indicator/percentage-indicator.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { PercentageIndicatorComponent } from './percentage-indicator/percentage-
     RatingIndicatorComponent,
     NotificationComponent,
     RatingListComponent,
-    PercentageIndicatorComponent
+    PercentageIndicatorComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

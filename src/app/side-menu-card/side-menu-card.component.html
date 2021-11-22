@@ -1,7 +1,4 @@
-
-
-
-<div class="card" [ngClass]="{'card' : true, 'cardHelper' : cardAnimationHelper }" (mouseenter)="animationStatus = true" (click)="callAction()">
+<div class="card" [ngClass]="{'card' : true, 'cardHelper' : cardAnimationHelper }" (mouseenter)="animationStatus = true" (click)="card.action()">
   <div class="cardInner">
     <span class="svg">
       <ng-container *ngIf="card.svgString === 'skillMap';then skillMap else aboutMe">
@@ -16,22 +13,6 @@
 </div>
 
 
-
-<!--
-
-<div class="card" (mouseover)="triggerAnimation()">
-  <div class="cardInner">
-    <span class="svg" #svgString [innerHTML]="card.svgString | sanitize" [@hoverCard]="animationStatus">
-
-    </span>
-    <span class="title">
-      {{card.title}}
-    </span>
-  </div>
-</div>
-left: translate(-28px, 40px) rotate(-34deg)
-right: translate(-17px, 7px) rotate(-6deg)
- -->
 
 
 

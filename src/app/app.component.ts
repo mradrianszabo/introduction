@@ -19,24 +19,17 @@ export class AppComponent implements OnInit{
 
   title = 'introduction';
   public menuStatus: boolean = false;
-  public isSaturationHigh: boolean;
 
   prepareRoute(outlet: RouterOutlet){
     return outlet?.activatedRouteData?.['animation'];
   }
 
-  constructor(private menuService : MenuService, private router: Router){
+  constructor(private menuService : MenuService){
 
   }
   ngOnInit(){
-    //setInterval(()=>console.log(this.menuStatus), 1000)
     this.menuService.menuStatus.subscribe(param=>this.menuStatus = param);
   }
 
-  setCssClasses(){
-    let saturation = !this.menuStatus ? true : this.isSaturationHigh ? true : false;
-
-    return {'menu' : true, 'menuExpanded' : this.menuStatus, 'highSaturation' : saturation }
-  }
 
 }
