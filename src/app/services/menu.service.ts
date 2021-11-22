@@ -13,11 +13,11 @@ export class MenuService {
 
 
   constructor(private http : HttpClient) {
-    this.getMenu2()
+    this.getMenu()
    }
 
 
-   public getMenu2(){
+   public getMenu(){
     return this.http.get('/assets/data/techStack.json')
     .pipe(
       map(data=>{

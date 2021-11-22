@@ -26,7 +26,7 @@ export class MainMenuComponent implements OnInit {
   public sideMenuCards : SideMenuCard[] = [];
 
   constructor(private menuService : MenuService, private cardService : CardService) {
-    this.menuService.getMenu2().subscribe(data=>this.menu = data)
+    this.menuService.getMenu().subscribe(data=>this.menu = data)
    }
 
   ngOnInit(): void {
