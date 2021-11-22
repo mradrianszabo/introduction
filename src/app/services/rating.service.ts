@@ -33,7 +33,7 @@ export class RatingService {
   }
 
   postRating(rating : Rating){
-    this.http.post<Rating>(this.url.getListUrl(), rating, {observe : 'response'}).subscribe(response=>this.responseData.next(response));
+    return this.http.post<Rating>(this.url.getListUrl(), rating, {observe : 'response'});
 
   }
 

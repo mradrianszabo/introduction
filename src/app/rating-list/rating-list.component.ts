@@ -20,7 +20,6 @@ export class RatingListComponent implements OnInit {
   constructor(private ratingService : RatingService) { }
 
   ngOnInit(): void {
-    //this.ratingService.getRatings().subscribe(data=>this.ratings = data)
     this.getRatings();
     this.ratingService.refreshRatings.subscribe(data=>{
       if(this.refreshSwitch !== data){
