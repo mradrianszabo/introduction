@@ -3,7 +3,7 @@
   "description" : "none",
   "percentage" : 0,
   "itemLevel" : 1,
-  "category" : "tech",
+  "category" : 90,
   "imageUrl" : null,
   "isOpen" : false,
   "isInspected" : false,
@@ -14,7 +14,7 @@
       "description" : "none",
       "percentage" : 0,
       "itemLevel" : 1,
-      "category" : "tech",
+      "category" : 90,
       "imageUrl" : null,
       "isOpen" : true,
       "isInspected" : false,
@@ -25,7 +25,7 @@
           "description" : "none",
           "percentage" : 100,
           "itemLevel" : 1,
-          "category" : "tech",
+          "category" : 90,
           "imageUrl" : null,
           "isOpen" : true,
           "isInspected" : false,
@@ -36,7 +36,7 @@
               "description" : "none",
               "percentage" : 70,
               "itemLevel" : 1,
-              "category" : "tech",
+              "category" : 90,
               "imageUrl" : null,
               "isOpen" : true,
               "isInspected" : false,
@@ -50,7 +50,7 @@
               "description" : "none",
               "percentage" : 10,
               "itemLevel" : 2,
-              "category" : "tech",
+              "category" : 90,
               "imageUrl" : null,
               "isOpen" : true,
               "isInspected" : false,
@@ -64,7 +64,7 @@
               "description" : "none",
               "percentage" : 50,
               "itemLevel" : 2,
-              "category" : "tech",
+              "category" : 90,
               "imageUrl" : null,
               "isOpen" : true,
               "isInspected" : false,
@@ -80,13 +80,26 @@
           "description" : "none",
           "percentage" : 30,
           "itemLevel" : 2,
-          "category" : "tech",
-          "imageUrl" : null,
+          "category" : 90,
+          "imageUrl" : "/assets/images/cssLogo.png",
           "isOpen" : true,
           "isInspected" : false,
           "isSelected" : false,
           "subItems" : [
+            {
+              "name" : "Sass",
+              "description" : "none",
+              "percentage" : 30,
+              "itemLevel" : 1,
+              "category" : 90,
+              "imageUrl" : "/assets/images/sassLogo.png",
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
 
+              ]
+            }
           ]
         },
         {
@@ -94,13 +107,26 @@
           "description" : "none",
           "percentage" : 100,
           "itemLevel" : 1,
-          "category" : "tech",
-          "imageUrl" : null,
+          "category" : 90,
+          "imageUrl" : "/assets/images/htmlLogo.png",
           "isOpen" : true,
           "isInspected" : false,
           "isSelected" : false,
           "subItems" : [
+            {
+              "name" : "Hugo",
+              "description" : "none",
+              "percentage" : 30,
+              "itemLevel" : 1,
+              "category" : 90,
+              "imageUrl" : "/assets/images/cssLogo.png",
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
 
+              ]
+            }
           ]
         },
         {
@@ -108,13 +134,81 @@
           "description" : "none",
           "percentage" : 50,
           "itemLevel" : 2,
-          "category" : "tech",
-          "imageUrl" : null,
+          "category" : 90,
+          "imageUrl" : "/assets/images/jsLogo.png",
           "isOpen" : true,
           "isInspected" : false,
           "isSelected" : false,
           "subItems" : [
+            {
+              "name" : "Angular",
+              "description" : "none",
+              "percentage" : 15,
+              "itemLevel" : 2,
+              "category" : 90,
+              "imageUrl" : "/assets/images/angularLogo.png",
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+                {
+                  "name" : "Angular Material",
+                  "description" : "none",
+                  "percentage" : 100,
+                  "itemLevel" : 1,
+                  "category" : 90,
+                  "imageUrl" : "/assets/images/materialLogo.png",
+                  "isOpen" : true,
+                  "isInspected" : false,
+                  "isSelected" : false,
+                  "subItems" : [
 
+                  ]
+                },
+                {
+                  "name" : "Ngrx",
+                  "description" : "none",
+                  "percentage" : 70,
+                  "itemLevel" : 1,
+                  "category" : 90,
+                  "imageUrl" : "/assets/images/ngrxLogo.png",
+                  "isOpen" : true,
+                  "isInspected" : false,
+                  "isSelected" : false,
+                  "subItems" : [
+
+                  ]
+                }
+              ]
+            },
+            {
+              "name" : "Typescript",
+              "description" : "none",
+              "percentage" : 100,
+              "itemLevel" : 1,
+              "category" : 90,
+              "imageUrl" : "/assets/images/tsLogo.png",
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+
+              ]
+            },
+            {
+              "name" : "Rxjs",
+              "description" : "none",
+              "percentage" : 70,
+              "itemLevel" : 1,
+              "category" : 90,
+              "imageUrl" : "/assets/images/rxjsLogo.png",
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+
+              ]
+            }
           ]
         }
       ]
@@ -124,13 +218,108 @@
       "description" : "none",
       "percentage" : 0,
       "itemLevel" : 1,
-      "category" : "tech",
+      "category" : -70,
       "imageUrl" : null,
       "isOpen" : true,
       "isInspected" : false,
       "isSelected" : false,
       "subItems" : [
+        {
+          "name" : "Hobbies",
+          "description" : "none",
+          "percentage" : 100,
+          "itemLevel" : 1,
+          "category" : -70,
+          "imageUrl" : "/assets/images/cssLogo.png",
+          "isOpen" : true,
+          "isInspected" : false,
+          "isSelected" : false,
+          "subItems" : [
+            {
+              "name" : "Crypto",
+              "description" : "none",
+              "percentage" : 50,
+              "itemLevel" : 1,
+              "category" : -70,
+              "imageUrl" : "/assets/images/cssLogo.png",
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
 
+              ]
+            },
+            {
+              "name" : "Plants",
+              "description" : "none",
+              "percentage" : 100,
+              "itemLevel" : 1,
+              "category" : -70,
+              "imageUrl" : "/assets/images/cssLogo.png",
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+
+              ]
+            },
+            {
+              "name" : "Cooking",
+              "description" : "none",
+              "percentage" : 50,
+              "itemLevel" : 2,
+              "category" : -70,
+              "imageUrl" : "/assets/images/cssLogo.png",
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+
+              ]
+            }
+          ]
+        },
+        {
+          "name" : "Technical",
+          "description" : "none",
+          "percentage" : 100,
+          "itemLevel" : 1,
+          "category" : -70,
+          "imageUrl" : "/assets/images/cssLogo.png",
+          "isOpen" : true,
+          "isInspected" : false,
+          "isSelected" : false,
+          "subItems" : [
+            {
+              "name" : "CV",
+              "description" : "none",
+              "percentage" : 100,
+              "itemLevel" : 1,
+              "category" : -70,
+              "imageUrl" : "/assets/images/cssLogo.png",
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+
+              ]
+            },
+            {
+              "name" : "Motivation",
+              "description" : "none",
+              "percentage" : 100,
+              "itemLevel" : 1,
+              "category" : -70,
+              "imageUrl" : "/assets/images/cssLogo.png",
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -138,13 +327,67 @@
       "description" : "none",
       "percentage" : 0,
       "itemLevel" : 1,
-      "category" : "tech",
+      "category" : 0,
       "imageUrl" : null,
       "isOpen" : true,
       "isInspected" : false,
       "isSelected" : false,
       "subItems" : [
+        {
+          "name" : "Golang",
+          "description" : "none",
+          "percentage" : 0,
+          "itemLevel" : 1,
+          "category" : 0,
+          "imageUrl" : null,
+          "isOpen" : true,
+          "isInspected" : false,
+          "isSelected" : false,
+          "subItems" : [
 
+          ]
+        },
+        {
+          "name" : "Javascript Related",
+          "description" : "none",
+          "percentage" : 50,
+          "itemLevel" : 2,
+          "category" : 0,
+          "imageUrl" : null,
+          "isOpen" : true,
+          "isInspected" : false,
+          "isSelected" : false,
+          "subItems" : [
+            {
+              "name" : "Nodejs",
+              "description" : "none",
+              "percentage" : 0,
+              "itemLevel" : 1,
+              "category" : 0,
+              "imageUrl" : null,
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+
+              ]
+            },
+            {
+              "name" : "React",
+              "description" : "none",
+              "percentage" : 0,
+              "itemLevel" : 1,
+              "category" : 0,
+              "imageUrl" : null,
+              "isOpen" : true,
+              "isInspected" : false,
+              "isSelected" : false,
+              "subItems" : [
+
+              ]
+            }
+          ]
+        }
       ]
     }
   ]

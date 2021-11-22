@@ -26,7 +26,7 @@ export class MainMenuComponent implements OnInit {
   public sideMenuCards : SideMenuCard[] = [];
 
   constructor(private menuService : MenuService, private cardService : CardService) {
-    this.menu = this.menuService.getMenu();
+    this.menuService.getMenu2().subscribe(data=>this.menu = data)
    }
 
   ngOnInit(): void {
@@ -36,6 +36,7 @@ export class MainMenuComponent implements OnInit {
   public toggleTechMap(){
     this.menu.isOpen = !this.menu.isOpen;
     this.menuService.emitMenuStatus(this.menu.isOpen);
+    console.log(this.menu)
   }
 
   private setSideBarCards(){

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { Category, ItemLevel, MenuItem } from '../menu-item/menuItem';
 import { SideMenuCard } from '../side-menu-card/side-menu-card';
 
@@ -12,105 +13,37 @@ export class MenuService {
 
 
   constructor(private http : HttpClient) {
-    this.mainMenu = new MenuItem('main', 'none',0, ItemLevel.Beginner, Category.Tech, null, false);
-    let quarter1 = new MenuItem('techStack', 'blabla', 0, ItemLevel.Beginner, Category.Tech);
-        let item21 = new MenuItem('Angular', 'blabla', 15, ItemLevel.Advance, Category.Tech, '/assets/images/angularLogo.png');
-        let item211 = new MenuItem('Material', 'blabla', 100, ItemLevel.Beginner, Category.Tech, '/assets/images/materialLogo.png');
-        let item212 = new MenuItem('Ngrx', 'blabla', 70, ItemLevel.Beginner, Category.Tech, '/assets/images/ngrxLogo.png');
-
-        let item22 = new MenuItem('Ts', 'blabla', 100, ItemLevel.Beginner, Category.Tech, '/assets/images/tsLogo.png');
-        let item23 = new MenuItem('Rxjs', 'blabla', 70, ItemLevel.Beginner, Category.Tech, '/assets/images/rxjsLogo.png');
-    let item1 = new MenuItem('Other', 'blabla', 100, ItemLevel.Beginner, Category.Tech);
-    let item11 = new MenuItem('Git', 'blabla', 70, ItemLevel.Beginner, Category.Tech);
-    let item12 = new MenuItem('Paradigms', 'blabla', 10, ItemLevel.Advance, Category.Tech);
-    let item13 = new MenuItem('Data structures &Algorithms', 'blabla', 100, ItemLevel.Advance, Category.Tech);
-
-    let item2 = new MenuItem('Js', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi dolorem rerum modi magni perspiciatis culpa porro repudiandae dolor laudantium cumque id accusantium, natus cupiditate hic at nostrum veniam rem suscipit.Ut, quos sapiente quidem vel nesciunt dolorem asperiores eum optio iusto earum voluptatum expedita officia odit error nostrum recusandae impedit laborum. Magni corrupti corporis repellendus inventore sunt molestias, soluta laudantium.Itaque provident dignissimos ratione eveniet magni cupiditate illo deserunt, exercitationem culpa consequatur atque tenetur quasi id necessitatibus fugiat cum perferendis excepturi nobis. Molestias voluptatum impedit exercitationem praesentium nisi perspiciatis explicabo.', 50, ItemLevel.Advance, Category.Tech, '/assets/images/jsLogo.png');
-    let item4 = new MenuItem('Html', 'blabla', 100, ItemLevel.Beginner, Category.Tech, '/assets/images/htmlLogo.png');
-    let item3 = new MenuItem('Css', 'blabla', 30, ItemLevel.Advance, Category.Tech, '/assets/images/cssLogo.png');
-        let item33 = new MenuItem('Sass', 'bla', 30, ItemLevel.Beginner, Category.Tech, '/assets/images/sassLogo.png');
-
-
-
-
-    item21.subItems.push(item211, item212)
-    item3.subItems.push(item33);
-    item1.subItems.push(item11, item12, item13);
-    item2.subItems.push(item21, item22, item23);
-    quarter1.subItems.push(item1, item3, item4, item2);
-
-    let quarter2 = new MenuItem('personal', 'blabla', 0, ItemLevel.Beginner, Category.Personal);
-    let aitem21 = new MenuItem('hobbi', 'blabla', 15, ItemLevel.Advance, Category.Personal);
-    let aitem211 = new MenuItem('hobbi1', 'blabla', 100, ItemLevel.Beginner, Category.Personal);
-    let aitem212 = new MenuItem('hobbi2', 'blabla', 70, ItemLevel.Beginner, Category.Personal);
-    let aitem2 = new MenuItem('hobbi3', 'blabla', 50, ItemLevel.Advance, Category.Personal);
-    let aitem4 = new MenuItem('hobbi4', 'blabla', 100, ItemLevel.Beginner, Category.Personal);
-    let aitem3 = new MenuItem('hobbi5', 'blabla', 30, ItemLevel.Advance, Category.Personal);
-    let aitem22 = new MenuItem('hobbi6', 'blabla', 100, ItemLevel.Beginner, Category.Personal);
-    let aitem23 = new MenuItem('hobbi7', 'blabla', 70, ItemLevel.Beginner, Category.Personal);
-
-    let aitem1 = new MenuItem('hobbi8', 'blabla', 100, ItemLevel.Beginner, Category.Personal);
-    let aitem11 = new MenuItem('hobbi9', 'blabla', 70, ItemLevel.Beginner, Category.Personal);
-    let aitem12 = new MenuItem('hobbi10', 'blabla', 10, ItemLevel.Advance, Category.Personal);
-
-    quarter2.subItems.push(aitem1, aitem2, aitem3);
-    aitem1.subItems.push(aitem11, aitem12);
-    aitem21.subItems.push(aitem211, aitem212);
-    aitem2.subItems.push(aitem21, aitem22, aitem23);
-
-    let quarter3 = new MenuItem('future', 'blabla', 0, ItemLevel.Beginner, Category.Future);
-    let bitem21 = new MenuItem('future1', 'blabla', 15, ItemLevel.Advance, Category.Future);
-    let bitem211 = new MenuItem('future1', 'blabla', 100, ItemLevel.Beginner, Category.Future);
-    let bitem212 = new MenuItem('future2', 'blabla', 70, ItemLevel.Beginner, Category.Future);
-    let bitem2 = new MenuItem('future3', 'blabla', 50, ItemLevel.Advance, Category.Future);
-    let bitem4 = new MenuItem('future4', 'blabla', 100, ItemLevel.Beginner, Category.Future);
-    let bitem3 = new MenuItem('future5', 'blabla', 30, ItemLevel.Advance, Category.Future);
-    let bitem22 = new MenuItem('future6', 'blabla', 100, ItemLevel.Beginner, Category.Future);
-    let bitem23 = new MenuItem('future7', 'blabla', 70, ItemLevel.Beginner, Category.Future);
-
-    let bitem1 = new MenuItem('future8', 'blabla', 100, ItemLevel.Beginner, Category.Future);
-    let bitem11 = new MenuItem('future9', 'blabla', 70, ItemLevel.Beginner, Category.Future);
-    let bitem12 = new MenuItem('future10', 'blabla', 10, ItemLevel.Advance, Category.Future);
-
-    quarter3.subItems.push(bitem1, bitem2, bitem3);
-    bitem1.subItems.push(bitem11, bitem12);
-    bitem21.subItems.push(bitem211, bitem212);
-    bitem2.subItems.push(bitem21, bitem22, bitem23);
-
-
-    this.mainMenu.subItems.push(quarter1, quarter2, quarter3);
     this.getMenu2()
    }
 
-   public getMenu(){
-     return this.mainMenu;
-   }
 
    public getMenu2(){
-     this.http.get('/assets/data/techStack.json').subscribe(data=>console.log(this.getConvertedMenu(data)))
+    return this.http.get('/assets/data/techStack.json')
+    .pipe(
+      map(data=>{
+        return this.getConvertedMenu(data);
+      })
+    )
+
    }
 
-   public convertToRating(raw){
+   private convertToRating(raw){
     return new MenuItem(raw.name, raw.description, raw.percentage, raw.itemLevel, raw.category, raw.imageUrl, raw.isOpen, raw.isInspected, raw.isSelected, [])
    }
 
-   probaMenu;
-   public getConvertedMenu(raw, parent?: MenuItem){
+   private getConvertedMenu(raw, parent?: MenuItem){
     let converted = this.convertToRating(raw);
     if(!!parent){
-      console.log(converted.name, 'pushed into', parent.name)
       parent.subItems.push(converted)
     }else{
-      console.log('has no parent, ',converted.name, ' is main' )
-      this.probaMenu = converted;
+      this.mainMenu = converted;
     }
     if(!!raw.subItems.length){
       for(let item of raw.subItems){
-        console.log(raw.name, 'HAS CHILDREN, ITERATING: ', item.name)
         this.getConvertedMenu(item, converted);
       }
     }
-    return this.probaMenu;
+    return this.mainMenu;
    }
 
   public getSideBarCards(){

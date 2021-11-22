@@ -9,7 +9,7 @@ export const MENU_ANIMATION ={
         height: '400px',
       }),
       group([
-        query(':enter', animateChild()),
+        query(':enter', animateChild(), {optional : true}),
         sequence([
           animate('500ms ease', style({
             height: '550px',
@@ -36,7 +36,7 @@ export const MENU_ANIMATION ={
             height: '400px',
           })),
         ]),
-        query(':enter', animateChild()),
+        query(':enter', animateChild(), {optional : true}),
       ]),
     ]),
   ]),
