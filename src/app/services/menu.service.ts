@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Category, ItemLevel, MenuItem } from '../menu-item/menuItem';
 import { SideMenuCard } from '../side-menu-card/side-menu-card';
@@ -10,7 +11,7 @@ export class MenuService {
   public menuStatus : EventEmitter<boolean> = new EventEmitter();
 
 
-  constructor() {
+  constructor(private http : HttpClient) {
     this.mainMenu = new MenuItem('main', 'none',0, ItemLevel.Beginner, Category.Tech, null, false);
     let quarter1 = new MenuItem('techStack', 'blabla', 0, ItemLevel.Beginner, Category.Tech);
         let item21 = new MenuItem('Angular', 'blabla', 15, ItemLevel.Advance, Category.Tech, '/assets/images/angularLogo.png');
@@ -19,7 +20,6 @@ export class MenuService {
 
         let item22 = new MenuItem('Ts', 'blabla', 100, ItemLevel.Beginner, Category.Tech, '/assets/images/tsLogo.png');
         let item23 = new MenuItem('Rxjs', 'blabla', 70, ItemLevel.Beginner, Category.Tech, '/assets/images/rxjsLogo.png');
-    console.log( JSON.stringify(item21))
     let item1 = new MenuItem('Other', 'blabla', 100, ItemLevel.Beginner, Category.Tech);
     let item11 = new MenuItem('Git', 'blabla', 70, ItemLevel.Beginner, Category.Tech);
     let item12 = new MenuItem('Paradigms', 'blabla', 10, ItemLevel.Advance, Category.Tech);
@@ -79,11 +79,38 @@ export class MenuService {
 
 
     this.mainMenu.subItems.push(quarter1, quarter2, quarter3);
-
+    this.getMenu2()
    }
 
    public getMenu(){
      return this.mainMenu;
+   }
+
+   public getMenu2(){
+     this.http.get('/assets/data/techStack.json').subscribe(data=>console.log(this.getConvertedMenu(data)))
+   }
+
+   public convertToRating(raw){
+    return new MenuItem(raw.name, raw.description, raw.percentage, raw.itemLevel, raw.category, raw.imageUrl, raw.isOpen, raw.isInspected, raw.isSelected, [])
+   }
+
+   probaMenu;
+   public getConvertedMenu(raw, parent?: MenuItem){
+    let converted = this.convertToRating(raw);
+    if(!!parent){
+      console.log(converted.name, 'pushed into', parent.name)
+      parent.subItems.push(converted)
+    }else{
+      console.log('has no parent, ',converted.name, ' is main' )
+      this.probaMenu = converted;
+    }
+    if(!!raw.subItems.length){
+      for(let item of raw.subItems){
+        console.log(raw.name, 'HAS CHILDREN, ITERATING: ', item.name)
+        this.getConvertedMenu(item, converted);
+      }
+    }
+    return this.probaMenu;
    }
 
   public getSideBarCards(){
