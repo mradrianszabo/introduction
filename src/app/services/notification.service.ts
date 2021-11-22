@@ -14,7 +14,7 @@ export class NotificationService {
 
   public error(message : string) : void{
     let notification = {message : message, type : 'error'}
-    this.getMessage.next(notification)
+    this.getMessage.next(notification);
   }
   public success(message : string){
     let notification = {message : message, type : 'success'}

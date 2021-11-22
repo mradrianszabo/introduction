@@ -1,5 +1,4 @@
 .container{
-
   position: relative;
   height: 100%;
 }
@@ -24,17 +23,6 @@ form{
   outline: none;
   border: none;
   background-color: #121a28;
-
-}
-
-
-.checkboxContainer{
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-}
-.checkboxLabel{
-  padding-left: 35px;
 }
 .identity input[type="checkbox"]{
   width: 30px;
@@ -43,6 +31,21 @@ form{
   opacity: 0;
   cursor: pointer;
   z-index: 1;
+}
+input[type="number"]{
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.checkboxContainer{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.checkboxLabel{
+  padding-left: 35px;
 }
 .checkMark{
   position: absolute;
@@ -60,8 +63,6 @@ form{
   width: 30px;
   height: 30px;
   background: #121a28;
-}
-.identity input[type="checkbox"]:checked ~ .checkMark{
 }
 
 .ratings{
@@ -82,7 +83,6 @@ form{
   outline: none;
   border: none;
   padding: 10px;
-
   resize: none;
 }
 .buttons{
@@ -90,20 +90,19 @@ form{
   flex-flow: row nowrap;
   justify-content: space-evenly;
 }
-button:nth-child(1){
-  background-color: rgba(246, 26, 151, 0.2);
-}
-button:nth-child(2){
-  background-color: rgba(110, 202, 255, 0.2)
-}
 button{
   border-radius: 10px;
-
   font-family: Impact, Charcoal, sans-serif;
   padding: 10px;
   border: 1px solid white;
   box-shadow: none;
   transition: 500ms all ease;
+}
+button:nth-child(1){
+  background-color: rgba(246, 26, 151, 0.2);
+}
+button:nth-child(2){
+  background-color: rgba(110, 202, 255, 0.2)
 }
 button:nth-child(1):hover{
   background-color: rgb(246, 26, 151);
@@ -123,11 +122,4 @@ button:nth-child(2):hover{
 .ratings label span{
   width: 100px;
 }
-input[type="number"]{
-  opacity: 0;
-  width: 0;
-  height: 0;
-  position: absolute;
-}
-
 

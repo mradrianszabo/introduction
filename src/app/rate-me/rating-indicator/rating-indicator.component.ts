@@ -19,7 +19,7 @@ export class RatingIndicatorComponent implements OnInit, OnChanges {
   @Input() public points : number = 0;
   @Input() public length : number = 10;
 
-  constructor(private rateMeService : RatingService) {
+  constructor(private ratingService : RatingService) {
 
    }
 
@@ -53,7 +53,7 @@ export class RatingIndicatorComponent implements OnInit, OnChanges {
     if(this.name){
       this.setRating(indexOfSelected);
       let rating = {name : this.name, point : indexOfSelected + 1}
-      this.rateMeService.setRating(rating);
+      this.ratingService.setRating(rating);
     }
   }
 

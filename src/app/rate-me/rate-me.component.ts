@@ -29,9 +29,8 @@ export class RateMeComponent implements OnInit {
   public submit(form){
     if(this.validation()){
       this.rateMeService.postRating(this.rating).subscribe(response=>this.notification.handleResponse(response));
-      //this.rateMeService.responseData.subscribe(data=> this.notification.handleResponse(data));
       this.router.navigate(['techmap']);
-      setTimeout(()=>this.rateMeService.triggerRefresh(),1000);
+      setTimeout(()=>this.rateMeService.refreshRatings(),1000);
     }
     else{
       this.notification.error('Legalább a pontozós részeket töltsd ki, kérlek!')

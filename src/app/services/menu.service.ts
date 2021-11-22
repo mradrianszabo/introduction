@@ -19,7 +19,7 @@ export class MenuService {
 
         let item22 = new MenuItem('Ts', 'blabla', 100, ItemLevel.Beginner, Category.Tech, '/assets/images/tsLogo.png');
         let item23 = new MenuItem('Rxjs', 'blabla', 70, ItemLevel.Beginner, Category.Tech, '/assets/images/rxjsLogo.png');
-
+    console.log( JSON.stringify(item21))
     let item1 = new MenuItem('Other', 'blabla', 100, ItemLevel.Beginner, Category.Tech);
     let item11 = new MenuItem('Git', 'blabla', 70, ItemLevel.Beginner, Category.Tech);
     let item12 = new MenuItem('Paradigms', 'blabla', 10, ItemLevel.Advance, Category.Tech);
@@ -106,20 +106,7 @@ export class MenuService {
     return cards;
   }
 
-/*    public getAllAdjecents(  selected : MenuItem, parent : MenuItem = this.mainMenu){
-      let found = parent.subItems.find(item=> item === selected)
-      if(found){
-        parent.isSelected = true;
-        return this.getAllAdjecents(parent);
-      }else{
-        for(let item of parent.subItems){
-          this.getAllAdjecents(selected, item);
-        }
-      }
-      if(parent === selected){
-        return;
-      }
-   } */
+
    private selectionChainLength = 0;
  public setSelected(  selected : MenuItem, parent : MenuItem = this.mainMenu) : void | number{
   if(parent.subItems.find(item=> item === selected)){

@@ -1,12 +1,12 @@
 .container{
   width: 500px;
-  min-height: 100px;
+  min-height: 50px;
   padding: 20px;
   font-size: 1.2em;
   font-weight: bold;
-  position: absolute;
+  position: fixed;
   z-index: 1000;
-  top: 100px;
+  top: 10px;
   left: calc(50vw - 250px);
 
   background-color: cyan;

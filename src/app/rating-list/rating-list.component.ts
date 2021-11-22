@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { GENERAL_ANIMATION } from '../animations/general-animation';
 import { RATING_ANIMATION } from '../animations/rating-animation';
 import { Rating } from '../rate-me/rating';
@@ -13,25 +14,16 @@ import { RatingService } from '../services/rating.service';
   ]
 })
 export class RatingListComponent implements OnInit {
-  public ratings : Rating[];
-  public ratingObservable;
-  public refreshSwitch : boolean = false;
+  public ratings : Observable<Rating[]>;
 
   constructor(private ratingService : RatingService) { }
 
   ngOnInit(): void {
-    this.getRatings();
-    this.ratingService.refreshRatings.subscribe(data=>{
-      if(this.refreshSwitch !== data){
-        this.refreshSwitch = data;
-        this.getRatings();
-      }
-    });
-
+    this.getRatings()
   }
 
-  private getRatings(){
-    this.ratingObservable = this.ratingService.getRatings();
+  getRatings(){
+    this.ratings = this.ratingService.getRatings;
   }
 
 

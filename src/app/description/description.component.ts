@@ -10,8 +10,8 @@ import { MenuService } from '../services/menu.service';
   templateUrl: './description.component.html',
   styleUrls: ['./description.component.css'],
   animations: [
-    GENERAL_ANIMATION.moveyeah,
-    GENERAL_ANIMATION.hellyeah,
+    DESCRIPTION_ANIMATION.setNewSelected,
+    DESCRIPTION_ANIMATION.removeSelected,
     GENERAL_ANIMATION.fade,
     DESCRIPTION_ANIMATION.percentageChange,
   ]
@@ -42,7 +42,7 @@ export class DescriptionComponent implements OnInit, OnDestroy{
 
   setTechFamily(selected: MenuItem): void{
     for(let elem of selected.subItems){
-      this.techFamily.push(elem)
+      this.techFamily.push(elem);
       if(elem.subItems.length){
         this.setTechFamily(elem)
       }

@@ -15,16 +15,13 @@ export interface ratingInterface{
 })
 export class RatingService {
   public getRating : Subject<ratingInterface>;
-  public responseData : Subject<any>;
-  public refreshRatings : Subject<boolean>;
-  public refreshSwitch : boolean;
+  public getRatings : Subject<Rating[]>;
 
 
   constructor(private http : HttpClient, private url : UrlService) {
     this.getRating = new Subject();
-    this.responseData = new Subject();
-    this.refreshRatings = new Subject();
-    this.refreshSwitch = false;
+    this.getRatings = new Subject();
+    this.refreshRatings();
    }
 
 
@@ -33,11 +30,12 @@ export class RatingService {
   }
 
   postRating(rating : Rating){
-    return this.http.post<Rating>(this.url.getListUrl(), rating, {observe : 'response'});
+    let response = this.http.post<Rating>(this.url.getListUrl(), rating, {observe : 'response'});
+    return response;
 
   }
 
-  getRatings(){
+  fetchRatings(){
     return this.http.get(this.url.getListUrl())
     .pipe(
       map(data=>{
@@ -52,10 +50,10 @@ export class RatingService {
     )
   }
 
-  public triggerRefresh(){
-    this.refreshSwitch = !this.refreshSwitch;
-    this.refreshRatings.next(this.refreshSwitch);
+  refreshRatings(){
+    this.fetchRatings().subscribe(ratings=>this.getRatings.next(ratings));
   }
+
 
 
 

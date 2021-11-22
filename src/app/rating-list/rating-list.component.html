@@ -1,35 +1,7 @@
-<!--
-<div class="container">
-  <div class="rating" *ngFor="let rating of ratings" [@fade]>
-
-    <div class="header">
-      <p>{{rating.nickName}}</p>
-      <div class="ratingIndicators">
-        <div class="indicator">
-          <app-rating-indicator [points]="rating.overall"></app-rating-indicator>
-        </div>
-        <div class="indicator">
-          <app-rating-indicator [points]="rating.usability"></app-rating-indicator>
-        </div>
-        <div class="indicator">
-          <app-rating-indicator  [points]="rating.design"></app-rating-indicator>
-        </div>
-        <div class="indicator">
-          <app-rating-indicator *ngIf="rating.code"  [points]="rating.code"></app-rating-indicator>
-        </div>
-      </div>
-    </div>
-    <div class="comment">
-      {{rating.comment}}
-    </div>
-  </div>
-</div>
-
- -->
 
 
 <div class="container" [@fade]>
-  <div class="rating" *ngFor="let rating of ratingObservable | async" [@fade]>
+  <div class="rating" *ngFor="let rating of ratings | async" [@fade]>
 
     <div class="header">
       <p>{{rating.nickName}}</p>
@@ -37,7 +9,7 @@
       <p [ngClass]="{'isDeveloper' : true, 'developer' : rating.isDeveloper}">Fejlesztő</p>
       <div class="ratingIndicators">
         <div class="indicator">
-          <span>Összahtás:</span>
+          <span>Összhatás:</span>
           <app-rating-indicator [points]="rating.overall"></app-rating-indicator>
           <span class="ratingPoint">
             10/{{rating.overall}}
