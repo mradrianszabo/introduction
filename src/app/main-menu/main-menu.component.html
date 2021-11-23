@@ -8,9 +8,9 @@
     </ul>
   </div>
 
-  <section class="header">
+  <section class="header" *ngIf="!menu?.isOpen">
 
-    <div class="cardContainer" *ngIf="!menu?.isOpen" [@cardContainer]>
+    <div class="cardContainer" [@cardContainer]>
       <ng-container *ngFor="let card of sideMenuCards" >
      <app-side-menu-card [card]="card"></app-side-menu-card>
     </ng-container>
@@ -29,5 +29,8 @@
       <div [ngClass]="menu?.isOpen ? 'menuOpened openButton' : 'menuClosed openButton'" (click)="toggleTechMap()">
       </div>
     </section>
+    <ng-container *ngIf="!!itemSummary">
+      <app-item-summary [summaryData]="itemSummary"></app-item-summary>
+    </ng-container>
     </div>
 

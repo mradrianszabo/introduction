@@ -23,14 +23,16 @@ import { SideMenuCard } from '../side-menu-card/side-menu-card';
 export class MainMenuComponent implements OnInit {
 
   public menu : MenuItem
+  public itemSummary;
   public sideMenuCards : SideMenuCard[] = [];
 
   constructor(private menuService : MenuService, private cardService : CardService) {
-    this.menuService.getMenu().subscribe(data=>this.menu = data)
-   }
+    this.menuService.itemSummary.subscribe(data=>this.itemSummary = data);
+  }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.setSideBarCards();
+    this.menu = await this.menuService.getMenu();
   }
 
   public toggleTechMap(){
@@ -42,4 +44,7 @@ export class MainMenuComponent implements OnInit {
   private setSideBarCards(){
     this.sideMenuCards = this.cardService.getCards();
   }
+
+
+
 }

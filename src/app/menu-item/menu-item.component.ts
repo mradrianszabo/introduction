@@ -22,7 +22,6 @@ export class MenuItemComponent implements OnInit, OnDestroy {
   @Input() public parentRadius : number;
   @Input() public index: number;
   @Input() public depth: number;
-  public itemRadius: number;
 
   constructor(private itemService : ItemService, private menuService : MenuService, private router : Router) {
 
@@ -45,21 +44,26 @@ export class MenuItemComponent implements OnInit, OnDestroy {
   }
 
   inspecting(item: MenuItem){
+    this.highlightInspectedFamily(item);
+    item.isInspected
+      ?this.menuService.nextSummary({name : item.name, itemLevel : item.itemLevel, percentage : item.percentage})
+      :this.menuService.nextSummary(null);
+  }
+  private highlightInspectedFamily(item: MenuItem){
     item.isInspected = !item.isInspected;
     if(item.subItems.length){
       for(let subitem of item.subItems){
-        this.inspecting(subitem);
+        this.highlightInspectedFamily(subitem);
       }
     }
   }
 
   selectItem(selected: MenuItem){
+    this.menuService.nextSummary(null);
     selected.isSelected = true;
     this.menuService.setSelected(selected);
     let length = this.menuService.getSelectionLength()
-    console.log('fos', length)
     setTimeout(() => {
-      //this.menuService.emitMenuStatus(false);
       this.navigateToSelected(selected)
     }, length * 150);
     this.menuService.resetSelectionLength();

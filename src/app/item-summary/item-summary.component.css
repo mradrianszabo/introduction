@@ -1,0 +1,16 @@
+.summary{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  width: 200px;
+  height: 75px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 5px;
+}

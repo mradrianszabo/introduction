@@ -33,7 +33,8 @@ export class ItemService {
 
     let start = items[0].category === Category.Tech
       ? items[0].category + sizeOfItems[0] + parentIndex * 10 + depth * 20
-      : (items[0].category + sizeOfItems[0] - parentIndex *10) - (depth-1) *5
+      : (items[0].category + sizeOfItems[0] - parentIndex *10) - (depth-1) *5;
+
     for(let [index, item] of items.entries()){
       let itemSize = sizeOfItems[index];
       let positions = this.calculatePosition(itemSize, start, parentRadius, depth, index, item.category);
@@ -54,8 +55,6 @@ export class ItemService {
         min = (sizeOfItems[index+1] + sizeOfItems[index])/1.4;
         max = (sizeOfItems[index+1] + sizeOfItems[index]) * modifier
       }
-
-
       let random = this.randomizer(min, max);
       start+= random;
     }
@@ -79,7 +78,8 @@ export class ItemService {
   private calcItemSize(items: MenuItem[]){
     let itemSize = [];
     for(let item of items){
-      itemSize.push(ITEMD*(1 + item.percentage/100 + item.itemLevel)/2);
+      let level = item.percentage ? item.itemLevel : 3
+      itemSize.push(ITEMD*(1 + item.percentage/100 + level)/2);
     }
     return itemSize;
   }

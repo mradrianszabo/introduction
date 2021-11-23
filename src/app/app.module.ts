@@ -18,6 +18,7 @@ import { RatingListComponent } from './rating-list/rating-list.component';
 import { PercentageIndicatorComponent } from './percentage-indicator/percentage-indicator.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ItemSummaryComponent } from './item-summary/item-summary.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FooterComponent } from './footer/footer.component';
     RatingListComponent,
     PercentageIndicatorComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ItemSummaryComponent
   ],
   imports: [
     BrowserModule,

@@ -25,7 +25,7 @@ export class DescriptionComponent implements OnInit, OnDestroy{
     this.menuService.setMenuAsOpened();
     this.routes.params.subscribe(item => {
       this.techFamily = this.menuService.getParent(item)
-      this.selected = this.menuService.getItem(item)
+      this.selected = this.menuService.getItemByName(item)
       this.selected.isSelected = true;
     })
   }

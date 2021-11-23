@@ -20,12 +20,17 @@ export class CardService {
         ),
       new SideMenuCard(
         'About me',
-        'aboutMe'
+        'aboutMe',
+        ()=>{
+          this.menuService.emitMenuStatus(true);
+          setTimeout(()=>this.router.navigate(['/description/personal']),500)
+        }
       ),
       new SideMenuCard(
         'Rate me',
         'rateMe',
-        ()=>{this.router.navigate(['/rateMe'])}
+        ()=>{
+          this.router.navigate(['/rateMe'])}
       )
     )
     return cards;

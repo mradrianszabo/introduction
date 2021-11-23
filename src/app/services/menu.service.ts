@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Category, ItemLevel, MenuItem } from '../menu-item/menuItem';
 import { SideMenuCard } from '../side-menu-card/side-menu-card';
@@ -9,22 +10,22 @@ import { SideMenuCard } from '../side-menu-card/side-menu-card';
 })
 export class MenuService {
   private mainMenu: MenuItem;
+  private selectionChainLength = 0;
+  public itemSummary : Subject<any> = new Subject();
   public menuStatus : EventEmitter<boolean> = new EventEmitter();
 
 
   constructor(private http : HttpClient) {
-    this.getMenu()
    }
 
 
-   public getMenu(){
-    return this.http.get('/assets/data/techStack.json')
-    .pipe(
-      map(data=>{
-        return this.getConvertedMenu(data);
-      })
-    )
+   public async setMenu(){
+    let raw = await this.http.get('/assets/data/techStack.json').toPromise();
+    return this.getConvertedMenu(raw);
+   }
 
+   public async getMenu(){
+    return this.mainMenu ? await this.mainMenu : await this.setMenu();
    }
 
    private convertToRating(raw){
@@ -46,28 +47,6 @@ export class MenuService {
     return this.mainMenu;
    }
 
-  public getSideBarCards(){
-    let cards = [];
-    cards.push(
-      new SideMenuCard(
-        'Skill map',
-        'skillMap',
-        (dependency)=>{dependency.setMenuAsOpened()}
-        ),
-      new SideMenuCard(
-        'About me',
-        'aboutMe'
-      ),
-      new SideMenuCard(
-        'Rate me',
-        'rateMe'
-      )
-    )
-    return cards;
-  }
-
-
-   private selectionChainLength = 0;
  public setSelected(  selected : MenuItem, parent : MenuItem = this.mainMenu) : void | number{
   if(parent.subItems.find(item=> item === selected)){
     parent.isSelected = true;
@@ -101,13 +80,13 @@ public getParent(selected, parent = this.mainMenu){
     }
   }
 }
-public getItem(selected, parent = this.mainMenu){
+public getItemByName(selected, parent = this.mainMenu){
   let result = parent.subItems.find(elem => selected.name === elem.name);
   if(result){
     return result
   }
   for(let elem of parent.subItems){
-    let result = this.getItem(selected, elem);
+    let result = this.getItemByName(selected, elem);
     if(result){
       return result
     }
@@ -124,7 +103,9 @@ public closeAll(item : MenuItem = this.mainMenu){
         this.closeAll(subitem);
       }
     }
-  }else{return}
+  }else{
+    return
+  }
 }
 
 public emitMenuStatus(status : boolean){
@@ -133,6 +114,10 @@ public emitMenuStatus(status : boolean){
 public setMenuAsOpened(){
   this.mainMenu.isOpen = true;
   this.emitMenuStatus(true);
+}
+
+nextSummary(summaryData){
+  this.itemSummary.next(summaryData);
 }
 
 }

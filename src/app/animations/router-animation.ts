@@ -2,7 +2,9 @@ import { animate, animateChild, query, stagger, style, transition, trigger, grou
 
 export const ROUTER_ANIMATION = {
   fromTechMap:
+
   trigger('routerAnimations', [
+
     transition('techMap => selectedTech',[
 
       query(':leave',[

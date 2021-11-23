@@ -6,26 +6,16 @@
       </svg>
       <svg viewBox="0 0 10 10" *ngIf="item.isSelected">
         <path  [attr.d]="itemMap.get(item).svgPosition" class="selectionLine" [@highlightLine]="{value: true, params: {depthLevel : depth*150}}"/>
-
       </svg>
-      <div [ngClass]="item.isInspected ? 'underInspect itemCover' : 'itemCover'" [ngStyle]="itemMap.get(item).style" (mouseenter)="inspecting(item)" (mouseleave)="inspecting(item)" (click)="selectItem(item)" [@highlightItem]="{value: item.isSelected, params: {depthLevel : depth*150}}"></div>
+
+      <div [ngClass]="item.isInspected ? 'underInspect itemCover' : 'itemCover'" [ngStyle]="itemMap.get(item).style" (mouseenter)="inspecting(item)" (mouseleave)="inspecting(item)" (click)="selectItem(item)" [@highlightItem]="{value: item.isSelected, params: {depthLevel : depth*150}}">
+      </div>
     </div>
 
 <ul *ngIf="menuItem.subItems.length" >
   <li *ngFor="let item of menuItem.subItems; let i = index;" [ngStyle]="itemMap.get(item).style" class="item">
-
-
-
     <app-menu-item [menuItem]="item" [parentRadius]="getRadius(item)" [index]="i" [depth]="depth+1"></app-menu-item>
   </li>
 </ul>
 
 
-
-<!--
-
-[ngStyle]="item.isSelected ?  {'stroke-dashoffset' : 0} : {'stroke-dashoffset' : 1000}"
-
-
-blur(16px) saturate(11)
- -->
