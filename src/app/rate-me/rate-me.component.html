@@ -67,8 +67,8 @@
 </section>
 
 <section class="buttons">
-  <button type="button" [routerLink]="'/techMap'">Mégse</button>
-  <button type="submit">Küldés</button>
+  <app-button type="warn" label="Mégse" routerLink="/techMap"></app-button>
+  <app-button type="success" label="Küldés" [isSubmit]="true"></app-button>
 </section>
 
 </form>

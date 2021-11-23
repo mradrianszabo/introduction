@@ -21,6 +21,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ItemSummaryComponent } from './item-summary/item-summary.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
+import { ButtonComponent } from './button/button.component';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
     HeaderComponent,
     FooterComponent,
     ItemSummaryComponent,
-    PdfViewerComponent
+    PdfViewerComponent,
+    ButtonComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,

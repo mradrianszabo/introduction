@@ -1,3 +1,4 @@
 <div *ngIf="!!notification && visible" [ngClass]="['container', notification.type]" [@fade]>
   <p class="message">{{notification.message}}</p>
+  <img [attr.src]="setImage()" alt="">
 </div>

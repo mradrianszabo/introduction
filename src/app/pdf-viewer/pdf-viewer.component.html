@@ -1,6 +1,8 @@
 <ng-container *ngIf="src">
   <div class="pdf">
-    <button class="close" (click)="closePdf()">X</button>
+    <div class="buttons">
+      <app-button [type]="'warn'" [label]="'Bezár'" (click)="closePdf()"></app-button>
+    </div>
     <pdf-viewer
     [src]="src"
     [render-text]="true"

@@ -29,7 +29,7 @@ export class RateMeComponent implements OnInit {
   public submit(form){
     if(this.validation()){
       this.rateMeService.postRating(this.rating).subscribe(response=>this.notification.handleResponse(response));
-      this.router.navigate(['techmap']);
+      this.router.navigate(['/techMap']);
       setTimeout(()=>this.rateMeService.refreshRatings(),1000);
     }
     else{

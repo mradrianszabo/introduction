@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DESCRIPTION_ANIMATION } from '../animations/description-animation';
 import { GENERAL_ANIMATION } from '../animations/general-animation';
 import { MenuItem } from '../menu-item/menuItem';
@@ -21,7 +21,7 @@ export class DescriptionComponent implements OnInit, OnDestroy{
   public selected : MenuItem;
   public verticalPositionModifier : number = 0;
 
-  constructor(private routes : ActivatedRoute, private menuService : MenuService) {
+  constructor(private routes : ActivatedRoute, private menuService : MenuService, private router: Router) {
 
   }
 
@@ -30,9 +30,7 @@ export class DescriptionComponent implements OnInit, OnDestroy{
 
       this.menuService.setMenuAsOpened();
       this.routes.params.subscribe(item => {
-        this.techFamily = this.menuService.getParent(item)
-        this.selected = this.menuService.getItemByName(item)
-        this.selected.isSelected = true;
+        this.setProperties(item);
       })
       this.techFamily = [];
       this.setTechFamily(this.selected);
@@ -42,6 +40,16 @@ export class DescriptionComponent implements OnInit, OnDestroy{
     this.menuService.closeAll(this.selected);
   }
 
+  setProperties(item){
+    try{
+
+      this.techFamily = this.menuService.getParent(item)
+      this.selected = this.menuService.getItemByName(item)
+      this.selected.isSelected = true;
+    }catch(error){
+      this.router.navigate(['/404']);
+    }
+  }
 
   setTechFamily(selected: MenuItem): void{
     for(let elem of selected.subItems){

@@ -39,4 +39,11 @@ export class NotificationComponent implements OnInit, OnDestroy {
     })
   }
 
+  setImage(){
+    let error = '/assets/images/sadLogo.png';
+    let success = '/assets/images/happyLogo.png';
+    let info = '/assets/images/infoLogo.png';
+    return this.notification.type === 'error' ? error : this.notification.type === 'success' ? success : info;
+  }
+
 }

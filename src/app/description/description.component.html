@@ -28,8 +28,8 @@
 
       </div>
       <div class="buttons">
-        <button [routerLink]="'/techMap'" class="buttonBack">Vissza</button>
-        <button class="buttonBack" *ngIf="this.selected.fileUrl" (click)="openPdf()">Open Pdf</button>
+        <app-button routerLink="/techMap" type="warn" label="Vissza"></app-button>
+        <app-button *ngIf="this.selected.fileUrl" (click)="openPdf()" type="success" label="PDF megnyitása"></app-button>
       </div>
     </div>
   </div>
