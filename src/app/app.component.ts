@@ -26,7 +26,6 @@ export class AppComponent implements OnInit{
   }
 
   constructor(private menuService : MenuService){
-
   }
   ngOnInit(){
     this.menuService.menuStatus.subscribe(param=>this.menuStatus = param);

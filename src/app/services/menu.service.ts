@@ -22,7 +22,7 @@ export class MenuService {
 
    public async setMenu(){
     let raw = await this.http.get('/assets/data/techStack.json').toPromise();
-    return this.getConvertedMenu(raw);
+    return this.getConvertedMenu(raw)
    }
 
    public async getMenu(){
@@ -113,8 +113,8 @@ public emitMenuStatus(status : boolean){
   this.menuStatus.emit(status);
 }
 public setMenuAsOpened(){
-  this.mainMenu.isOpen = true;
-  this.emitMenuStatus(true);
+    this.mainMenu.isOpen = true;
+    this.emitMenuStatus(true);
 }
 
 nextSummary(summaryData){

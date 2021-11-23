@@ -11,6 +11,7 @@ pdf-viewer{
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;

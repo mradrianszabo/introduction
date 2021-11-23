@@ -22,17 +22,20 @@ export class DescriptionComponent implements OnInit, OnDestroy{
   public verticalPositionModifier : number = 0;
 
   constructor(private routes : ActivatedRoute, private menuService : MenuService) {
-    this.menuService.setMenuAsOpened();
-    this.routes.params.subscribe(item => {
-      this.techFamily = this.menuService.getParent(item)
-      this.selected = this.menuService.getItemByName(item)
-      this.selected.isSelected = true;
-    })
+
   }
 
-  ngOnInit(): void {
-    this.techFamily = [];
-    this.setTechFamily(this.selected);
+  async ngOnInit() {
+    await this.menuService.getMenu()
+
+      this.menuService.setMenuAsOpened();
+      this.routes.params.subscribe(item => {
+        this.techFamily = this.menuService.getParent(item)
+        this.selected = this.menuService.getItemByName(item)
+        this.selected.isSelected = true;
+      })
+      this.techFamily = [];
+      this.setTechFamily(this.selected);
 
   }
   ngOnDestroy(): void{

@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" *ngIf="!!techFamily">
 
     <div class="relatedItems" *ngIf="!!techFamily.length">
       <div class="itemCard" *ngFor="let item of techFamily; let i = index" (click)="clickCard(item, i)"   [@setNewSelected]="{value : item.isSelected, params : {verticalModifier : verticalPositionModifier}}">
