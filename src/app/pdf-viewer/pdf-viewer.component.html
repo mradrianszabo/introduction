@@ -1,0 +1,13 @@
+<ng-container *ngIf="src">
+  <div class="pdf">
+    <button class="close" (click)="closePdf()">X</button>
+    <pdf-viewer
+    [src]="src"
+    [render-text]="true"
+    [original-size]="false"
+    >
+  </pdf-viewer>
+</div>
+
+
+</ng-container>

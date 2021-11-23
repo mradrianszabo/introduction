@@ -22,6 +22,7 @@ export class MenuItem{
     public isInspected: boolean = false,
     public isSelected: boolean = false,
     public subItems: MenuItem[] = [],
+    public fileUrl?: string
 
   ){
     this.percentage = this.percentageRange(this.percentage);

@@ -292,7 +292,7 @@
           "subItems" : [
             {
               "name" : "CV",
-              "description" : "none",
+              "description" : null,
               "percentage" : 100,
               "itemLevel" : 1,
               "category" : -70,
@@ -302,7 +302,8 @@
               "isSelected" : false,
               "subItems" : [
 
-              ]
+              ],
+              "fileUrl" : "/assets/data/sample.pdf"
             },
             {
               "name" : "Motivation",

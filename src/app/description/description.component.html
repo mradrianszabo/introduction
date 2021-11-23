@@ -22,17 +22,15 @@
           <app-percentage-indicator [percentage]="selected.percentage"></app-percentage-indicator>
         </div>
       </div>
-      <div class="textDescription" [@fade]>
-        {{selected.description}}
+
+      <div class="textDescription">
+        {{selected?.description}}
+
       </div>
-      <button [routerLink]="'/techMap'" class="buttonBack">Vissza</button>
+      <div class="buttons">
+        <button [routerLink]="'/techMap'" class="buttonBack">Vissza</button>
+        <button class="buttonBack" *ngIf="this.selected.fileUrl" (click)="openPdf()">Open Pdf</button>
+      </div>
     </div>
   </div>
 
-
-<!--
- <div class="contiProba">
-a
-   <div class="titleProba">DESCRIPTION</div>
-  </div>
- -->

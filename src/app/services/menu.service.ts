@@ -12,6 +12,7 @@ export class MenuService {
   private mainMenu: MenuItem;
   private selectionChainLength = 0;
   public itemSummary : Subject<any> = new Subject();
+  public pdfSrc : Subject<string> = new Subject();
   public menuStatus : EventEmitter<boolean> = new EventEmitter();
 
 
@@ -29,7 +30,7 @@ export class MenuService {
    }
 
    private convertToRating(raw){
-    return new MenuItem(raw.name, raw.description, raw.percentage, raw.itemLevel, raw.category, raw.imageUrl, raw.isOpen, raw.isInspected, raw.isSelected, [])
+    return new MenuItem(raw.name, raw.description, raw.percentage, raw.itemLevel, raw.category, raw.imageUrl, raw.isOpen, raw.isInspected, raw.isSelected, [], raw?.fileUrl)
    }
 
    private getConvertedMenu(raw, parent?: MenuItem){
@@ -118,6 +119,10 @@ public setMenuAsOpened(){
 
 nextSummary(summaryData){
   this.itemSummary.next(summaryData);
+}
+
+nextPdf(src : string){
+  this.pdfSrc.next(src);
 }
 
 }

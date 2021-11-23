@@ -19,6 +19,7 @@ export class AppComponent implements OnInit{
 
   title = 'introduction';
   public menuStatus: boolean = false;
+  public pdfSrc: string;
 
   prepareRoute(outlet: RouterOutlet){
     return outlet?.activatedRouteData?.['animation'];
@@ -29,6 +30,7 @@ export class AppComponent implements OnInit{
   }
   ngOnInit(){
     this.menuService.menuStatus.subscribe(param=>this.menuStatus = param);
+    this.menuService.pdfSrc.subscribe(params=>this.pdfSrc = params);
   }
 
 

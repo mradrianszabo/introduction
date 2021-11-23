@@ -19,6 +19,8 @@ import { PercentageIndicatorComponent } from './percentage-indicator/percentage-
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ItemSummaryComponent } from './item-summary/item-summary.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { ItemSummaryComponent } from './item-summary/item-summary.component';
     PercentageIndicatorComponent,
     HeaderComponent,
     FooterComponent,
-    ItemSummaryComponent
+    ItemSummaryComponent,
+    PdfViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -43,8 +46,10 @@ import { ItemSummaryComponent } from './item-summary/item-summary.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    PdfViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

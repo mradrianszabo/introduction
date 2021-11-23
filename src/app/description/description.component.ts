@@ -68,5 +68,9 @@ export class DescriptionComponent implements OnInit, OnDestroy{
     this.techFamily.splice(index, 1, this.selected);
   }
 
+  openPdf(){
+    this.menuService.nextPdf(this.selected.fileUrl);
+  }
+
 
 }

@@ -101,12 +101,12 @@ button{
 button:nth-child(1){
   background-color: rgba(246, 26, 151, 0.2);
 }
-button:nth-child(2){
-  background-color: rgba(110, 202, 255, 0.2)
-}
 button:nth-child(1):hover{
   background-color: rgb(246, 26, 151);
   box-shadow: 0 0 8px 0px rgb(246, 26, 151);
+}
+button:nth-child(2){
+  background-color: rgba(110, 202, 255, 0.2)
 }
 button:nth-child(2):hover{
   background-color: rgb(110, 202, 255);
