@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DESCRIPTION_ANIMATION } from '../animations/description-animation';
 import { GENERAL_ANIMATION } from '../animations/general-animation';
 import { MenuItem } from '../menu-item/menuItem';
+import { PdfService } from '../pdf.service';
 import { MenuService } from '../services/menu.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class DescriptionComponent implements OnInit, OnDestroy{
   public selected : MenuItem;
   public verticalPositionModifier : number = 0;
 
-  constructor(private routes : ActivatedRoute, private menuService : MenuService, private router: Router) {
+  constructor(private routes : ActivatedRoute, private menuService : MenuService, private router: Router, private pdfService: PdfService) {
 
   }
 
@@ -42,7 +43,6 @@ export class DescriptionComponent implements OnInit, OnDestroy{
 
   setProperties(item){
     try{
-
       this.techFamily = this.menuService.getParent(item)
       this.selected = this.menuService.getItemByName(item)
       this.selected.isSelected = true;
@@ -80,7 +80,7 @@ export class DescriptionComponent implements OnInit, OnDestroy{
   }
 
   openPdf(){
-    this.menuService.nextPdf(this.selected.fileUrl);
+    this.pdfService.sendPdf({name : this.selected.name, url : this.selected.fileUrl});
   }
 
 

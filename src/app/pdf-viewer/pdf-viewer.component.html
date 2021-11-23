@@ -1,10 +1,11 @@
-<ng-container *ngIf="src">
+<ng-container *ngIf="pdfData">
   <div class="pdf">
     <div class="buttons">
-      <app-button [type]="'warn'" [label]="'Bezár'" (click)="closePdf()"></app-button>
+      <app-button type="warn" label="Bezár" (click)="closePdf()"></app-button>
+      <app-button type="success" label="Letöltés" (click)="downloadPdf()"></app-button>
     </div>
     <pdf-viewer
-    [src]="src"
+    [src]="pdfData.url"
     [render-text]="true"
     [original-size]="false"
     >

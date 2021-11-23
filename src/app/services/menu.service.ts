@@ -12,7 +12,6 @@ export class MenuService {
   private mainMenu: MenuItem;
   private selectionChainLength = 0;
   public itemSummary : Subject<any> = new Subject();
-  public pdfSrc : Subject<string> = new Subject();
   public menuStatus : EventEmitter<boolean> = new EventEmitter();
 
 
@@ -116,13 +115,14 @@ public setMenuAsOpened(){
     this.mainMenu.isOpen = true;
     this.emitMenuStatus(true);
 }
+public setMenuAsClosed(){
+  this.mainMenu.isOpen = false;
+  this.emitMenuStatus(false);
+}
 
 nextSummary(summaryData){
   this.itemSummary.next(summaryData);
 }
 
-nextPdf(src : string){
-  this.pdfSrc.next(src);
-}
 
 }

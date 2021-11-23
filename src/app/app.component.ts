@@ -3,6 +3,7 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { GENERAL_ANIMATION } from './animations/general-animation';
 import { MENU_ANIMATION } from './animations/menu-animation';
 import { ROUTER_ANIMATION } from './animations/router-animation';
+import { PdfData, PdfService } from './pdf.service';
 import { MenuService } from './services/menu.service';
 
 @Component({
@@ -19,17 +20,17 @@ export class AppComponent implements OnInit{
 
   title = 'introduction';
   public menuStatus: boolean = false;
-  public pdfSrc: string;
+  public pdfData: PdfData;
 
   prepareRoute(outlet: RouterOutlet){
     return outlet?.activatedRouteData?.['animation'];
   }
 
-  constructor(private menuService : MenuService){
+  constructor(private menuService : MenuService, private pdfService : PdfService){
   }
   ngOnInit(){
     this.menuService.menuStatus.subscribe(param=>this.menuStatus = param);
-    this.menuService.pdfSrc.subscribe(params=>this.pdfSrc = params);
+    this.pdfService.pdfData.subscribe(params=>this.pdfData = params);
   }
 
 
