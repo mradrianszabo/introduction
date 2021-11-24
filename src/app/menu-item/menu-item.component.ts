@@ -46,7 +46,7 @@ export class MenuItemComponent implements OnInit, OnDestroy {
   inspecting(item: MenuItem){
     this.highlightInspectedFamily(item);
     item.isInspected
-      ?this.menuService.nextSummary({name : item.name, itemLevel : item.itemLevel, percentage : item.percentage})
+      ?this.menuService.nextSummary({name : item.name, itemLevel : item.itemLevel, percentage : item.percentage, hasFile : item.fileUrl ? true : false})
       :this.menuService.nextSummary(null);
   }
   private highlightInspectedFamily(item: MenuItem){

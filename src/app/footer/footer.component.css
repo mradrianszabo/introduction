@@ -3,16 +3,12 @@
 .container{
   width: min(100vw, 800px);
   height: 200px;
-  position: absolute;
-  bottom:0;
-  left: 50%;
   z-index: 1;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   background-color: #121a28;
-  transform: translateX(-50%);
   margin-top: 100px;
   border-radius: 10px 10px 0 0;
   border: 1px solid #76c6ef;
@@ -23,7 +19,7 @@
 
 .links{
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
@@ -42,13 +38,16 @@
 .contact li{
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 .social li img{
   height: 50px
 }
 .contact li span:nth-child(1), .contact li span:nth-child(2){
   color: #6ecaff;
+}
+.contact li span:nth-child(2){
+  padding: 0 5px;
 }
 .qr{
   background-color: white;
@@ -70,11 +69,26 @@
   margin: 0 auto;
 }
 
-
-.footerBody{
-  width: 800px;
-  height: 300px;
-  position: relative;
-  opacity: 0;
+@media screen and (max-width: 500px){
+.social{
+  height: initial;
+  flex-flow: row nowrap;
+  height: initial;
+  margin-bottom: 20px;
+  width: 100%;
+  justify-content: space-evenly;
 }
-
+.contact li{
+  font-size: 0.6em;
+}
+.qr img{
+  width: 150px;
+  height: 150px;
+}
+.qr{
+  height: 170px;
+}
+.container{
+  height: 170px;
+}
+}

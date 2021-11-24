@@ -7,7 +7,7 @@
   position: absolute;
   background: rgb(0, 76, 255) center/ cover;
   border: 0.6px solid rgb(170, 244, 255);
-  box-shadow: 0 0 5px -1px rgb(0, 221, 255);
+  box-shadow: 0 0 8px -1px rgb(0, 221, 255);
   transform: scale(1.5, 1.5);
 
   border-radius: 50%;
@@ -16,9 +16,13 @@
 }
 .underInspect{
   border: 0.8px solid rgb(170, 244, 255);
-  box-shadow: 0 0 10px -3px rgb(0, 221, 255);
+  box-shadow: 0 0 10px 0px rgb(0, 221, 255);
   transform: scale(2.5,2.5);
   z-index: 2;
+}
+.documentAttached{
+  border: 0.8px solid rgb(246, 26, 151);
+  box-shadow: 0 0 8px 0px rgb(246, 26, 151);
 }
 svg{
   width:10px;

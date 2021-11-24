@@ -1,5 +1,6 @@
 <div class="summary">
   <p>{{summaryData.name}}</p>
+  <p *ngIf="summaryData.hasFile">File attached</p>
   <app-rating-indicator [length]="3" [points]="summaryData.itemLevel"></app-rating-indicator>
   <app-percentage-indicator [percentage]="summaryData.percentage"></app-percentage-indicator>
 </div>

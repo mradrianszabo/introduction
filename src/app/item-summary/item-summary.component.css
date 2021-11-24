@@ -14,3 +14,9 @@
   z-index: 1;
   border-radius: 5px;
 }
+
+.summary p:nth-child(2){
+  font-size: 0.8em;
+  letter-spacing: 5px;
+  color: rgb(246, 26, 151);
+}

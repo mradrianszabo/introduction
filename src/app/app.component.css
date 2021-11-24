@@ -2,7 +2,9 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: space-between;
   position: relative;
+  min-height: 100vh;
   z-index: 1;
 }
 
@@ -24,7 +26,6 @@ background-color: rgb(24, 33, 50);
 
 .background{
   position: relative;
-  min-height: 100vh;
   transform-origin: 50% 0%;
 }
 .background::after{
@@ -39,9 +40,7 @@ background-color: rgb(24, 33, 50);
   filter: grayscale(1);
 }
 
-@media screen and (max-width: 1165px){
 
-}
 
 @media screen and (min-width: 1366px){
   .background{
@@ -57,4 +56,13 @@ background-color: rgb(24, 33, 50);
   .background{
     transform: scale(1.7);
   }
+}
+
+@media screen and (max-width: 700px){
+.menu{
+  display: none;
+}
+app-rating-list{
+  display:  none;
+}
 }

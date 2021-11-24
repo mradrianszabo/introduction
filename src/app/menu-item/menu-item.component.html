@@ -8,7 +8,7 @@
         <path  [attr.d]="itemMap.get(item).svgPosition" class="selectionLine" [@highlightLine]="{value: true, params: {depthLevel : depth*150}}"/>
       </svg>
 
-      <div [ngClass]="item.isInspected ? 'underInspect itemCover' : 'itemCover'" [ngStyle]="itemMap.get(item).style" (mouseenter)="inspecting(item)" (mouseleave)="inspecting(item)" (click)="selectItem(item)" [@highlightItem]="{value: item.isSelected, params: {depthLevel : depth*150}}">
+      <div [ngClass]="{'itemCover' : true, 'underInspect' : item.isInspected, 'documentAttached' : item.fileUrl}" [ngStyle]="itemMap.get(item).style" (mouseenter)="inspecting(item)" (mouseleave)="inspecting(item)" (click)="selectItem(item)" [@highlightItem]="{value: item.isSelected, params: {depthLevel : depth*150}}">
       </div>
     </div>
 

@@ -12,7 +12,7 @@
   z-index: -1;
   border-radius: 50%;
   background: radial-gradient(rgb(7, 138, 181) , rgb(10, 10, 10) 57%);
-  width: 700px;
+  width: min(700px, 100vw);
   height: 300px;
   left: 50%;
   top: 32%;

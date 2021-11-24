@@ -1,14 +1,12 @@
 <div class="background">
-
-    <app-header></app-header>
-
-    <div class="container">
+  <div class="container">
+      <app-header></app-header>
       <div [ngClass]="{'menu' : true, 'menuExpanded' : this.menuStatus}" [@routerAnimations]="prepareRoute(outlet)" [@expand]="menuStatus" >
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
     <app-rating-list></app-rating-list>
+    <app-footer></app-footer>
   </div>
-  <app-footer></app-footer>
 </div>
 
   <app-notification></app-notification>
