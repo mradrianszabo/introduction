@@ -16,7 +16,7 @@ import { SideMenuCard } from '../side-menu-card/side-menu-card';
   styleUrls: ['./main-menu.component.css'],
   animations: [
     MENU_ITEM_ANIMATION.expand,
-    MENU_ANIMATION.cardContainer,
+   // MENU_ANIMATION.cardContainer,
     GENERAL_ANIMATION.fade,
   ]
 })
@@ -24,14 +24,12 @@ export class MainMenuComponent implements OnInit {
 
   public menu : MenuItem
   public itemSummary;
-  public sideMenuCards : SideMenuCard[] = [];
 
   constructor(private menuService : MenuService, private cardService : CardService) {
     this.menuService.itemSummary.subscribe(data=>this.itemSummary = data);
   }
 
   async ngOnInit() {
-    this.setSideBarCards();
     this.menu = await this.menuService.getMenu();
   }
 
@@ -41,9 +39,6 @@ export class MainMenuComponent implements OnInit {
     console.log(this.menu)
   }
 
-  private setSideBarCards(){
-    this.sideMenuCards = this.cardService.getCards();
-  }
 
 
 

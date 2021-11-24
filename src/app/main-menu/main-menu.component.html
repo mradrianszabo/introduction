@@ -10,11 +10,8 @@
 
   <section class="header" *ngIf="!menu?.isOpen">
 
-    <div class="cardContainer" [@cardContainer]>
-      <ng-container *ngFor="let card of sideMenuCards" >
-     <app-side-menu-card [card]="card"></app-side-menu-card>
-    </ng-container>
-  </div>
+  <app-card-menu></app-card-menu>
+
   <div class="titleBox" [@fade] *ngIf="!menu?.isOpen">
     <p class="name">Szabó Adrián</p>
     <p class="title">Front-End Developer</p>

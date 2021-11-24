@@ -23,6 +23,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 import { ButtonComponent } from './button/button.component';
 import { Page404Component } from './page404/page404.component';
+import { CardMenuComponent } from './card-menu/card-menu.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { Page404Component } from './page404/page404.component';
     ItemSummaryComponent,
     PdfViewerComponent,
     ButtonComponent,
-    Page404Component
+    Page404Component,
+    CardMenuComponent
   ],
   imports: [
     BrowserModule,

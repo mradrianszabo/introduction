@@ -110,5 +110,44 @@ export const SIDE_CARD_ANIMATION = {
           ]),
       ]),
     ])
+  ]),
+
+  cardContainer:
+  trigger('cardContainer', [
+    transition(':enter', [
+      query('.card', [
+
+        style({
+          position: 'relative',
+          width: 0,
+          overflow: 'hidden',
+          transform: 'translateX(-50px)'
+        }),
+          sequence([
+
+            animate('500ms ease', style({
+              width: '100px',
+              transform: 'translateX(0)'
+            })),
+            animate('1ms', style({overflow: 'visible'}))
+          ]),
+          ], {optional: true})
+        ]),
+
+    transition(':leave', [
+
+        style({
+          position: 'relative',
+          opacity: 1
+        }),
+        sequence([
+
+          animate('200ms ease', style({
+            opacity: 0
+          })),
+        ]),
+
+    ])
+
   ])
 }

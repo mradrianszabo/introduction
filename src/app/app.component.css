@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  min-height: 100vh;
   z-index: 1;
 }
 
@@ -59,10 +58,13 @@ background-color: rgb(24, 33, 50);
 }
 
 @media screen and (max-width: 700px){
-.menu{
-  display: none;
-}
-app-rating-list{
-  display:  none;
-}
+  .container{
+  min-height: 100vh;
+  }
+  .menu{
+    display: none;
+  }
+  app-rating-list{
+    display:  none;
+  }
 }

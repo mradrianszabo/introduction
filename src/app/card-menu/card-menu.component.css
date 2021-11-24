@@ -1,0 +1,9 @@
+
+.cardContainer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  position: relative;
+  width: 350px;
+}
+
