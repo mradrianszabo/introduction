@@ -1,6 +1,9 @@
 *{
   box-sizing: border-box;
 }
+p{
+  word-wrap: break-word;
+}
 
 .container{
 
@@ -44,6 +47,8 @@ app-rating-indicator{
 }
 .header p{
   font-size: 1.2em;
+  width: 130px;
+  text-align: center;
 }
 
 .comment{

@@ -12,7 +12,7 @@
   flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: center;
-
+  transform-origin: 50% 0;
   border-radius : 10px;
 }
 img{
@@ -28,4 +28,20 @@ img{
 }
 .info{
   background-color: rgb(0, 89, 255);
+}
+
+@media screen and (min-width: 1366px){
+  .container{
+    transform: scale(1.2);
+  }
+}
+@media screen and (min-width: 1920px){
+  .container{
+    transform: scale(1.4);
+  }
+}
+@media screen and (min-width: 2560px){
+  .container{
+    transform: scale(1.7);
+  }
 }

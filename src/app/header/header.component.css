@@ -42,3 +42,9 @@
   font-size: min(7em, 11vw);
   z-index: 1;
 }
+
+@media screen and (max-width: 1165px){
+  .title{
+    -webkit-text-stroke-width: 0;
+  }
+}
