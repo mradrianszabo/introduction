@@ -1,1 +1,24 @@
-<div class="footer" >Copyright</div>
+<div class="container" *ngIf="footerData">
+  <div class="links">
+    <ul class="contact">
+      <li *ngFor="let item of footerData.contact">
+      <span>
+        {{item.name}}
+      </span>
+      <span>:</span>
+      <span>
+        {{item.value}}
+      </span>
+    </li>
+  </ul>
+  <ul class="social">
+    <li *ngFor="let item of footerData.social">
+      <img [attr.src]="item.icon" alt="">
+    </li>
+  </ul>
+</div>
+  <div class="qr">
+    <img [attr.src]="footerData.qr" alt="">
+  </div>
+</div>
+

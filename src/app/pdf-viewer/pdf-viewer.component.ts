@@ -24,7 +24,7 @@ export class PdfViewerComponent implements OnInit {
   downloadPdf(){
     this.pdfService.getPdf(this.pdfData.url).subscribe((data : any)=>{
       try{
-      let downloadURL = window.URL.createObjectURL('data');
+      let downloadURL = window.URL.createObjectURL(data);
       let link = document.createElement('a');
       link.href = downloadURL;
       link.download = `Szabo_Adrian_${this.pdfData.name}`;
@@ -46,34 +46,3 @@ export class PdfViewerComponent implements OnInit {
   }
 
 }
-
-/*
-
-
-  downloadPdf(){
-    this.pdfService.getPdf(this.pdfData.url).subscribe((data : any)=>{
-      try{
-        let downloadURL = window.URL.createObjectURL(data);
-        let link = document.createElement('a');
-        link.href = downloadURL;
-        link.download = `Szabo_Adrian_${this.pdfData.name}`;
-        link.dispatchEvent(new MouseEvent('click', {
-          bubbles: true,
-          cancelable: true,
-          view: window
-        }));
-        setTimeout(()=>{
-          window.URL.revokeObjectURL(data);
-          link.remove();
-        },100);
-      }catch(e){
-      this.notification.error('Úgy tűnik, a link megsérült, ezért a letöltés sikertelen!')
-      console.log('nev', this.pdfData)
-      console.log('ajjaj: ', e)
-      }
-    });
-    this.notification.success('A letöltés sikeresen megtörtént!');
-    this.closePdf();
-  }
-
-*/
