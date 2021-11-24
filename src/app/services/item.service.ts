@@ -10,7 +10,6 @@ export interface ItemStyleInterface{
 export interface ItemAddition{
   style: ItemStyleInterface,
   svgPosition : string
-  isInspected: boolean
 }
 
 const ANGLEINRADIANT = Math.PI * 1/180;
@@ -20,62 +19,20 @@ const ITEMD = 10;
   providedIn: 'root'
 })
 export class ItemService {
+  private start : number;
 
+  constructor() {}
 
-  constructor() {
-
-   }
-
-  public getMapToItems( items, parentRadius, parentIndex, depth){
-    depth++
+  public getPositionOfSubitems( items, parentRadius, parentIndex, depth){
     let itemMap: Map<MenuItem, ItemAddition> = new Map();
-    let sizeOfItems = this.calcItemSize(items);
+    let sizeOfItems = this.getSizeOfItems(items);
+    this.start = this.getStartPointOnArc(items[0], sizeOfItems[0], parentIndex, depth+1);
+    this.addElementsToMap(items, itemMap, sizeOfItems, parentRadius, depth+1);
 
-    let start = items[0].category === Category.Tech
-      ? items[0].category + sizeOfItems[0] + parentIndex * 10 + depth * 20
-      : (items[0].category + sizeOfItems[0] - parentIndex *10) - (depth-1) *5;
-
-    for(let [index, item] of items.entries()){
-      let itemSize = sizeOfItems[index];
-      let positions = this.calculatePosition(itemSize, start, parentRadius, depth, index, item.category);
-      let itemPosition = positions.itemPos;
-      let svgPosition = positions.lineSvg;
-      let style = this.styleItem(itemPosition, itemSize, item.imageUrl);
-
-      itemMap.set(item, {style, svgPosition, isInspected: false});
-      let min;
-      let max;
-      let modifier;;
-      if(item.category === Category.Tech){
-        modifier = 1.2/(depth+1)
-        min = (sizeOfItems[index+1] + sizeOfItems[index]);
-        max = (sizeOfItems[index+1] + sizeOfItems[index]*2.5) * modifier
-      }else{
-        modifier = (depth*0.9)
-        min = (sizeOfItems[index+1] + sizeOfItems[index])/1.4;
-        max = (sizeOfItems[index+1] + sizeOfItems[index]) * modifier
-      }
-      let random = this.randomizer(min, max);
-      start+= random;
-    }
     return itemMap;
   }
 
-  private calculatePosition(itemSize, start, parentRadius, depth, index, category){
-    let isOdd = depth%2 ? 1 : 2
-    let isIndexOdd = category === Category.Tech ? index%2 ? 1 : 2 : index%2 ? 2 : 1
-    let modifier = isOdd + isIndexOdd;
-    let radius = this.randomizer(( itemSize + parentRadius)*(modifier/2), (itemSize + parentRadius))* modifier;
-    let posX = (radius * Math.cos(ANGLEINRADIANT * start) + parentRadius) -itemSize/2;
-    let posY = (radius * Math.sin(ANGLEINRADIANT * start) + parentRadius) -itemSize/2;
-    let svgLine = this.drawSvgLine( itemSize, posX, posY, parentRadius);
-
-    return {itemPos: {'top' : posY+'px', 'left' : posX+'px'}, lineSvg : svgLine};
-  }
-  private randomizer(min, max){
-    return Math.random() * (max - min) + min;
-  }
-  private calcItemSize(items: MenuItem[]){
+  private getSizeOfItems(items: MenuItem[]){
     let itemSize = [];
     for(let item of items){
       let level = item.percentage ? item.itemLevel : 3
@@ -83,12 +40,73 @@ export class ItemService {
     }
     return itemSize;
   }
-  private styleItem(position, size, background){
+
+  private getStartPointOnArc(firstItem, firstItemSize, parentIndex, depth){
+    return firstItem.category === Category.Tech
+    ? firstItem.category + firstItemSize + parentIndex * 10 + depth * 20
+    : (firstItem.category + firstItemSize - parentIndex *10) - (depth-1) *5;
+  }
+
+  private addElementsToMap(items, itemMap, sizeOfItems,parentRadius, depth){
+    for(let [index, item] of items.entries()){
+      let itemSize = sizeOfItems[index];
+      let positions = this.calculatePosition(itemSize, parentRadius, depth, index, item.category);
+      let itemPosition = positions.itemPos;
+      let svgPosition = positions.lineSvg;
+      let style = this.getItemStyleObject(itemPosition, itemSize, item.imageUrl);
+
+      itemMap.set(item, {style, svgPosition});
+
+      this.start+= this.getDistanceOfNextItemOnArc(item.category, depth, sizeOfItems, index);
+    }
+  }
+
+  private calculatePosition(itemSize, parentRadius, depth, index, category){
+    let radius = this.getDistanceBetweenItemAndParent(depth, category, index, itemSize, parentRadius);
+    let posX = (radius * Math.cos(ANGLEINRADIANT * this.start) + parentRadius) ;
+    let posY = (radius * Math.sin(ANGLEINRADIANT * this.start) + parentRadius) ;
+    let svgLine = this.getSvgLinePath( itemSize, posX, posY, parentRadius);
+
+    return {itemPos: {'top' : posY+'px', 'left' : posX+'px'}, lineSvg : svgLine};
+  }
+
+  private getItemStyleObject(position, size, background){
     return {'top' : position.top, 'left' : position.left, 'width' : size+'px', 'height' : size+'px', 'background-image' : `url('${background}')`}
   }
-  public drawSvgLine(size, x, y, parentRadius){
-    let proba1 = `M ${parentRadius},${parentRadius} L ${x+size/2}, ${y+size/2}`;
-    return proba1;
+
+  private getDistanceOfNextItemOnArc(category, depth, sizeOfItems, index){
+    let sizeOfItem = sizeOfItems[index];
+    let sizeOfNext = sizeOfItems[index+1];
+
+    if(category === Category.Tech){
+      let modifier = 1.2/(depth+1);
+      let min = sizeOfItem + sizeOfNext;
+      let max = (sizeOfItem*2.5 + sizeOfNext) * modifier;
+      return this.getRandomNumber(min, max);
+    }else{
+      let modifier = (depth*0.9);
+      let min = (sizeOfItem + sizeOfNext)/1.4;
+      let max = (sizeOfItem + sizeOfNext) * modifier;
+      return this.getRandomNumber(min, max);
+    }
+  }
+
+  private getDistanceBetweenItemAndParent(depth, category, index, itemSize, parentRadius){
+    let isOdd = depth%2 ? 1 : 2.5
+    let isIndexOdd = category === Category.Tech ? index%2 ? 1 : 1.8 : index%2 ? 1.5 : 0.8
+    let modifier = isOdd + isIndexOdd;
+    let min = (itemSize + parentRadius) * (modifier/2);
+    let max = itemSize + parentRadius;
+    let radius = (Math.random() * (max - min) + min) * modifier;
+    return radius
+  }
+
+  private getRandomNumber(min, max){
+    return Math.random() * (max - min) + min;
+  }
+
+  private getSvgLinePath(size, x, y, parentRadius){
+    return `M ${parentRadius},${parentRadius} L ${x+size/2}, ${y+size/2}`;
   }
 
 }

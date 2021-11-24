@@ -21,7 +21,7 @@
   filter: blur(103px)
 }
 .title{
-  font-size: min(14em, 22vw);
+  font-size: min(16em, 22vw);
   color: rgb(0, 0, 32);
   font-weight: bold;
   background: radial-gradient(farthest-side at 50% 100%, rgb(2, 55, 79) 60%,rgb(1, 9, 26) 120%);

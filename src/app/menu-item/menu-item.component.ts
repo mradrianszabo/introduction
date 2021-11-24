@@ -29,7 +29,7 @@ export class MenuItemComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if(!!this.menuItem.subItems.length){
-      this.itemMap = this.itemService.getMapToItems(this.menuItem.subItems, this.parentRadius, this.index, this.depth);
+      this.itemMap = this.itemService.getPositionOfSubitems(this.menuItem.subItems, this.parentRadius, this.index, this.depth);
     }
 
   }

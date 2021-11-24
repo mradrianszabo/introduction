@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  min-height: 100vh;
   position: relative;
   z-index: 1;
 }
@@ -25,15 +24,37 @@ background-color: rgb(24, 33, 50);
 
 .background{
   position: relative;
+  min-height: 100vh;
+  transform-origin: 50% 0%;
 }
 .background::after{
   content: '';
   width: 100vw;
-  height:101%;
+  height:100%;
   position: absolute;
   top: 0;
   left: 0;
   background:  url('/assets/images/codeBg06.png') center/600px 200px repeat;
   opacity: 0.05;
   filter: grayscale(1);
+}
+
+@media screen and (max-width: 1165px){
+
+}
+
+@media screen and (min-width: 1366px){
+  .background{
+    transform: scale(1.2);
+  }
+}
+@media screen and (min-width: 1920px){
+  .background{
+    transform: scale(1.4);
+  }
+}
+@media screen and (min-width: 2560px){
+  .background{
+    transform: scale(1.7);
+  }
 }

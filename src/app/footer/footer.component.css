@@ -3,21 +3,24 @@
 .container{
   width: min(100vw, 800px);
   height: 200px;
-  position: relative;
-  bottom:-15px;
+  position: absolute;
+  bottom:0;
+  left: 50%;
   z-index: 1;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   background-color: #121a28;
-  margin: 0 auto;
+  transform: translateX(-50%);
   margin-top: 100px;
   border-radius: 10px 10px 0 0;
   border: 1px solid #76c6ef;
   border-width: 5px 0 0 5px;
   box-sizing: border-box;
 }
+
+
 .links{
   display: flex;
   flex-flow: row nowrap;
@@ -67,4 +70,11 @@
   margin: 0 auto;
 }
 
+
+.footerBody{
+  width: 800px;
+  height: 300px;
+  position: relative;
+  opacity: 0;
+}
 

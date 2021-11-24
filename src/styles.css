@@ -9,6 +9,7 @@
 body{
   background-color: rgb(5, 11, 23);
   overflow-x: hidden;
+  min-height: 100vh
 }
 
 ::-webkit-scrollbar{

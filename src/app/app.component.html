@@ -1,14 +1,14 @@
 <div class="background">
-  <app-header></app-header>
 
-  <div class="container">
-    <div [ngClass]="{'menu' : true, 'menuExpanded' : this.menuStatus}" [@routerAnimations]="prepareRoute(outlet)" [@expand]="menuStatus" >
+    <app-header></app-header>
+
+    <div class="container">
+      <div [ngClass]="{'menu' : true, 'menuExpanded' : this.menuStatus}" [@routerAnimations]="prepareRoute(outlet)" [@expand]="menuStatus" >
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
     <app-rating-list></app-rating-list>
   </div>
-
   <app-footer></app-footer>
+  <app-notification></app-notification>
+  <app-pdf-viewer [pdfData]="pdfData"></app-pdf-viewer>
 </div>
-<app-notification></app-notification>
-<app-pdf-viewer [pdfData]="pdfData"></app-pdf-viewer>
