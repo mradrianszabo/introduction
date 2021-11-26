@@ -29,10 +29,10 @@ export class RateMeComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit(): void {
-    this.setIsScreenSmall();console.log('init run')
+    this.setIsScreenSmall();
   }
   ngOnDestroy(): void {
-    //this.resolutionSubscription.unsubscribe();
+    this.resolutionSubscription.unsubscribe();
   }
 
   public submit(form){
@@ -55,7 +55,7 @@ export class RateMeComponent implements OnInit, OnDestroy {
 
   private setIsScreenSmall(){
     //this.resolutionSubscription = this.resolutionService.isScreenSmall.subscribe(data=>{this.isScreenSmall = data; console.log('data a subba: ', data)})
-    this.screenObs = this.resolutionService.isScreenSmall.asObservable();
+    this.resolutionSubscription = this.resolutionService.innerWidth.subscribe(data=>console.log(this.isScreenSmall = data > 1000 ? false : true));
   }
 
 

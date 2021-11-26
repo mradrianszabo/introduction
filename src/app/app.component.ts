@@ -36,7 +36,6 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     this.observeResolution();
     this.subscribeMenuStatus();
-    console.log('compi: ', this.isScreenSmall)
     this.pdfService.pdfData.subscribe(params=>this.pdfData = params);
   }
 
@@ -44,7 +43,6 @@ export class AppComponent implements OnInit{
   observeResolution(){
     this.isScreenSmall = window.innerWidth <=1000 ? true : false;
     this.isScreenSmall ? this.menuStatusSubscription?.unsubscribe() : this.subscribeMenuStatus();
-    this.resolutionService.setScreenSize(this.isScreenSmall);
   }
 
   private subscribeMenuStatus(){

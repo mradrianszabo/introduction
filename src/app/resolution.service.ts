@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { EventManager } from '@angular/platform-browser';
+import { BehaviorSubject, Observable, fromEvent, Subject } from 'rxjs';
+import { map, pluck, distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResolutionService {
-  public isScreenSmall : Subject<boolean>;
-  public small : boolean;
-
+  innerWidth: Observable<number>;
   constructor() {
-    this.isScreenSmall = new Subject();
-   }
+      let sizeOfWindows = new BehaviorSubject(getWindowSize());
 
-   sendScreenSize(isScreenSmall : boolean){
-    this.isScreenSmall.next(isScreenSmall);
-    console.log('servi: ', isScreenSmall)
-   }
+      this.innerWidth = (sizeOfWindows.pipe(map(data=>data.width))).pipe(distinctUntilChanged());
 
-   setScreenSize(isScreenSmall : boolean){
-    this.small = isScreenSmall;
-    this.sendScreenSize(this.small)
-   }
+          fromEvent(window, 'resize').pipe(
+          map(getWindowSize))
+          .subscribe(sizeOfWindows);
+  }
 
-   getScreenObs(){
-     return this.isScreenSmall.asObservable();
-   }
 }
+
+function getWindowSize() {
+  return {
+      width: window.innerWidth
+
+  };
+  }

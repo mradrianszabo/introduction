@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { GENERAL_ANIMATION } from '../animations/general-animation';
 import { RATING_ANIMATION } from '../animations/rating-animation';
 import { Rating } from '../rate-me/rating';
@@ -20,10 +20,11 @@ export class RatingListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRatings()
-    //setInterval(()=>console.log("ratings",this.ratings), 3000)
+
   }
 
   getRatings(){
+    this.ratingService.refreshRatings();
     this.ratings = this.ratingService.getRatings;
   }
 
