@@ -48,3 +48,37 @@
     -webkit-text-stroke-width: 0;
   }
 }
+
+@media screen and (max-width: 1000px){
+  .title2{
+    letter-spacing:normal;
+    font-size: 5vw;
+    letter-spacing: 7px;
+    top: 50%;
+    color: #ffffff30;
+    font-weight: bold;
+  }
+  .title{
+    font-size: 8vw;
+    background: radial-gradient(closest-side at 55% 51%, rgb(2, 55, 79) 40%,rgb(1, 9, 26) 124%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    height: max-content;
+  }
+  .header::before{
+    width: 30vw;
+    height: 150px;
+    transform: none;
+    top: 30vw;
+    background: radial-gradient(rgb(7, 138, 181) , rgb(10, 10, 10) 150%);
+
+  }
+  .header{
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    width: max-content;
+    position:absolute;
+    left: 20px;
+    top: 600px;
+  }
+}

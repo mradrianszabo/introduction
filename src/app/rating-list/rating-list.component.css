@@ -6,14 +6,15 @@ p{
 }
 
 .container{
-
+  margin-bottom: 200px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   padding: 10px;
-  width: 650px;
+  width: min(700px, 100vw);
   border-radius: 10px;
   background-color: #182132;
+  margin: 0 auto;
   margin-top: 50px;
   max-height: 80vh;
   overflow: auto;
@@ -71,4 +72,19 @@ app-rating-indicator{
 }
 .ratingPoint{
   width: 40px;
+}
+.odd{
+  background-color: #1b273c;
+}
+
+@media screen and (max-width: 650px){
+  .header{
+    flex-flow: column wrap;
+    align-items: center;
+    height: 160px;
+  }
+  .container{
+    padding: 0;
+    overflow-x: hidden;
+  }
 }

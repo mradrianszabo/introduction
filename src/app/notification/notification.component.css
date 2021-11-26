@@ -1,5 +1,6 @@
 .container{
-  width: 500px;
+  width: min(520px, 100vw);
+  box-sizing: border-box;
   min-height: 110px;
   padding: 5px 20px;
   font-size: 1.2em;
@@ -43,5 +44,11 @@ img{
 @media screen and (min-width: 2560px){
   .container{
     transform: scale(1.7);
+  }
+}
+
+@media screen and (max-width: 520px){
+  .container{
+    left: 0;
   }
 }

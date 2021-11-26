@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { GENERAL_ANIMATION } from '../animations/general-animation';
 import { RATING_ANIMATION } from '../animations/rating-animation';
+import { ResolutionService } from '../resolution.service';
 import { NotificationService } from '../services/notification.service';
 import { RatingService } from '../services/rating.service';
 import { Rating } from './rating';
@@ -15,15 +17,22 @@ import { Rating } from './rating';
     RATING_ANIMATION.raiseCheckbox
   ]
 })
-export class RateMeComponent implements OnInit {
+export class RateMeComponent implements OnInit, OnDestroy {
 
   public rating : Rating = new Rating();
+  public isScreenSmall : boolean;
+  public resolutionSubscription : Subscription;
+  public screenObs : Observable<boolean>;
 
-  constructor(private rateMeService : RatingService, private notification: NotificationService, private router : Router) {
+  constructor(private rateMeService : RatingService, private notification: NotificationService, private router : Router, private resolutionService : ResolutionService) {
     rateMeService.getRating.subscribe(data=>this.rating[data.name] = data.point);
    }
 
   ngOnInit(): void {
+    this.setIsScreenSmall();console.log('init run')
+  }
+  ngOnDestroy(): void {
+    //this.resolutionSubscription.unsubscribe();
   }
 
   public submit(form){
@@ -44,6 +53,10 @@ export class RateMeComponent implements OnInit {
     return false;
   }
 
+  private setIsScreenSmall(){
+    //this.resolutionSubscription = this.resolutionService.isScreenSmall.subscribe(data=>{this.isScreenSmall = data; console.log('data a subba: ', data)})
+    this.screenObs = this.resolutionService.isScreenSmall.asObservable();
+  }
 
 
 }

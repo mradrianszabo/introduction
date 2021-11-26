@@ -10,9 +10,9 @@ export const ROUTER_ANIMATION = {
       query(':leave',[
         style({
           position: 'absolute',
-          top: '50%',
+          top: '{{positionValue}}%',
           left:'50%',
-          transform: 'translate(-50%, -50%)',
+          transform: 'translate(-50%, -{{positionValue}}%)',
         }),
       ]),
       query(':enter',[
@@ -70,9 +70,9 @@ export const ROUTER_ANIMATION = {
       query(':enter',[
         style({
           position: 'absolute',
-          top: '50%',
+          top: '{{positionValue}}%',
           left: '-50%',
-          transform: 'translate(-50%, -50%)'
+          transform: 'translate(-50%, {{positionValue}}%)'
         }),
       ]),
       group([
@@ -84,8 +84,8 @@ export const ROUTER_ANIMATION = {
         query(':enter', [
           animate('500ms ease', style({
             left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)'
+            top: '{{positionValue}}%',
+            transform: 'translate(-50%, {{positionValue}}%)'
           })),
         ]),
       ]),

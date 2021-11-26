@@ -97,3 +97,51 @@ span, p{
   justify-content: flex-start;
 }
 
+.mobileView{
+  display: none;
+}
+@media screen and (max-width: 1000px){
+  .container{
+    display: none;
+  }
+  .mobileView{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  .hero{
+    width:100vw;
+    height:500px;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to right bottom, #121a28, rgb(246, 26, 151))
+  }
+  .profilePic{
+    background: url('../../assets/images/profilePic.jpg') center/cover no-repeat;
+    width:130%;
+    height:300px;
+    border-radius: 50% 50% 0 0;
+  }
+
+  .titleBox, .about{
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .titleBox{
+    margin-top: 20px;
+  }
+  .about{
+    width: 80vw;
+    display: inline-block;
+  }
+
+  article{
+    width: 100vw;
+    height: 500px;
+  }
+}

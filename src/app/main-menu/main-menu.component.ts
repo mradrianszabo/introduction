@@ -16,7 +16,6 @@ import { SideMenuCard } from '../side-menu-card/side-menu-card';
   styleUrls: ['./main-menu.component.css'],
   animations: [
     MENU_ITEM_ANIMATION.expand,
-   // MENU_ANIMATION.cardContainer,
     GENERAL_ANIMATION.fade,
   ]
 })

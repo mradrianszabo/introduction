@@ -20,6 +20,7 @@ export class RatingListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRatings()
+    //setInterval(()=>console.log("ratings",this.ratings), 3000)
   }
 
   getRatings(){

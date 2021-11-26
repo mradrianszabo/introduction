@@ -48,3 +48,39 @@
 .cardSvg{
   overflow: visible;
 }
+
+
+@media screen and (max-width: 1000px){
+  .card::before{
+    display: none;
+  }
+  .cardInner{
+    width: 100px;
+    transform: none;
+  }
+  .card{
+    background: none;
+    display: flex;
+  }
+  svg{
+    height: 35px;
+  }
+  span{
+    font-size: 0.8em;
+    color: rgb(246, 26, 151);
+    color: rgb(110, 202, 255);
+  }
+  .cardInner::before{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color:#182132;
+    z-index: -1;
+  }
+
+}

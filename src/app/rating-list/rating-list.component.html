@@ -1,7 +1,7 @@
 
 
 <div class="container" [@fade]>
-  <div class="rating" *ngFor="let rating of ratings | async" [@fade]>
+  <div *ngFor="let rating of ratings | async; let i = index;" [@fade] [ngClass]="{'rating' : true, 'odd' : (i+1)%2}">
 
     <div class="header">
       <p>{{rating.nickName}}</p>

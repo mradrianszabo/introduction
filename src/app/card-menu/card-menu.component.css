@@ -4,6 +4,15 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   position: relative;
-  width: 350px;
+  width: min(350px, 100vw);
+}
+
+@media screen and (max-width: 1000px){
+.cardContainer{
+  background-color: #121a28;
+  border-radius: 10px;
+  transform: translateY(-50%);
+  justify-content: space-evenly;
+}
 }
 

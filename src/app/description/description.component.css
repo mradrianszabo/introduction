@@ -43,6 +43,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-flow: row wrap;
   padding: 10px;
   border-radius: 10px;
   margin-left: 15px;
@@ -77,10 +78,11 @@
 
 .selectedItemProperties{
   font-family: Impact, Charcoal, sans-serif;
-  height: 100px;
+  height: max-content;
   width: 200px;
   border-radius: 10px;
   position: relative;
+  align-self: flex-start;
   z-index: 1;
 }
 .description{
@@ -126,4 +128,21 @@
   align-items: center;
   width: max-content;
   align-self: center;
+}
+
+
+@media screen and (max-width: 1000px){
+  .container{
+    height: max-content;
+  }
+  .selectedItemCard{
+    margin-bottom: 10px;
+  }
+  .textDescription{
+    margin: 20px 0 0 15px;
+    align-self: initial;
+    width: initial;
+    max-width: 86%;
+  }
+
 }
