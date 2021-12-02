@@ -1,0 +1,3 @@
+<div class="container" *ngIf="tileList">
+    <app-tile class="tile" *ngFor="let tile of tileList; let i = index;" [tile]="tile" [index]="i" [ngClass]="{'tile' : true, 'tileOdd' : (i + 1) % 2}"></app-tile>
+</div>

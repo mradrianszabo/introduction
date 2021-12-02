@@ -17,6 +17,7 @@ p{
   margin: 0 auto;
   margin-top: 50px;
   max-height: 80vh;
+  min-height: 400px;
   overflow: auto;
 }
 .indicator{
@@ -86,5 +87,8 @@ app-rating-indicator{
   .container{
     padding: 0;
     overflow-x: hidden;
+    margin-bottom: 200px;
+    border: solid #182132;
+    border-width: 5px 0;
   }
 }

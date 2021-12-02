@@ -1,11 +1,11 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { GENERAL_ANIMATION } from './animations/general-animation';
 import { MENU_ANIMATION } from './animations/menu-animation';
 import { ROUTER_ANIMATION } from './animations/router-animation';
 import { PdfData, PdfService } from './pdf.service';
-import { ResolutionService } from './resolution.service';
+import { ResolutionService } from './services/resolution.service';
 import { MenuService } from './services/menu.service';
 
 @Component({
@@ -25,6 +25,7 @@ export class AppComponent implements OnInit{
   public pdfData: PdfData;
   public isScreenSmall: boolean;
   public menuStatusSubscription : Subscription;
+  public innerWidthSubscription : Subscription;
 
   constructor(private menuService : MenuService, private pdfService : PdfService, private resolutionService : ResolutionService){
   }
@@ -34,19 +35,11 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.observeResolution();
-    this.subscribeMenuStatus();
+    this.innerWidthSubscription = this.resolutionService.innerWidth.subscribe(data=>this.isScreenSmall = data < 1000 ? true : false);
+    this.menuStatusSubscription = this.menuService.menuStatus.subscribe(param=>this.menuStatus = param);
     this.pdfService.pdfData.subscribe(params=>this.pdfData = params);
   }
 
-  @HostListener('window:resize', ['$event'])
-  observeResolution(){
-    this.isScreenSmall = window.innerWidth <=1000 ? true : false;
-    this.isScreenSmall ? this.menuStatusSubscription?.unsubscribe() : this.subscribeMenuStatus();
-  }
 
-  private subscribeMenuStatus(){
-    this.menuStatusSubscription = this.menuService.menuStatus.subscribe(param=>this.menuStatus = param);
-  }
 
 }

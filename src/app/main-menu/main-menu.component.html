@@ -8,11 +8,11 @@
     </ul>
   </div>
 
-  <section class="header" *ngIf="!menu?.isOpen">
+  <section class="header" *ngIf="!menu?.isOpen" [@fade]>
 
   <app-card-menu></app-card-menu>
 
-  <div class="titleBox" [@fade] *ngIf="!menu?.isOpen">
+  <div class="titleBox">
     <p class="name">Szabó Adrián</p>
     <p class="title">Front-End Developer</p>
   </div>
@@ -29,6 +29,16 @@
     <ng-container *ngIf="!!itemSummary">
       <app-item-summary [summaryData]="itemSummary"></app-item-summary>
     </ng-container>
+
+
+    <div class="mapLabels" *ngIf="menu?.isOpen" [@fade]>
+      <span class="mapLabel">Tech Stack</span>
+      <div class="rightSide">
+        <span class="mapLabel">Personal</span>
+        <span class="mapLabel">Desired</span>
+      </div>
+    </div>
+
     </div>
 
 
@@ -42,17 +52,10 @@
     <div class="profilePic"></div>
   </div>
   <app-card-menu></app-card-menu>
-  <app-header></app-header>
-  <article></article>
+  <div class="middle">
+    <app-header></app-header>
+    <app-tile-list></app-tile-list>
+  </div>
+  <app-footer></app-footer>
 </div>
 
-<!--
-
-        <div class="titleBox">
-        <p class="name">Szabó Adrián</p>
-        <p class="title">Front-End Developer</p>
-      </div>
-      <span class="about" *ngIf="!menu?.isOpen" [@fade]>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ad reprehenderit tenetur deleniti, sequi nulla inventore praesentium fugit officiis, itaque facilis! Odit, provident nesciunt! Itaque, iusto! Cumque a magnam quo?
-        Incidunt aut laboriosam, impedit blanditiis, neque illo at tempora et culpa iure unde cupiditate, magni maxime quam quisquam facilis cum. Quaerat nulla ab mollitia provident, quod amet temporibus autem totam!</span>
-
- -->

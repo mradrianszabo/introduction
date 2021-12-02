@@ -116,8 +116,10 @@ public setMenuAsOpened(){
     this.emitMenuStatus(true);
 }
 public setMenuAsClosed(){
-  this.mainMenu.isOpen = false;
-  this.emitMenuStatus(false);
+  if(this.mainMenu){
+    this.mainMenu.isOpen = false;
+    this.emitMenuStatus(false);
+  }
 }
 
 nextSummary(summaryData){

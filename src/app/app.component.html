@@ -1,16 +1,18 @@
 <div class="background">
+  <app-header *ngIf="!isScreenSmall"></app-header>
   <div class="container">
-    <app-header *ngIf="!isScreenSmall"></app-header>
-    <div [ngClass]="{'menu' : !isScreenSmall, 'menuExpanded' : this.menuStatus && !isScreenSmall, 'mobileView' : isScreenSmall}" [@routerAnimations]="{value : prepareRoute(outlet), params : {positionValue : isScreenSmall ? 0 : 50}}" [@expand]="menuStatus" >
+    <div [ngClass]="{'menu' : !isScreenSmall, 'menuExpanded' : menuStatus && !isScreenSmall, 'mobileView' : isScreenSmall}" [@routerAnimations]="{value : prepareRoute(outlet), params : {positionValue : isScreenSmall ? 0 : 50}}" [@expand]="menuStatus" >
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
+    <app-tile-list *ngIf="!menuStatus && !isScreenSmall" [@fade]></app-tile-list>
     <app-rating-list  *ngIf="!isScreenSmall" ></app-rating-list>
-    <app-footer></app-footer>
+    <app-footer *ngIf="!isScreenSmall"></app-footer>
   </div>
 
 </div>
 
 
-
   <app-notification></app-notification>
   <app-pdf-viewer [pdfData]="pdfData"></app-pdf-viewer>
+
+

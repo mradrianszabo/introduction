@@ -33,19 +33,26 @@ export class FooterComponent implements OnInit {
       "social" : [
         {
           "link" : "Github",
-          "icon" : "/assets/images/githubLogo.png"
+          "icon" : "/assets/images/githubLogo2.png",
+          "url" : "//github.com"
         },
         {
           "link" : "Facebook",
-          "icon" : "/assets/images/facebookLogo.png"
+          "icon" : "/assets/images/facebookLogo2.png",
+          "url" : "//facebook.com"
         },
         {
           "link" : "LinkedIn",
-          "icon" : "/assets/images/linkedinLogo.png"
+          "icon" : "/assets/images/linkedinLogo2.png",
+          "url" : "//linkedin.com"
         }
       ],
       "qr" : "/assets/images/qr.png"
     }
+  }
+
+  action(url){
+    window.open(url, '_blank');
   }
 
 }

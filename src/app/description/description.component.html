@@ -1,5 +1,5 @@
 
-<div class="container" *ngIf="!!techFamily">
+<div class="container" *ngIf="!!selected">
 
     <div class="relatedItems" *ngIf="!!techFamily.length">
       <div class="itemCard" *ngFor="let item of techFamily; let i = index" (click)="clickCard(item, i)"   [@setNewSelected]="{value : item.isSelected, params : {verticalModifier : verticalPositionModifier}}">
@@ -23,6 +23,12 @@
         </div>
       </div>
 
+      <div *ngIf="isSmall" class="techCategories">
+        <div class="itemCard" *ngFor="let item of categories" (click)="setCategory(item)">
+          <img [attr.src]="item.imageUrl" alt="">
+        </div>
+      </div>
+
       <div class="textDescription">
         {{selected?.description}}
 
@@ -33,4 +39,3 @@
       </div>
     </div>
   </div>
-

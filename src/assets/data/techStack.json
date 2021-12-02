@@ -15,7 +15,7 @@
       "percentage" : 0,
       "itemLevel" : 1,
       "category" : 90,
-      "imageUrl" : null,
+      "imageUrl" : "/assets/images/techLogo2.png",
       "isOpen" : true,
       "isInspected" : false,
       "isSelected" : false,
@@ -219,7 +219,7 @@
       "percentage" : 0,
       "itemLevel" : 1,
       "category" : -70,
-      "imageUrl" : "/assets/images/personalLogo.png",
+      "imageUrl" : "/assets/images/personalLogo2.png",
       "isOpen" : true,
       "isInspected" : false,
       "isSelected" : false,
@@ -236,12 +236,12 @@
           "isSelected" : false,
           "subItems" : [
             {
-              "name" : "Crypto",
+              "name" : "TaiChi",
               "description" : "none",
               "percentage" : 50,
               "itemLevel" : 1,
               "category" : -70,
-              "imageUrl" : "/assets/images/cryptoLogo.png",
+              "imageUrl" : "/assets/images/taichiLogo.png",
               "isOpen" : true,
               "isInspected" : false,
               "isSelected" : false,
@@ -303,7 +303,7 @@
               "subItems" : [
 
               ],
-              "fileUrl" : "/assets/data/sample.pdf"
+              "fileUrl" : "/assets/data/cv_szabo_adrian.pdf"
             },
             {
               "name" : "Motivation",
@@ -318,7 +318,7 @@
               "subItems" : [
 
               ],
-              "fileUrl" : "/assets/data/sample.pdf"
+              "fileUrl" : "/assets/data/cv_szabo_adrian.pdf"
             }
           ]
         }
@@ -330,7 +330,7 @@
       "percentage" : 0,
       "itemLevel" : 1,
       "category" : 0,
-      "imageUrl" : null,
+      "imageUrl" : "/assets/images/futureLogo2.png",
       "isOpen" : true,
       "isInspected" : false,
       "isSelected" : false,
@@ -338,8 +338,8 @@
         {
           "name" : "Javascript Related",
           "description" : "none",
-          "percentage" : 50,
-          "itemLevel" : 2,
+          "percentage" : 0,
+          "itemLevel" : 1,
           "category" : 0,
           "imageUrl" : "/assets/images/jsLogo.png",
           "isOpen" : true,
@@ -383,6 +383,20 @@
           "itemLevel" : 1,
           "category" : 0,
           "imageUrl" : "/assets/images/golangLogo.png",
+          "isOpen" : true,
+          "isInspected" : false,
+          "isSelected" : false,
+          "subItems" : [
+
+          ]
+        },
+        {
+          "name" : "Dart",
+          "description" : "none",
+          "percentage" : 0,
+          "itemLevel" : 1,
+          "category" : 0,
+          "imageUrl" : "/assets/images/dartLogo.png",
           "isOpen" : true,
           "isInspected" : false,
           "isSelected" : false,

@@ -1,0 +1,10 @@
+<div *ngIf="tile" [ngClass]="{'container' : true, 'containerOdd' : (index + 1) %2}" (click)="callAction()">
+  <h1>{{index + 1}}. Lépés</h1>
+  <div [ngClass]="{'content' : true, 'contentOdd' : (index + 1) %2}">
+    <img [attr.src]="tile.imageUrl" alt="">
+    <div class="text">
+      <h2>{{tile.title}}</h2>
+      <span>{{tile.description}}</span>
+    </div>
+  </div>
+</div>

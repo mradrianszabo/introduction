@@ -1,0 +1,42 @@
+[
+  {
+    "title" : "Mihez értek",
+    "imageUrl" : "/assets/images/techLogo.png",
+    "description" : "Tudd meg, hogy szakmailag én vagyok-e, akit keresel.",
+    "action" : {
+      "type" : "openMenu",
+      "url" : ""
+    },
+    "mobileAction" : {
+      "type" : "move",
+      "url" : "tech"
+    }
+  },
+  {
+    "title" : "Ki vagyok",
+    "imageUrl" : "/assets/images/personalLogo.png",
+    "description" : "Ismerj meg jobban és szerezd meg az önéletrajzom.",
+    "action" : {
+      "type" : "move",
+      "url" : "personal"
+    }
+  },
+  {
+    "title" : "Mit tanulnék",
+    "imageUrl" : "/assets/images/futureLogo.png",
+    "description" : "Nézd meg milyen technológiákkal foglalkoznék a jövőben.",
+    "action" : {
+      "type" : "move",
+      "url" : "future"
+    }
+  },
+  {
+    "title" : "Még több",
+    "imageUrl" : "/assets/images/moreLogo.png",
+    "description" : "Szeretnél még több kódot? További projekteket találsz a github oldalamon.",
+    "action" : {
+      "type" : "open",
+      "url" : "//github.com"
+    }
+  }
+]

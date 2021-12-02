@@ -39,7 +39,6 @@ background-color: rgb(24, 33, 50);
   filter: grayscale(1);
 }
 
-
 @media screen and (min-width: 1366px){
   .background{
     transform: scale(1.2);
@@ -58,10 +57,13 @@ background-color: rgb(24, 33, 50);
 
 @media screen and (max-width: 1000px){
   .container{
-  min-height: 100vh;
-  justify-content: space-between;
+  min-height: calc(100vh + 170px);
   }
   .mobileView{
     width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
   }
 }

@@ -74,7 +74,7 @@
 </form>
 
 </div>
-<ng-container  *ngIf="isScreenSmall">
+<ng-container  *ngIf="(innerWidth | async) < 1000">
 
   <app-rating-list></app-rating-list>
 </ng-container>

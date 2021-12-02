@@ -12,7 +12,7 @@
     </li>
   </ul>
   <ul class="social">
-    <li *ngFor="let item of footerData.social">
+    <li *ngFor="let item of footerData.social" (click)="action(item.url)">
       <img [attr.src]="item.icon" alt="">
     </li>
   </ul>

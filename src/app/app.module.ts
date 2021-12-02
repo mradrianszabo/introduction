@@ -24,6 +24,8 @@ import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 import { ButtonComponent } from './button/button.component';
 import { Page404Component } from './page404/page404.component';
 import { CardMenuComponent } from './card-menu/card-menu.component';
+import { TileListComponent } from './tile-list/tile-list.component';
+import { TileComponent } from './tile/tile.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { CardMenuComponent } from './card-menu/card-menu.component';
     PdfViewerComponent,
     ButtonComponent,
     Page404Component,
-    CardMenuComponent
+    CardMenuComponent,
+    TileListComponent,
+    TileComponent
   ],
   imports: [
     BrowserModule,

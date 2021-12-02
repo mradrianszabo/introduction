@@ -134,6 +134,7 @@
 @media screen and (max-width: 1000px){
   .container{
     height: max-content;
+    width: 100vw;
   }
   .selectedItemCard{
     margin-bottom: 10px;
@@ -144,5 +145,17 @@
     width: initial;
     max-width: 86%;
   }
-
+  .techCategories{
+    display: flex;
+    flex-flow: row wrap;
+    align-self: center;
+  }
+}
+@media screen and (max-width: 500px){
+  .selectedItem{
+   flex-flow : column nowrap;
+  }
+  .selectedItemCard{
+    align-self: flex-start;
+  }
 }

@@ -1,14 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { SideMenuCard } from '../side-menu-card/side-menu-card';
 import { MenuService } from './menu.service';
+import { ResolutionService } from './resolution.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardService {
 
-  constructor(private menuService : MenuService, private router: Router) { }
+  public isSmall : boolean;
+
+  constructor(private menuService : MenuService, private router: Router, private resolutionService : ResolutionService) {
+    this.resolutionService.innerWidth.subscribe(data=>this.isSmall = data < 1000 ? true : false);
+   }
 
   public getCards(){
     let cards = [];
@@ -16,7 +22,14 @@ export class CardService {
       new SideMenuCard(
         'Skill map',
         'skillMap',
-        ()=>{this.menuService.setMenuAsOpened()}
+        ()=>{
+          if(this.isSmall){
+            this.menuService.emitMenuStatus(true);
+            setTimeout(()=>this.router.navigate(['/description/tech']),500)
+          }else{
+            this.menuService.setMenuAsOpened();
+          }
+        }
         ),
       new SideMenuCard(
         'About me',
@@ -30,7 +43,9 @@ export class CardService {
         'Rate me',
         'rateMe',
         ()=>{
-          this.router.navigate(['/rateMe'])}
+          this.menuService.emitMenuStatus(true);
+          setTimeout(()=>this.router.navigate(['/rateMe']), 500)
+        }
       )
     )
     return cards;

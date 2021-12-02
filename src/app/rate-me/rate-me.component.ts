@@ -1,12 +1,13 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { GENERAL_ANIMATION } from '../animations/general-animation';
 import { RATING_ANIMATION } from '../animations/rating-animation';
-import { ResolutionService } from '../resolution.service';
+import { ResolutionService } from '../services/resolution.service';
 import { NotificationService } from '../services/notification.service';
 import { RatingService } from '../services/rating.service';
 import { Rating } from './rating';
+import { MenuService } from '../services/menu.service';
 
 @Component({
   selector: 'app-rate-me',
@@ -20,11 +21,9 @@ import { Rating } from './rating';
 export class RateMeComponent implements OnInit, OnDestroy {
 
   public rating : Rating = new Rating();
-  public isScreenSmall : boolean;
-  public resolutionSubscription : Subscription;
-  public screenObs : Observable<boolean>;
+  public innerWidth : Observable<number>;
 
-  constructor(private rateMeService : RatingService, private notification: NotificationService, private router : Router, private resolutionService : ResolutionService) {
+  constructor(private rateMeService : RatingService, private notification: NotificationService, private router : Router, private resolutionService : ResolutionService, private menuService : MenuService) {
     rateMeService.getRating.subscribe(data=>this.rating[data.name] = data.point);
    }
 
@@ -32,7 +31,7 @@ export class RateMeComponent implements OnInit, OnDestroy {
     this.setIsScreenSmall();
   }
   ngOnDestroy(): void {
-    this.resolutionSubscription.unsubscribe();
+    setTimeout(()=>this.menuService.emitMenuStatus(false), 500);
   }
 
   public submit(form){
@@ -54,8 +53,7 @@ export class RateMeComponent implements OnInit, OnDestroy {
   }
 
   private setIsScreenSmall(){
-    //this.resolutionSubscription = this.resolutionService.isScreenSmall.subscribe(data=>{this.isScreenSmall = data; console.log('data a subba: ', data)})
-    this.resolutionSubscription = this.resolutionService.innerWidth.subscribe(data=>console.log(this.isScreenSmall = data > 1000 ? false : true));
+    this.innerWidth = this.resolutionService.getInnerWidth();
   }
 
 
