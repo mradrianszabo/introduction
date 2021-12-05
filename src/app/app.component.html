@@ -1,18 +1,11 @@
 <div class="background">
   <app-header *ngIf="!(isMobile | async)"></app-header>
-  <div class="container">
-    <div [ngClass]="{'menu' : !(isMobile | async), 'menuExpanded' : menuStatus && !(isMobile | async), 'mobileView' : isMobile | async}" [@routerAnimations]="{value : prepareRoute(outlet), params : {positionValue : (isMobile | async) ? 0 : 50}}" [@expand]="menuStatus" >
-      <router-outlet #outlet="outlet"></router-outlet>
-    </div>
-    <app-tile-list *ngIf="!menuStatus && !(isMobile | async)" [@fade]></app-tile-list>
-    <app-rating-list  *ngIf="!(isMobile | async)" ></app-rating-list>
-    <app-footer *ngIf="!(isMobile | async)"></app-footer>
+  <div class="container" [@routerAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+    <app-footer></app-footer>
   </div>
-
 </div>
 
 
-  <app-notification></app-notification>
-  <app-pdf-viewer></app-pdf-viewer>
-
-
+<app-notification></app-notification>
+<app-pdf-viewer></app-pdf-viewer>

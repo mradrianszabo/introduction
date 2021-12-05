@@ -21,11 +21,9 @@ import { MenuService } from './services/menu.service';
 export class AppComponent implements OnInit{
 
   title = 'introduction';
-  public menuStatus: boolean = false;
-  public menuStatusSubscription : Subscription;
   public isMobile : Observable<boolean>;
 
-  constructor(private menuService : MenuService, private resolutionService : ResolutionService){
+  constructor(private resolutionService : ResolutionService){
   }
 
   prepareRoute(outlet: RouterOutlet){
@@ -33,7 +31,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.menuStatusSubscription = this.menuService.menuStatus.subscribe(param=>this.menuStatus = param);
     this.isMobile = this.resolutionService.getIsMobile()
   }
 

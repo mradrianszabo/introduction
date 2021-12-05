@@ -27,3 +27,8 @@
     @content;
   }
 }
+@mixin _4k{
+  @media (min-width: 3840px){
+    @content;
+  }
+}

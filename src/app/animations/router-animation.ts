@@ -1,21 +1,21 @@
 import { animate, animateChild, query, stagger, style, transition, trigger, group, sequence, animation, useAnimation } from "@angular/animations";
 
 const toTechMap = animation([
+  style({minHeight: '200vh'}),
   query(':leave',[
     style({
-      position: 'relative',
-      top: 0,
-      left: 0
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      width: '100%',
     }),
   ], {optional : true}),
   query(':enter',[
     style({
       position: 'absolute',
-      top: '{{positionValue}}%',
-      left: '-50%',
-      transform: 'translate(-50%, -{{positionValue}}%)',
+      top: '0',
+      left: '-100%',
       width: '100%',
-      height: '100%'
     }),
   ]),
   group([
@@ -26,9 +26,7 @@ const toTechMap = animation([
     ], {optional : true}),
     query(':enter', [
       animate('500ms ease', style({
-        left: '50%',
-        top: '{{positionValue}}%',
-        transform: 'translate(-50%, -{{positionValue}}%)'
+        left: '0',
       })),
     ]),
   ]),
@@ -38,33 +36,29 @@ export const ROUTER_ANIMATION = {
   fromTechMap:
 
   trigger('routerAnimations', [
-
     transition('techMap => *',[
+    style({minHeight: '200vh'}),
 
       query(':leave',[
         style({
           position: 'absolute',
-          top: '{{positionValue}}%',
-          left:'50%',
-          transform: 'translate(-50%, -{{positionValue}}%)',
-          width: '100%',
-          height: '100%',
+          top: '0',
+          left:'0',
+          width: '100%'
         }),
       ]),
       query(':enter',[
         style({
           position: 'absolute',
-          top: 0,
+          top: '0',
           left: '100%',
           width: '100%',
-          height: '100%',
-
         }),
       ]),
       group([
         query(':leave', [
             animate('500ms ease', style({
-              left: '-50%',
+              left: '-100%',
             }))
         ]),
         query(':enter', [
@@ -77,23 +71,6 @@ export const ROUTER_ANIMATION = {
       ]),
     ]),
 
-/*     transition('techMap => rateMe', [
-      query(':leave', [
-        style({opacity : 1, position: 'absolute', height: '100%', width: '100%'})
-      ]),
-      query(':enter', [
-        style({opacity: 0, position: 'absolute', height: '100%', width: '100%'})
-      ]),
-      sequence([
-        query(':leave',[
-          animate('500ms ease', style({opacity: 0}))
-        ]),
-        query(':enter', [
-          animate('500ms ease', style({opacity: 1}))
-        ])
-      ])
-    ]),
- */
     transition('selectedTech => techMap',[
       useAnimation(toTechMap)
     ]),

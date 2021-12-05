@@ -24,7 +24,6 @@ export class CardService {
         'skillMap',
         ()=>{
           if(this.isMobile){
-            this.menuService.emitMenuStatus(true);
             setTimeout(()=>this.router.navigate(['/description/tech']),500)
           }else{
             this.menuService.setMenuAsOpened();
@@ -35,7 +34,6 @@ export class CardService {
         'About me',
         'aboutMe',
         ()=>{
-          this.menuService.emitMenuStatus(true);
           setTimeout(()=>this.router.navigate(['/description/personal']),500)
         }
       ),
@@ -43,8 +41,8 @@ export class CardService {
         'Rate me',
         'rateMe',
         ()=>{
-          this.menuService.emitMenuStatus(true);
-          setTimeout(()=>this.router.navigate(['/rateMe']), 500)
+          setTimeout(()=> this.router.navigate(['/rateMe']),0)
+
         }
       )
     )

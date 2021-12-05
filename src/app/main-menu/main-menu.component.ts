@@ -34,8 +34,6 @@ export class MainMenuComponent implements OnInit {
 
   public toggleTechMap(){
     this.menu.isOpen = !this.menu.isOpen;
-    this.menuService.emitMenuStatus(this.menu.isOpen);
-    console.log(this.menu)
   }
 
 

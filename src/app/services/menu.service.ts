@@ -12,8 +12,6 @@ export class MenuService {
   private mainMenu: MenuItem;
   private selectionChainLength = 0;
   public itemSummary : Subject<any> = new Subject();
-  public menuStatus : EventEmitter<boolean> = new EventEmitter();
-
 
   constructor(private http : HttpClient) {
    }
@@ -68,7 +66,6 @@ public getSelectionLength(){
 public resetSelectionLength(){
   this.selectionChainLength = 0;
 }
- private parentResult;
 public getParent(selected, parent = this.mainMenu){
   if(parent.subItems.find(elem=>elem.name === selected.name)){
     return parent
@@ -108,19 +105,10 @@ public closeAll(item : MenuItem = this.mainMenu){
   }
 }
 
-public emitMenuStatus(status : boolean){
-  this.menuStatus.emit(status);
-}
 public setMenuAsOpened(){
     this.mainMenu.isOpen = true;
-    this.emitMenuStatus(true);
 }
-public setMenuAsClosed(){
-  if(this.mainMenu){
-    this.mainMenu.isOpen = false;
-    this.emitMenuStatus(false);
-  }
-}
+
 
 nextSummary(summaryData){
   this.itemSummary.next(summaryData);

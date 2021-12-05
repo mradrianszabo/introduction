@@ -18,20 +18,17 @@ import { MenuService } from '../services/menu.service';
     RATING_ANIMATION.raiseCheckbox
   ]
 })
-export class RateMeComponent implements OnInit, OnDestroy {
+export class RateMeComponent implements OnInit {
 
   public rating : Rating = new Rating();
   public isMobile : Observable<boolean>;
 
-  constructor(private rateMeService : RatingService, private notification: NotificationService, private router : Router, private resolutionService : ResolutionService, private menuService : MenuService) {
+  constructor(private rateMeService : RatingService, private notification: NotificationService, private router : Router, private resolutionService : ResolutionService) {
     rateMeService.getRating.subscribe(data=>this.rating[data.name] = data.point);
    }
 
   ngOnInit(): void {
     this.setIsScreenSmall();
-  }
-  ngOnDestroy(): void {
-    setTimeout(()=>this.menuService.emitMenuStatus(false), 500);
   }
 
   public submit(form){

@@ -29,7 +29,6 @@ export class TileService {
 
       if(action.type === "move"){
         return ()=>{
-        this.menuService.emitMenuStatus(true);
         setTimeout(()=>this.router.navigate([`/description/${action.url}`]),500);
       }
     }else if(action.type === "openMenu"){

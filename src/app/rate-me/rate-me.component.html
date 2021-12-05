@@ -1,80 +1,77 @@
 <div class="container">
 
-<form #form (submit)="submit(form)">
+  <form #form (submit)="submit(form)">
 
-<section class="identity">
+    <section class="identity">
 
-  <label for="nickName">
-    Becenév
-    <input type="text" name="nickName" [(ngModel)]="rating.nickName">
-  </label>
+      <label for="nickName">
+        Becenév
+        <input type="text" name="nickName" [(ngModel)]="rating.nickName">
+      </label>
 
-  <label for="isCodeChecked" class="checkboxContainer">
-    <input type="checkbox" name="isCodeChecked" #isCodeChecked [(ngModel)]="rating.isCodeChecked">
-    <span class="checkboxBorder"></span>
-    <span class="checkMark" *ngIf="isCodeChecked.checked" [@raise]></span>
-    <span class="checkboxLabel">
-      Belenéztem a kódba
-    </span>
-  </label>
+      <label for="isCodeChecked" class="checkboxContainer">
+        <input type="checkbox" name="isCodeChecked" #isCodeChecked [(ngModel)]="rating.isCodeChecked">
+        <span class="checkboxBorder"></span>
+        <span class="checkMark" *ngIf="isCodeChecked.checked" [@raise]></span>
+        <span class="checkboxLabel">
+          Belenéztem a kódba
+        </span>
+      </label>
 
-  <label for="isDeveloper" class="checkboxContainer">
-    <input type="checkbox" name="isDeveloper" #isDeveloper [(ngModel)]="rating.isDeveloper">
-    <span class="checkboxBorder"></span>
-    <span class="checkMark" *ngIf="isDeveloper.checked" [@raise]></span>
-    <span class="checkboxLabel">
-      Fejlesztő vagyok
-    </span>
-</label>
-</section>
+      <label for="isDeveloper" class="checkboxContainer">
+        <input type="checkbox" name="isDeveloper" #isDeveloper [(ngModel)]="rating.isDeveloper">
+        <span class="checkboxBorder"></span>
+        <span class="checkMark" *ngIf="isDeveloper.checked" [@raise]></span>
+        <span class="checkboxLabel">
+          Fejlesztő vagyok
+        </span>
+      </label>
+    </section>
 
 
 
-<section class="ratings">
-  <label for="design">
-    <input type="number" name="design" [(ngModel)]="rating.design" required min="1" max="10">
-    <span>
-      Design
-    </span>
-    <app-rating-indicator [name]="'design'"></app-rating-indicator>
-  </label>
-  <label for="usabilty">
-    <input type="number" name="usabilty" [(ngModel)]="rating.usability" required min="1" max="10">
-    <span>
-      Kezelhetőség
-    </span>
-    <app-rating-indicator [name]="'usability'"></app-rating-indicator>
-  </label>
-  <label for="overall">
-    <input type="number" name="overall" [(ngModel)]="rating.overall" required min="1" max="10">
-    <span>
-      Összkép
-    </span>
-    <app-rating-indicator [name]="'overall'"></app-rating-indicator>
-  </label>
-  <label for="code" *ngIf="rating.isCodeChecked" [@fade]>
-    <input type="number" name="code" [(ngModel)]="rating.code" min="1" max="10">
-    <span>
-      Kód
-    </span>
-    <app-rating-indicator [name]="'code'"></app-rating-indicator>
-  </label>
-</section>
+    <section class="ratings">
+      <label for="design">
+        <input type="number" name="design" [(ngModel)]="rating.design" required min="1" max="10">
+        <span>
+          Design
+        </span>
+        <app-rating-indicator [name]="'design'"></app-rating-indicator>
+      </label>
+      <label for="usabilty">
+        <input type="number" name="usabilty" [(ngModel)]="rating.usability" required min="1" max="10">
+        <span>
+          Kezelhetőség
+        </span>
+        <app-rating-indicator [name]="'usability'"></app-rating-indicator>
+      </label>
+      <label for="overall">
+        <input type="number" name="overall" [(ngModel)]="rating.overall" required min="1" max="10">
+        <span>
+          Összkép
+        </span>
+        <app-rating-indicator [name]="'overall'"></app-rating-indicator>
+      </label>
+      <label for="code" *ngIf="rating.isCodeChecked" [@fade]>
+        <input type="number" name="code" [(ngModel)]="rating.code" min="1" max="10">
+        <span>
+          Kód
+        </span>
+        <app-rating-indicator [name]="'code'"></app-rating-indicator>
+      </label>
+    </section>
 
-<section class="comment">
-  <label for="comment">Megjegyzés</label>
-  <textarea name="comment" id="" cols="30" rows="5" [(ngModel)]="rating.comment"></textarea>
-</section>
+    <section class="comment">
+      <label for="comment">Megjegyzés</label>
+      <textarea name="comment" id="" cols="30" rows="5" [(ngModel)]="rating.comment"></textarea>
+    </section>
 
-<section class="buttons">
-  <app-button type="warn" label="Mégse" routerLink="/techMap"></app-button>
-  <app-button type="success" label="Küldés" [isSubmit]="true"></app-button>
-</section>
+    <section class="buttons">
+      <app-button type="warn" label="Mégse" routerLink="/techMap"></app-button>
+      <app-button type="success" label="Küldés" [isSubmit]="true"></app-button>
+    </section>
 
-</form>
+  </form>
 
 </div>
-<ng-container  *ngIf="isMobile | async">
-
-  <app-rating-list></app-rating-list>
-</ng-container>
+<app-rating-list></app-rating-list>

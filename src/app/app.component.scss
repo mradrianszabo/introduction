@@ -6,21 +6,6 @@
   @include flex(column nowrap, space-between);
   position: relative;
   z-index: 1;
-}
-
-.menu{
-width: 700px;
-height: 400px;
-border-radius: 10px;
-backdrop-filter: blur(0);
-transition: 500ms all ease;
-background-color: background(3);
-
-}
-.menuExpanded{
-  width: 800px;
-  height: 550px;
-  overflow: hidden;
   transition: 500ms all ease;
 }
 
@@ -40,6 +25,16 @@ background-color: background(3);
   }
 }
 
+@include tablet{
+  .container{
+  min-height: calc(100vh + 170px);
+  }
+  .mobileView{
+    width: 100vw;
+    @include flex(column nowrap, space-between);
+  }
+}
+
 @include normal{
   .background{
     transform: scale(1.2);
@@ -55,13 +50,8 @@ background-color: background(3);
     transform: scale(1.7);
   }
 }
-
-@include tablet{
-  .container{
-  min-height: calc(100vh + 170px);
-  }
-  .mobileView{
-    width: 100vw;
-    @include flex(column nowrap, space-between);
+@include _4k{
+  .background{
+    transform: scale(1.9);
   }
 }

@@ -12,7 +12,6 @@ export class Page404Component implements OnInit {
   constructor(private router : Router, private menuService : MenuService) { }
 
   ngOnInit(): void {
-    this.menuService.setMenuAsClosed();
     setTimeout(()=>this.router.navigate(['/techMap']), 4000)
   }
 

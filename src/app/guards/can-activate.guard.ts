@@ -18,7 +18,6 @@ export class CanActivateGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       let propertyName : string = route.data.configProperty;
       if(this.config[propertyName]){
-        this.menuService.emitMenuStatus(false);
         this.notificationService.error(this.config[propertyName]);
         this.router.navigate(['/']);
         return false;
