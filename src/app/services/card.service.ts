@@ -10,10 +10,10 @@ import { ResolutionService } from './resolution.service';
 })
 export class CardService {
 
-  public isSmall : boolean;
+  public isMobile : boolean;
 
   constructor(private menuService : MenuService, private router: Router, private resolutionService : ResolutionService) {
-    this.resolutionService.innerWidth.subscribe(data=>this.isSmall = data < 1000 ? true : false);
+    this.resolutionService.getIsMobile().subscribe(data=>this.isMobile = data);
    }
 
   public getCards(){
@@ -23,7 +23,7 @@ export class CardService {
         'Skill map',
         'skillMap',
         ()=>{
-          if(this.isSmall){
+          if(this.isMobile){
             this.menuService.emitMenuStatus(true);
             setTimeout(()=>this.router.navigate(['/description/tech']),500)
           }else{

@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <div *ngIf="isSmall" class="techCategories">
+      <div *ngIf="isMobile" class="techCategories">
         <div class="itemCard" *ngFor="let item of categories" (click)="setCategory(item)">
           <img [attr.src]="item.imageUrl" alt="">
         </div>

@@ -9,10 +9,10 @@ import { ResolutionService } from './resolution.service';
   providedIn: 'root'
 })
 export class TileService {
-  private isSmall : boolean;
+  private isMobile : boolean;
 
   constructor(private http : HttpClient, private menuService : MenuService, private router : Router, private resolutionService : ResolutionService) {
-    this.resolutionService.innerWidth.subscribe(data=>this.isSmall = data < 1000 ? true : false);
+    this.resolutionService.getIsMobile().subscribe(data=>this.isMobile = data);
    }
 
   async getTileList(){

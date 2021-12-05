@@ -1,3 +1,7 @@
+@import '/src/scss/appearance';
+@import '/src/scss/flex';
+@import '/src/scss/media';
+
 .container{
   width: min(520px, 100vw);
   box-sizing: border-box;
@@ -9,12 +13,9 @@
   z-index: 1000;
   top: 10px;
   left: calc(50vw - 250px);
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
-  align-items: center;
+  @include flex(row nowrap, space-evenly);
   transform-origin: 50% 0;
-  border-radius : 10px;
+  border-radius : radius("regular");
 }
 img{
   height: 100px;
@@ -22,32 +23,32 @@ img{
 }
 
 .error{
-  background-color: rgb(255, 0, 98);
+  background-color: color("warn");
 }
 .success{
-  background-color: rgb(0, 128, 90);
+  background-color: color("success");
 }
 .info{
-  background-color: rgb(0, 89, 255);
+  background-color: color("info");
 }
 
-@media screen and (min-width: 1366px){
+@include normal{
   .container{
     transform: scale(1.2);
   }
 }
-@media screen and (min-width: 1920px){
+@include hd{
   .container{
     transform: scale(1.4);
   }
 }
-@media screen and (min-width: 2560px){
+@include _2k{
   .container{
     transform: scale(1.7);
   }
 }
 
-@media screen and (max-width: 520px){
+@media screen and (max-width: 550px){
   .container{
     left: 0;
   }

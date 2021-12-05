@@ -1,24 +1,27 @@
+@import '/src/scss/appearance';
+@import '/src/scss/fonts';
+@import '/src/scss/media';
 
 .header{
 
   position: relative;
-  font-family:Impact, Charcoal, sans-serif;
+  font-family: $impact;
   width: 100vw;
   text-align: center;
-}
-.header::before{
-  content: '';
-  position: absolute;
-  z-index: -1;
-  border-radius: 50%;
-  background: radial-gradient(rgb(7, 138, 181) , rgb(10, 10, 10) 57%);
-  width: min(700px, 100vw);
-  height: 300px;
-  left: 50%;
-  top: 32%;
-  transform: translateX(-50%);
-  z-index: -1px;
-  filter: blur(103px)
+  &::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: radius('circle');
+    background: radial-gradient(rgb(7, 138, 181) , rgb(10, 10, 10) 57%);
+    width: min(700px, 100vw);
+    height: 300px;
+    left: 50%;
+    top: 32%;
+    transform: translateX(-50%);
+    z-index: -1px;
+    filter: blur(103px)
+  }
 }
 .title{
   font-size: min(16em, 22vw);
@@ -49,7 +52,7 @@
   }
 }
 
-@media screen and (max-width: 1000px){
+@include tablet{
   .title2{
     letter-spacing:normal;
     font-size: 2.5em;

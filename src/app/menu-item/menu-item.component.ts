@@ -10,7 +10,7 @@ import { MenuItem } from './menuItem';
 @Component({
   selector: 'app-menu-item',
   templateUrl: './menu-item.component.html',
-  styleUrls: ['./menu-item.component.css'],
+  styleUrls: ['./menu-item.component.scss'],
   animations: [
     MENU_ITEM_ANIMATION.highlightLine,
     MENU_ITEM_ANIMATION.highlightItem

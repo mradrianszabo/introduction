@@ -4,7 +4,7 @@ import { DESCRIPTION_ANIMATION } from '../animations/description-animation';
 @Component({
   selector: 'app-percentage-indicator',
   templateUrl: './percentage-indicator.component.html',
-  styleUrls: ['./percentage-indicator.component.css'],
+  styleUrls: ['./percentage-indicator.component.scss'],
   animations: [
     DESCRIPTION_ANIMATION.percentageChange
   ]

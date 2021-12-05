@@ -1,0 +1,19 @@
+@import '/src/scss/appearance';
+@import '/src/scss/flex';
+
+.container{
+  @include flex(row nowrap, space-evenly);
+}
+.indicator{
+  border-radius: 2px;
+  border: 1px solid color("white");
+  height: 10px;
+  width: 100px;
+  background-color: color("blue-trans");
+
+}
+.load{
+  background-color: color("blue");
+  box-shadow: shadow("blue");
+  height: 10px;
+}

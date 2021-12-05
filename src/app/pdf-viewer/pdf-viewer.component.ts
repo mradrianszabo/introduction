@@ -1,20 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PdfData, PdfService } from '../pdf.service';
+import { PdfData, PdfService } from '../services/pdf.service';
 import { NotificationService } from '../services/notification.service';
 
 @Component({
   selector: 'app-pdf-viewer',
   templateUrl: './pdf-viewer.component.html',
-  styleUrls: ['./pdf-viewer.component.css']
+  styleUrls: ['./pdf-viewer.component.scss']
 })
 export class PdfViewerComponent implements OnInit {
-  @Input() public pdfData : PdfData;
+  //@Input() public pdfData : PdfData;
+  public pdfData : PdfData;
   public visible: boolean;
 
   constructor(private pdfService : PdfService, private notification : NotificationService) {
    }
 
   ngOnInit(): void {
+    this.pdfService.pdfData.subscribe(params=>this.pdfData = params);
   }
 
   closePdf(){

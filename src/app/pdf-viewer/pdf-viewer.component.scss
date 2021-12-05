@@ -1,3 +1,5 @@
+@import 'src/scss/flex';
+
 pdf-viewer{
   width: min(1000px ,80vw);
   height: 80vh;
@@ -12,10 +14,7 @@ pdf-viewer{
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(3px);
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
+  @include flex(column nowrap, flex-start);
   position: fixed;
   top: 0;
   left: 0;
@@ -25,8 +24,5 @@ pdf-viewer{
 
 .buttons{
   width: 200px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(row nowrap, space-between);
 }

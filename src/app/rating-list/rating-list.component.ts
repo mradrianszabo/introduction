@@ -8,7 +8,7 @@ import { RatingService } from '../services/rating.service';
 @Component({
   selector: 'app-rating-list',
   templateUrl: './rating-list.component.html',
-  styleUrls: ['./rating-list.component.css'],
+  styleUrls: ['./rating-list.component.scss'],
   animations: [
     RATING_ANIMATION.fade,
   ]

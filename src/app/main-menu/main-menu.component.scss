@@ -1,7 +1,12 @@
+@import '/src/scss/appearance';
+@import '/src/scss/flex';
+@import '/src/scss/fonts';
+@import '/src/scss/media';
+
 .item{
   position: absolute;
   list-style-type: none;
-  border-radius: 50%;
+  border-radius: radius("circle");
   width: 60px;
   height: 60px;
   z-index: -1;
@@ -14,7 +19,7 @@
   border: 1px solid rgb(170, 244, 255);
   box-shadow: 0 0 10px -3px rgb(0, 221, 255);
   background: url('../../assets/images/brainPng.png') center/contain;
-  border-radius: 50%;
+  border-radius: radius("circle");
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -36,13 +41,10 @@
 
 }
 
-
-
 .openButton{
   position: absolute;
   cursor: pointer;
 }
-
 
 .menu{
   position: absolute;
@@ -53,12 +55,8 @@
   top: 50%;
 }
 
-
-span, p{
-
-}
 .name{
-  font-family: Impact, Charcoal, sans-serif;
+  font-family: $impact;
   font-size: 2em;
   width: max-content;
 }
@@ -74,27 +72,20 @@ span, p{
 }
 
 .container{
-  display: flex;
-  flex-flow: column nowrap;
+  @include flex(column nowrap, space-between, initial);
   width: 100%;
   height: 100%;
-  justify-content: space-between;
 
 }
 .header{
   padding: 10px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
+  @include flex(row nowrap, flex-start);
   box-sizing: border-box;
 }
 .article{
   padding: 40px;
   box-sizing: border-box;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
+  @include flex(row nowrap, flex-start, initial);
 }
 
 .mobileView{
@@ -102,10 +93,7 @@ span, p{
 }
 
 .mapLabels{
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(row nowrap, space-between);
   width: 700px;
   height: 550px;
   position: absolute;
@@ -113,42 +101,35 @@ span, p{
   left: 50%;
   transform: translateX(-50%);
   transition: 500ms all ease;
+  & .rightSide{
+    @include flex(column nowrap, space-evenly, initial);
+    text-align: end;
+    height: 100%;
+  }
 }
 
-.mapLabels .rightSide{
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-evenly;
-  text-align: end;
-  height: 100%;
-}
 .mapLabel{
   writing-mode: vertical-lr;
   text-orientation: upright;
   font-size: 1.5em;
   font-weight: bold;
   opacity: 0.1;
-  text-shadow: 0 3px #6ecaff;
+  text-shadow: 0 3px color("blue");
 }
-@media screen and (max-width: 1000px){
+@include tablet{
   .container{
     display: none;
   }
   .mobileView{
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    @include flex(column nowrap, $align: center);
   }
   .hero{
     width:100vw;
     height:500px;
     overflow: hidden;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(column nowrap, space-between);
     text-align: center;
-    background: linear-gradient(to right bottom, #121a28, rgb(246, 26, 151))
+    background: linear-gradient(to right bottom, background(1), color("pink"))
   }
   .profilePic{
     background: url('../../assets/images/profilePic.jpg') center/cover no-repeat;
@@ -175,9 +156,11 @@ span, p{
     height: 500px;
   }
   .middle{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
+    @include flex(row nowrap, $align: initial);
     width: 100vw;
+  }
+  .safari-wrapper{
+    width: 79px;
+    height: 711px;
   }
 }

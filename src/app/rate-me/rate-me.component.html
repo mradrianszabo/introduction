@@ -74,7 +74,7 @@
 </form>
 
 </div>
-<ng-container  *ngIf="(innerWidth | async) < 1000">
+<ng-container  *ngIf="isMobile | async">
 
   <app-rating-list></app-rating-list>
 </ng-container>

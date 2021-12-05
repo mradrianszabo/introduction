@@ -1,0 +1,49 @@
+@import '/src/scss/appearance';
+@import '/src/scss/flex';
+@import '/src/scss/fonts';
+@import '/src/scss/media';
+
+.container{
+  width: 100%;
+  background-color: background(4);
+  @include flex(column nowrap, initial, initial);
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: radius("regular");
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.containerOdd{
+  background-color: background(2);
+  text-align: end;
+}
+.content{
+  @include flex(row nowrap, initial);
+}
+.contentOdd{
+  flex-direction: row-reverse;
+}
+.text{
+  width: 50%;
+  & h2{
+    align-self: flex-start;
+  }
+}
+h1, h2{
+  font-family: $impact;
+  font-weight: normal;
+}
+img{
+  width:50px;
+  margin: 10px;
+}
+
+@include mobile{
+  .content{
+    font-size: 0.9em;
+  }
+  .text{
+    width: initial;
+  }
+
+}

@@ -1,18 +1,18 @@
 <div class="background">
-  <app-header *ngIf="!isScreenSmall"></app-header>
+  <app-header *ngIf="!(isMobile | async)"></app-header>
   <div class="container">
-    <div [ngClass]="{'menu' : !isScreenSmall, 'menuExpanded' : menuStatus && !isScreenSmall, 'mobileView' : isScreenSmall}" [@routerAnimations]="{value : prepareRoute(outlet), params : {positionValue : isScreenSmall ? 0 : 50}}" [@expand]="menuStatus" >
+    <div [ngClass]="{'menu' : !(isMobile | async), 'menuExpanded' : menuStatus && !(isMobile | async), 'mobileView' : isMobile | async}" [@routerAnimations]="{value : prepareRoute(outlet), params : {positionValue : (isMobile | async) ? 0 : 50}}" [@expand]="menuStatus" >
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
-    <app-tile-list *ngIf="!menuStatus && !isScreenSmall" [@fade]></app-tile-list>
-    <app-rating-list  *ngIf="!isScreenSmall" ></app-rating-list>
-    <app-footer *ngIf="!isScreenSmall"></app-footer>
+    <app-tile-list *ngIf="!menuStatus && !(isMobile | async)" [@fade]></app-tile-list>
+    <app-rating-list  *ngIf="!(isMobile | async)" ></app-rating-list>
+    <app-footer *ngIf="!(isMobile | async)"></app-footer>
   </div>
 
 </div>
 
 
   <app-notification></app-notification>
-  <app-pdf-viewer [pdfData]="pdfData"></app-pdf-viewer>
+  <app-pdf-viewer></app-pdf-viewer>
 
 

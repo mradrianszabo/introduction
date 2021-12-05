@@ -1,0 +1,36 @@
+$border-radius: (
+  "small" : 5px,
+  "regular" : 10px,
+  "circle" : 50%,
+);
+@function radius($value){
+  @return map-get($border-radius, $value);
+}
+
+$background-color: (
+  1 : #121a28,
+  2 : #151e2d,
+  3 : #182132,
+  4 : #1b273c,
+  );
+@function background($level){
+  @return map-get($background-color, $level);
+}
+
+$main-color: (
+  "pink" : #f61a97,
+  "pink-trans" : #f61a9733,
+  "blue" : #6ecaff,
+  "blue-trans" : #6ecaff33,
+  "white" : #f5f5f5,
+  "warn" : rgb(255, 0, 98),
+  "success" : rgb(0, 128, 90),
+  "info" : rgb(0, 89, 255),
+);
+@function color($color){
+  @return map-get($main-color, $color);
+}
+
+@function shadow($color){
+  @return 0px 0px 8px 0px color($color);
+}

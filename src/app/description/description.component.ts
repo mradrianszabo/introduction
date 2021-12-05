@@ -4,14 +4,14 @@ import { Observable, Subscription } from 'rxjs';
 import { DESCRIPTION_ANIMATION } from '../animations/description-animation';
 import { GENERAL_ANIMATION } from '../animations/general-animation';
 import { MenuItem } from '../menu-item/menuItem';
-import { PdfService } from '../pdf.service';
+import { PdfService } from '../services/pdf.service';
 import { MenuService } from '../services/menu.service';
 import { ResolutionService } from '../services/resolution.service';
 
 @Component({
   selector: 'app-description',
   templateUrl: './description.component.html',
-  styleUrls: ['./description.component.css'],
+  styleUrls: ['./description.component.scss'],
   animations: [
     DESCRIPTION_ANIMATION.setNewSelected,
     DESCRIPTION_ANIMATION.removeSelected,
@@ -24,7 +24,7 @@ export class DescriptionComponent implements OnInit, OnDestroy{
   public categories : MenuItem[];
   public selected : MenuItem;
   public verticalPositionModifier : number = 0;
-  public isSmall : boolean;
+  public isMobile : boolean;
   public screenSizeSubscription : Subscription;
 
   constructor(private routes : ActivatedRoute, private menuService : MenuService, private router: Router, private pdfService: PdfService, private resolution : ResolutionService) {
@@ -32,7 +32,7 @@ export class DescriptionComponent implements OnInit, OnDestroy{
   }
 
   async ngOnInit() {
-    this.screenSizeSubscription = this.resolution.innerWidth.subscribe(data => this.isSmall = data < 1000 ? true : false)
+    this.screenSizeSubscription = this.resolution.getIsMobile().subscribe(data => this.isMobile = data)
     await this.menuService.getMenu()
 
       this.menuService.setMenuAsOpened();
@@ -40,7 +40,7 @@ export class DescriptionComponent implements OnInit, OnDestroy{
         this.setProperties(item);
       })
       this.techFamily = [];
-      if(!this.isSmall){
+      if(!this.isMobile){
         this.setTechFamily(this.selected);
       }
 
@@ -52,7 +52,6 @@ export class DescriptionComponent implements OnInit, OnDestroy{
 
   setProperties(item){
     try{
-      //this.techFamily = this.menuService.getParent(item)
       this.selected = this.menuService.getItemByName(item);
       this.categories = this.selected.subItems;
       this.selected.isSelected = true;

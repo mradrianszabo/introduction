@@ -1,7 +1,9 @@
+@import '/src/scss/flex';
+@import '/src/scss/media';
+
 .container{
   width: min(500px, 80vw);
-  display: flex;
-  flex-flow: column nowrap;
+  @include flex(column nowrap, initial, initial);
   margin-top: 30px;
 }
 .tile{
@@ -12,12 +14,12 @@
 }
 
 
-@media screen and (max-width: 1000px){
+@include tablet{
   .container{
     margin-top: 0;
   }
 }
-@media screen and (max-width: 500px){
+@include mobile{
   .tile{
     width: 90%;
   }

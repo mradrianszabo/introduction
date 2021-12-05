@@ -6,7 +6,7 @@ import { SideMenuCard } from './side-menu-card';
 @Component({
   selector: 'app-side-menu-card',
   templateUrl: './side-menu-card.component.html',
-  styleUrls: ['./side-menu-card.component.css'],
+  styleUrls: ['./side-menu-card.component.scss'],
   animations: [
     SIDE_CARD_ANIMATION.hoverAboutMe,
     SIDE_CARD_ANIMATION.hoverRateMe,

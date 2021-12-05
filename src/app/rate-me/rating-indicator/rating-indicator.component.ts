@@ -6,7 +6,7 @@ import { RatingService } from 'src/app/services/rating.service';
 @Component({
   selector: 'app-rating-indicator',
   templateUrl: './rating-indicator.component.html',
-  styleUrls: ['./rating-indicator.component.css'],
+  styleUrls: ['./rating-indicator.component.scss'],
   animations: [
     RATING_ANIMATION.raiseIndicatorBar,
 

@@ -1,0 +1,28 @@
+@import '/src/scss/appearance';
+@import '/src/scss/fonts';
+
+
+button{
+  align-self: center;
+  border-radius: radius("regular");
+  font-family: $impact;
+  padding: 10px;
+  border: 1px solid color("white");
+  box-shadow: none;
+  transition: 500ms all ease;
+  margin: 10px;
+}
+.warn{
+  background-color: color("pink-trans");
+  &:hover{
+    background-color: color("pink");
+    box-shadow: shadow("pink");
+  }
+}
+.success{
+  background-color: color("blue-trans");
+  &:hover{
+    background-color: color("blue");
+    box-shadow: shadow("blue");
+  }
+}

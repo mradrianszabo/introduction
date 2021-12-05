@@ -12,7 +12,7 @@ import { MenuService } from '../services/menu.service';
 @Component({
   selector: 'app-rate-me',
   templateUrl: './rate-me.component.html',
-  styleUrls: ['./rate-me.component.css'],
+  styleUrls: ['./rate-me.component.scss'],
   animations: [
     GENERAL_ANIMATION.fade,
     RATING_ANIMATION.raiseCheckbox
@@ -21,7 +21,7 @@ import { MenuService } from '../services/menu.service';
 export class RateMeComponent implements OnInit, OnDestroy {
 
   public rating : Rating = new Rating();
-  public innerWidth : Observable<number>;
+  public isMobile : Observable<boolean>;
 
   constructor(private rateMeService : RatingService, private notification: NotificationService, private router : Router, private resolutionService : ResolutionService, private menuService : MenuService) {
     rateMeService.getRating.subscribe(data=>this.rating[data.name] = data.point);
@@ -53,7 +53,7 @@ export class RateMeComponent implements OnInit, OnDestroy {
   }
 
   private setIsScreenSmall(){
-    this.innerWidth = this.resolutionService.getInnerWidth();
+    this.isMobile = this.resolutionService.getIsMobile();
   }
 
 

@@ -1,0 +1,19 @@
+@import '/src/scss/appearance';
+@import '/src/scss/flex';
+@import '/src/scss/media';
+
+.cardContainer{
+  @include flex(row nowrap, space-between);
+  position: relative;
+  width: min(350px, 100vw);
+}
+
+@include tablet{
+  .cardContainer{
+    background-color: background(1);
+    border-radius: radius("regular");
+    transform: translateY(-50%);
+    justify-content: space-evenly;
+  }
+}
+

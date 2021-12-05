@@ -11,7 +11,7 @@ export interface NotificationInterface{
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.css'],
+  styleUrls: ['./notification.component.scss'],
   animations: [
     GENERAL_ANIMATION.fade,
   ]

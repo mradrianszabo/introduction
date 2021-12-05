@@ -8,20 +8,20 @@ import { SideMenuCard } from '../side-menu-card/side-menu-card';
 @Component({
   selector: 'app-card-menu',
   templateUrl: './card-menu.component.html',
-  styleUrls: ['./card-menu.component.css'],
+  styleUrls: ['./card-menu.component.scss'],
   animations: [
     SIDE_CARD_ANIMATION.cardContainer
   ]
 })
 export class CardMenuComponent implements OnInit {
   public menuCards : SideMenuCard[];
-  public resolution : Observable<number>;
+  public isMobile : Observable<boolean>;
 
   constructor(private cardService : CardService, private resolutionService : ResolutionService) { }
 
   ngOnInit(): void {
     this.menuCards = this.cardService.getCards();
-    this.resolution = this.resolutionService.innerWidth;
+    this.isMobile = this.resolutionService.getIsMobile();
   }
 
 }

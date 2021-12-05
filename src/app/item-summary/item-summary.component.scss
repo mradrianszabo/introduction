@@ -1,0 +1,21 @@
+@import '/src/scss/appearance';
+@import '/src/scss/flex';
+
+.summary{
+  @include flex(column nowrap, space-between, center);
+  padding: 10px;
+  width: 200px;
+  height: 75px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: radius("small");
+  & p:nth-child(2){
+    font-size: 0.8em;
+    letter-spacing: 5px;
+    color: color("pink");
+  }
+}

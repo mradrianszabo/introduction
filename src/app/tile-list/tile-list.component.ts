@@ -5,7 +5,7 @@ import { Tile } from '../tile/tile';
 @Component({
   selector: 'app-tile-list',
   templateUrl: './tile-list.component.html',
-  styleUrls: ['./tile-list.component.css']
+  styleUrls: ['./tile-list.component.scss']
 })
 export class TileListComponent implements OnInit {
 

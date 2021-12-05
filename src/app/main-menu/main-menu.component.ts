@@ -13,7 +13,7 @@ import { SideMenuCard } from '../side-menu-card/side-menu-card';
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.css'],
+  styleUrls: ['./main-menu.component.scss'],
   animations: [
     MENU_ITEM_ANIMATION.expand,
     GENERAL_ANIMATION.fade,
