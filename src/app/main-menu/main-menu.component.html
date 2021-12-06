@@ -43,7 +43,7 @@
   </div>
 </div>
 
-<div class="mobileView">
+<div class="mobileView" *ngIf="isMobile | async">
   <div class="hero">
     <div class="titleBox">
       <p class="name">Szabó Adrián</p>
@@ -59,8 +59,9 @@
     <div class="safari-wrapper">
       <app-header></app-header>
     </div>
+    <app-tile-list></app-tile-list>
   </div>
 </div>
 
 
-<app-tile-list></app-tile-list>
+<app-tile-list *ngIf="!(isMobile | async)"></app-tile-list>

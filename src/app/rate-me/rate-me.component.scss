@@ -4,7 +4,8 @@
 
 .container{
   position: relative;
-  height: 400px;
+  z-index: 1;
+  min-height: 400px;
   width: min(700px, 100vw);
   margin: 0 auto;
   border-radius: 10px;
@@ -13,14 +14,14 @@
 }
 
 form{
-  @include flex(column nowrap, space-between, initial);
+  @include flex(column nowrap, space-between, initial, $rowGap: 30px);
   padding: 20px;
   height: 100%;
   box-sizing: border-box;
 }
 
 .identity{
-  @include flex($justify: space-between, $align: initial);
+  @include flex($justify: space-between, $align: initial, $rowGap: 20px);
   & input[type="text"]{
     border-radius: radius("regular");
     padding: 5px;
@@ -69,7 +70,7 @@ input[type="number"]{
 }
 
 .ratings{
-  @include flex($justify: space-between, $align: initial);
+  @include flex($justify: space-between, $align: initial, $rowGap: 20px);
   height: 60px;
   & label{
     @include flex(row nowrap, space-between, initial);
@@ -97,15 +98,6 @@ input[type="number"]{
 }
 
 @include tablet{
-  .container{
-  margin: 0 auto;
-  }
-  label{
-    margin: 10px 0;
-  }
-  form{
-    height: calc(700px - 20vw);
-  }
   .ratings{
     height: initial;
   }

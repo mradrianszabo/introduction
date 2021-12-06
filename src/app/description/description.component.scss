@@ -121,6 +121,7 @@
   .container{
     height: max-content;
     width: 100vw;
+    margin-bottom: max(50px, calc(100vh - 800px));
   }
   .selectedItemCard{
     margin-bottom: 10px;

@@ -26,9 +26,6 @@
 }
 
 @include tablet{
-  .container{
-  min-height: calc(100vh + 170px);
-  }
   .mobileView{
     width: 100vw;
     @include flex(column nowrap, space-between);
@@ -54,4 +51,9 @@
   .background{
     transform: scale(1.9);
   }
+}
+a, h2{
+  position: relative;
+  z-index: 100;
+  color: white;
 }

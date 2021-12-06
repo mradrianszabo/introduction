@@ -1,10 +1,12 @@
 <div class="background">
+
   <app-header *ngIf="!(isMobile | async)"></app-header>
   <div class="container" [@routerAnimations]="prepareRoute(outlet)">
     <router-outlet #outlet="outlet"></router-outlet>
     <app-footer></app-footer>
   </div>
 </div>
+
 
 
 <app-notification></app-notification>

@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -12,7 +13,7 @@ export class CardService {
 
   public isMobile : boolean;
 
-  constructor(private menuService : MenuService, private router: Router, private resolutionService : ResolutionService) {
+  constructor(private menuService : MenuService, private router: Router, private resolutionService : ResolutionService, private scroller : ViewportScroller) {
     this.resolutionService.getIsMobile().subscribe(data=>this.isMobile = data);
    }
 
@@ -24,7 +25,8 @@ export class CardService {
         'skillMap',
         ()=>{
           if(this.isMobile){
-            setTimeout(()=>this.router.navigate(['/description/tech']),500)
+            //this.router.navigate(['.'], {fragment : 'tileList'});
+            this.scroller.scrollToAnchor('tileList');
           }else{
             this.menuService.setMenuAsOpened();
           }
@@ -34,14 +36,14 @@ export class CardService {
         'About me',
         'aboutMe',
         ()=>{
-          setTimeout(()=>this.router.navigate(['/description/personal']),500)
+          this.router.navigate(['/description/personal']);
         }
       ),
       new SideMenuCard(
         'Rate me',
         'rateMe',
         ()=>{
-          setTimeout(()=> this.router.navigate(['/rateMe']),0)
+          setTimeout(()=> this.router.navigate(['/rateMe']),0);
 
         }
       )
