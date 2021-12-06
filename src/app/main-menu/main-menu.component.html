@@ -1,4 +1,8 @@
 <div class="container" [ngClass]="{'container' : true, 'expanded' : menu?.isOpen}">
+  <ng-container *ngIf="!!itemSummary">
+    <app-item-summary [summaryData]="itemSummary"></app-item-summary>
+  </ng-container>
+
   <div class="menu">
     <ul *ngIf="menu?.isOpen" [@expand]>
       <li *ngFor="let item of menu.subItems" class="item">
@@ -30,9 +34,7 @@
           menu?.isOpen ? 'menuOpened openButton' : 'menuClosed openButton'
         " (click)="toggleTechMap()"></div>
   </section>
-  <ng-container *ngIf="!!itemSummary">
-    <app-item-summary [summaryData]="itemSummary"></app-item-summary>
-  </ng-container>
+
 
   <div class="mapLabels" *ngIf="menu?.isOpen" [@fade]>
     <span class="mapLabel">Tech Stack</span>

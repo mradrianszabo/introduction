@@ -31,8 +31,8 @@ export class MainMenuComponent implements OnInit {
     this.menuService.itemSummary.subscribe(data=>this.itemSummary = data);
   }
 
-  async ngOnInit() {
-    this.menu = await this.menuService.getMenu();
+  ngOnInit() {
+    this.menuService.getMenu().subscribe(data=> this.menu = data);
     this.isMobile = this.resolutionService.getIsMobile();
   }
 

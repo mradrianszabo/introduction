@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 import { Category, ItemLevel, MenuItem } from '../menu-item/menuItem';
 import { SideMenuCard } from '../side-menu-card/side-menu-card';
 
@@ -14,16 +14,28 @@ export class MenuService {
   public itemSummary : Subject<any> = new Subject();
 
   constructor(private http : HttpClient) {
+    this.setMenu();
    }
 
-
+/*
    public async setMenu(){
     let raw = await this.http.get('/assets/data/techStack.json').toPromise();
     return this.getConvertedMenu(raw)
+   } */
+   public setMenu(){
+     this.getMenu().subscribe(data=>this.mainMenu = data);
    }
 
-   public async getMenu(){
+/*    public async getMenu(){
     return this.mainMenu ? await this.mainMenu : await this.setMenu();
+   } */
+   public getMenu(){
+     return this.http.get('/assets/data/techStack.json').pipe(map(raw=>this.getConvertedMenu(raw))).pipe(distinctUntilChanged());
+   }
+   public getMenuObj(){
+    let menu;
+    this.getMenu().subscribe(data=>menu = data);
+    return menu
    }
 
    private convertToRating(raw){
@@ -77,7 +89,7 @@ public getParent(selected, parent = this.mainMenu){
     }
   }
 }
-public getItemByName(selected, parent = this.mainMenu){
+public getItemByName(selected, parent){
   let result = parent.subItems.find(elem => selected.name === elem.name);
   if(result){
     return result
@@ -97,6 +109,7 @@ public closeAll(item : MenuItem = this.mainMenu){
     if(item.subItems.length){
       for(let subitem of item.subItems){
         if(subitem.isInspected || subitem.isSelected)
+        console.log('closeall:' , subitem)
         this.closeAll(subitem);
       }
     }

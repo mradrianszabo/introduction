@@ -17,8 +17,8 @@ export class TileListComponent implements OnInit {
     this.setTileList();
   }
 
-  async setTileList(){
-    this.tileList = await this.tileService.getTileList()
+  setTileList(){
+    this.tileService.getTileList().subscribe(data=> this.tileList = data);
   }
 
 }

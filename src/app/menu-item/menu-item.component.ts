@@ -35,7 +35,7 @@ export class MenuItemComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.menuService.closeAll();
+    //this.menuService.closeAll();
 
   }
 

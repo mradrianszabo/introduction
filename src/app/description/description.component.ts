@@ -31,18 +31,12 @@ export class DescriptionComponent implements OnInit, OnDestroy{
 
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.screenSizeSubscription = this.resolution.getIsMobile().subscribe(data => this.isMobile = data)
-    await this.menuService.getMenu()
+    this.routes.params.subscribe(itemName => {
+      this.setProperties(itemName);
+    })
 
-      this.menuService.setMenuAsOpened();
-      this.routes.params.subscribe(item => {
-        this.setProperties(item);
-      })
-      this.techFamily = [];
-      if(!this.isMobile){
-        this.setTechFamily(this.selected);
-      }
 
   }
   ngOnDestroy(): void{
@@ -50,14 +44,19 @@ export class DescriptionComponent implements OnInit, OnDestroy{
     this.screenSizeSubscription.unsubscribe();
   }
 
-  setProperties(item){
-    try{
-      this.selected = this.menuService.getItemByName(item);
-      this.categories = this.selected.subItems;
-      this.selected.isSelected = true;
-    }catch(error){
-      this.router.navigate(['/404']);
-    }
+  setProperties(itemName){
+      this.menuService.getMenu().subscribe(data =>{
+        console.log("menu: ", data)
+        this.selected = this.menuService.getItemByName(itemName, data);
+        this.categories = this.selected.subItems;
+        this.selected.isSelected = true;
+
+        this.techFamily = [];
+        if(!this.isMobile){
+            this.setTechFamily(this.selected);
+        }
+      },
+      error=>this.router.navigate(['/404']));
   }
 
   setCategory(selectedCategory : MenuItem){

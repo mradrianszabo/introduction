@@ -7,10 +7,9 @@
   width: 200px;
   height: 75px;
   background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  margin: 0 auto;
+  margin-top: 10px;
   z-index: 1;
   border-radius: radius("small");
   & p:nth-child(2){
