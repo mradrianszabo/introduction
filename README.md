@@ -1,3 +1,5 @@
+An angular project to introduce me and my experiences.
+
 # Introduction
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.2.
