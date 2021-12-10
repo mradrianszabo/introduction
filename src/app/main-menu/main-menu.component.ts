@@ -32,7 +32,7 @@ export class MainMenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.menuService.getMenu().subscribe(data=> this.menu = data);
+    this.menuService.mainMenu$.subscribe(data=> this.menu = data);
     this.isMobile = this.resolutionService.getIsMobile();
   }
 

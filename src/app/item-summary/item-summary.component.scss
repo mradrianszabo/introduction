@@ -1,7 +1,9 @@
-@import '/src/scss/appearance';
-@import '/src/scss/flex';
+@import "/src/scss/appearance";
+@import "/src/scss/flex";
+@import "/src/scss/fonts";
 
-.summary{
+.summary {
+  font-family: $clear;
   @include flex(column nowrap, space-between, center);
   padding: 10px;
   width: 200px;
@@ -12,7 +14,7 @@
   margin-top: 10px;
   z-index: 1;
   border-radius: radius("small");
-  & p:nth-child(2){
+  & p:nth-child(2) {
     font-size: 0.8em;
     letter-spacing: 5px;
     color: color("pink");

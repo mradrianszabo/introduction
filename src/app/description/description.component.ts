@@ -7,6 +7,7 @@ import { MenuItem } from '../menu-item/menuItem';
 import { PdfService } from '../services/pdf.service';
 import { MenuService } from '../services/menu.service';
 import { ResolutionService } from '../services/resolution.service';
+import { last } from 'rxjs/operators';
 
 @Component({
   selector: 'app-description',
@@ -40,12 +41,12 @@ export class DescriptionComponent implements OnInit, OnDestroy{
 
   }
   ngOnDestroy(): void{
-    this.menuService.closeAll(this.selected);
+    this.menuService.closeAll();
     this.screenSizeSubscription.unsubscribe();
   }
 
   setProperties(itemName){
-      this.menuService.getMenu().subscribe(data =>{
+      this.menuService.mainMenu$.subscribe(data =>{
         console.log("menu: ", data)
         this.selected = this.menuService.getItemByName(itemName, data);
         this.categories = this.selected.subItems;

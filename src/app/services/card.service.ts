@@ -33,7 +33,7 @@ export class CardService {
         }
         ),
       new SideMenuCard(
-        'About me',
+        'Know me',
         'aboutMe',
         ()=>{
           this.router.navigate(['/description/personal']);

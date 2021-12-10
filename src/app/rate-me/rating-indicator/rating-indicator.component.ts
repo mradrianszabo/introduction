@@ -45,20 +45,20 @@ export class RatingIndicatorComponent implements OnInit, OnChanges {
     }
   }
 
-  private setRating(indexOfSelected){
+  private setRatingValue(indexOfSelected){
     this.rating = this.rating.map((elem, index)=> index <= indexOfSelected ? true : false)
   }
 
   public sendRating(indexOfSelected){
     if(this.name){
-      this.setRating(indexOfSelected);
+      this.setRatingValue(indexOfSelected);
       let rating = {name : this.name, point : indexOfSelected + 1}
-      this.ratingService.setRating(rating);
+      this.ratingService.setRatingValue(rating);
     }
   }
 
   private injectRating(){
-    this.setRating(this.points-1);
+    this.setRatingValue(this.points-1);
   }
 
 }

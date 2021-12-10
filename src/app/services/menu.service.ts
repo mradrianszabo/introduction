@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 import { Category, ItemLevel, MenuItem } from '../menu-item/menuItem';
 import { SideMenuCard } from '../side-menu-card/side-menu-card';
@@ -12,30 +12,22 @@ export class MenuService {
   private mainMenu: MenuItem;
   private selectionChainLength = 0;
   public itemSummary : Subject<any> = new Subject();
+  public mainMenu$: ReplaySubject<MenuItem>;
 
   constructor(private http : HttpClient) {
     this.setMenu();
    }
 
-/*
-   public async setMenu(){
-    let raw = await this.http.get('/assets/data/techStack.json').toPromise();
-    return this.getConvertedMenu(raw)
-   } */
-   public setMenu(){
-     this.getMenu().subscribe(data=>this.mainMenu = data);
-   }
 
-/*    public async getMenu(){
-    return this.mainMenu ? await this.mainMenu : await this.setMenu();
-   } */
-   public getMenu(){
-     return this.http.get('/assets/data/techStack.json').pipe(map(raw=>this.getConvertedMenu(raw))).pipe(distinctUntilChanged());
-   }
-   public getMenuObj(){
-    let menu;
-    this.getMenu().subscribe(data=>menu = data);
-    return menu
+   public setMenu(){
+     if(!this.mainMenu$){
+      this.mainMenu$ = new ReplaySubject<MenuItem>();
+     }
+    this.http.get('/assets/data/techStack.json').pipe(map(raw=>this.getConvertedMenu(raw))).subscribe(data=>{
+      this.mainMenu = data;
+      this.mainMenu$.next(this.mainMenu);
+    });
+    //this.mainMenu$.subscribe(data=>{this.mainMenu = data; console.log("data", data)});
    }
 
    private convertToRating(raw){
@@ -103,13 +95,11 @@ public getItemByName(selected, parent){
 }
 public closeAll(item : MenuItem = this.mainMenu){
   if(item.isInspected || item.isSelected){
-
     item.isInspected = item.isSelected = false;
 
     if(item.subItems.length){
       for(let subitem of item.subItems){
         if(subitem.isInspected || subitem.isSelected)
-        console.log('closeall:' , subitem)
         this.closeAll(subitem);
       }
     }

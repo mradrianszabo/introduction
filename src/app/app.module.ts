@@ -9,7 +9,6 @@ import { MenuItemComponent } from './menu-item/menu-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DescriptionComponent } from './description/description.component';
 import { SideMenuCardComponent } from './side-menu-card/side-menu-card.component';
-import { SanitizePipe } from './pipes/sanitize.pipe';
 import { RateMeComponent } from './rate-me/rate-me.component';
 import { FormsModule } from '@angular/forms';
 import { RatingIndicatorComponent } from './rate-me/rating-indicator/rating-indicator.component';
@@ -34,7 +33,6 @@ import { TileComponent } from './tile/tile.component';
     MenuItemComponent,
     DescriptionComponent,
     SideMenuCardComponent,
-    SanitizePipe,
     RateMeComponent,
     RatingIndicatorComponent,
     NotificationComponent,

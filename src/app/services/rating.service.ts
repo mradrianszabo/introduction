@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Rating } from '../rate-me/rating';
 import { UrlService } from './url.service';
-import { map } from 'rxjs/operators';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 
 export interface ratingInterface{
   name : string;
@@ -25,7 +25,7 @@ export class RatingService {
    }
 
 
-  setRating(rating){
+  setRatingValue(rating){
     this.getRating.next(rating);
   }
 

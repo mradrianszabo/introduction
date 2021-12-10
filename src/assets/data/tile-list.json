@@ -33,10 +33,10 @@
   {
     "title" : "Még több",
     "imageUrl" : "/assets/images/moreLogo.png",
-    "description" : "Szeretnél még több kódot? További projekteket találsz a github oldalamon.",
+    "description" : "Szeretnél még több kódot? További projekteket találsz githubon.",
     "action" : {
       "type" : "open",
-      "url" : "//github.com"
+      "url" : "//github.com/mradrianszabo"
     }
   }
 ]

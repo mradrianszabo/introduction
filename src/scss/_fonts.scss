@@ -1,1 +1,9 @@
 $impact: Impact, Charcoal, sans-serif;
+@font-face {
+  font-family: "clearSans";
+  src: local(
+    "clearSans",
+    url(/assets/fonts/ClearSans-Regular.ttf) format(truetype)
+  );
+}
+$clear: "clearSans", sans-serif;

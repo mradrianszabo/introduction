@@ -11,7 +11,7 @@
   "subItems" : [
     {
       "name" : "tech",
-      "description" : "none",
+      "description" : "Az általam használt technológiák és egyéb ismeretek.",
       "percentage" : 0,
       "itemLevel" : 1,
       "category" : 90,
@@ -22,7 +22,7 @@
       "subItems" : [
         {
           "name" : "Additional Technologies",
-          "description" : "none",
+          "description" : "Ugyan a programozás legmókásabb részét az alkotás adja, tisztában vagyok az elméleti ismeretek és kiegészítő technológiák fontosságával. Törekszem rá, hogy ezen a téren se maradjon el a tudásom.",
           "percentage" : 100,
           "itemLevel" : 1,
           "category" : 90,
@@ -33,7 +33,7 @@
           "subItems" : [
             {
               "name" : "Git",
-              "description" : "none",
+              "description" : "A mindennapok során, a legtöbb parancsot magabiztosan használom, ugyanakkor van néhány, ami csak ritkán, vagy, az én esetemben, még nem igazán került elő. ",
               "percentage" : 70,
               "itemLevel" : 1,
               "category" : 90,
@@ -47,9 +47,9 @@
             },
             {
               "name" : "Paradigms",
-              "description" : "none",
-              "percentage" : 10,
-              "itemLevel" : 2,
+              "description" : "Az utóbbi időben főként objektum orientált szemléletmóddal programoztam, de van fogalmam a procedurális és funkcionális programozásról is. A jövőben szeretném mindegyiket jobban megérteni és megismerni.",
+              "percentage" : 70,
+              "itemLevel" : 1,
               "category" : 90,
               "imageUrl" : "/assets/images/paradigmsLogo.png",
               "isOpen" : true,
@@ -61,9 +61,9 @@
             },
             {
               "name" : "Data Structures & Algorithms",
-              "description" : "none",
-              "percentage" : 50,
-              "itemLevel" : 2,
+              "description" : "Egyelőre az egyszerűbbekkel ismerkedtem meg a Heap-el bezárólag, de hamarosan sorra kerülnek az összetettebbek is.",
+              "percentage" : 100,
+              "itemLevel" : 1,
               "category" : 90,
               "imageUrl" : "/assets/images/dsaLogo.png",
               "isOpen" : true,
@@ -77,7 +77,7 @@
         },
         {
           "name" : "Css",
-          "description" : "none",
+          "description" : "Bámulatos dolgok létrehozására képes, már önmagában is. A javascripthez hasonlóan szintén \"rég\" óta gyakorlom. Ha egy dolgot kiemelnék, a leggyakrabban használt elemek közül, a flexbox lenne, bár tudom, hogy nem minden szituációban kézenfekvő.",
           "percentage" : 30,
           "itemLevel" : 2,
           "category" : 90,
@@ -88,7 +88,7 @@
           "subItems" : [
             {
               "name" : "Sass",
-              "description" : "none",
+              "description" : "A közelmúltban ismerkedtem meg vele, de azonnal belopta magát a szívembe. Remek kiterjesztése a css-nek. A mixinek, funkciók és mapek sok időt megspórolnak, többek között, a partial file-ok pedig rengeteget segítenek az átlátható rendszerezésben.",
               "percentage" : 30,
               "itemLevel" : 1,
               "category" : 90,
@@ -104,7 +104,7 @@
         },
         {
           "name" : "Html",
-          "description" : "none",
+          "description" : "Mindig próbálok könnyen áttekinthető és egyszerű szerkezetet szolgáltatni az oldalaimnak, szemantikus elemek felhasználásával.",
           "percentage" : 100,
           "itemLevel" : 1,
           "category" : 90,
@@ -115,7 +115,7 @@
           "subItems" : [
             {
               "name" : "Hugo",
-              "description" : "none",
+              "description" : "Egyelőre egy feladat során találkoztam vele, ahol egy custom theme-t kell elkészítenem. Ugyanakkor, kategóriájában már ennyi alapján is remek eszköznek találom. Noha nagyban eltér az általam ismert technológiáktól, a szintaxisa, már egy sima if statement esetében is, de ha rajtam múlik, a jövőben még lesz vele dolgom.",
               "percentage" : 30,
               "itemLevel" : 1,
               "category" : 90,
@@ -131,7 +131,7 @@
         },
         {
           "name" : "Javascript",
-          "description" : "none",
+          "description" : "Szinte a -az én szemszögemből nézve- kezdetek óta használom. Noha az utóbbi időben angularral és typescripttel dolgozom, ami sok helyzetben kész megoldást szállít, vagy más megközelítést igényel, az alapot még mindig a javascript szolgáltatja.",
           "percentage" : 50,
           "itemLevel" : 2,
           "category" : 90,
@@ -142,7 +142,7 @@
           "subItems" : [
             {
               "name" : "Angular",
-              "description" : "none",
+              "description" : "Kicsit több, mint fél éve foglalkozom aktívan angular keretrendszerrel és nagyon élvezem. A legtöbb projektem angular 9-ben íródott, de próbálom követni az új verziók által hozott változásokat. Kulcsszavakba foglalva, többnyire az alábbi featureket ismerem/használom: \n\n-databinding\n-directives\n-pipes\n-dependency injection\n-routing\n-observables\n-guards\n-animation. \n\n Az applikációk tesztelésére protractort és jasminet használok.",
               "percentage" : 15,
               "itemLevel" : 2,
               "category" : 90,
@@ -153,7 +153,7 @@
               "subItems" : [
                 {
                   "name" : "Angular Material",
-                  "description" : "none",
+                  "description" : "Több alkalommal is volt szerencsém használni, bár a komponenseit, többnyire, kisebb módosításoktól eltekintve, eredeti formájában használtam.",
                   "percentage" : 100,
                   "itemLevel" : 1,
                   "category" : 90,
@@ -167,7 +167,7 @@
                 },
                 {
                   "name" : "Ngrx",
-                  "description" : "none",
+                  "description" : "A state management ezen formájával még erőteljesen ismerkedő szakaszban vagyok. Nagyobb volumenű, valódi projektnél még nem használtam, de tisztában vagyok az alapvető működésével és használatával.",
                   "percentage" : 70,
                   "itemLevel" : 1,
                   "category" : 90,
@@ -183,7 +183,7 @@
             },
             {
               "name" : "Typescript",
-              "description" : "none",
+              "description" : "Elsőre kicsit furcsa volt, egy olyan weakly typed nyelv után, mint a javascript, de hamar megszoktam, sőt megszerettem, hisz sok szituációban kifejezetten hasznos a használata.",
               "percentage" : 100,
               "itemLevel" : 1,
               "category" : 90,
@@ -197,7 +197,7 @@
             },
             {
               "name" : "Rxjs",
-              "description" : "none",
+              "description" : "Egyelőre főként komponensek közti adatcserére használom, különböző típusú subjectek formájában, illetve requestek kezelésére, néhány fontosabb operator kíséretében.",
               "percentage" : 70,
               "itemLevel" : 1,
               "category" : 90,
@@ -215,7 +215,7 @@
     },
     {
       "name" : "personal",
-      "description" : "none",
+      "description" : "Néhány szó a szabadidős tevékenységeimről, illetve a letölthető önéletrajzom és motivációs levelem helye.",
       "percentage" : 0,
       "itemLevel" : 1,
       "category" : -70,
@@ -226,7 +226,7 @@
       "subItems" : [
         {
           "name" : "Hobbies",
-          "description" : "none",
+          "description" : "Ugyan a legtöbb szabadidőmet programozással és a párommal töltöm, próbálok másra is időt szakítani.",
           "percentage" : 100,
           "itemLevel" : 1,
           "category" : -70,
@@ -237,7 +237,7 @@
           "subItems" : [
             {
               "name" : "TaiChi",
-              "description" : "none",
+              "description" : "A közelmúlt eseményeit nagyban megsínylette a mozgáskultúrám. A tai chi ezt a problémát hivatott megoldani, illetve a relaxációban is segít.",
               "percentage" : 50,
               "itemLevel" : 1,
               "category" : -70,
@@ -251,7 +251,7 @@
             },
             {
               "name" : "Plants",
-              "description" : "none",
+              "description" : "Viszonylag sok szobanövényt gondozok és nemrégiben az aquakertészkedésbe is belevágtam.",
               "percentage" : 100,
               "itemLevel" : 1,
               "category" : -70,
@@ -265,7 +265,7 @@
             },
             {
               "name" : "Cooking",
-              "description" : "none",
+              "description" : "Több évet dolgoztam szakácsként tradícionális és modern technológiákkal egyaránt. Hivatásszerűen már nem, de hobbyból továbbra is szívesen főzök.",
               "percentage" : 50,
               "itemLevel" : 2,
               "category" : -70,
@@ -281,7 +281,7 @@
         },
         {
           "name" : "Technical",
-          "description" : "none",
+          "description" : "Az önéletrajzom és motivációs levelem egyaránt megtalálható és letölthető itt.",
           "percentage" : 100,
           "itemLevel" : 1,
           "category" : -70,
@@ -326,7 +326,7 @@
     },
     {
       "name" : "future",
-      "description" : "none",
+      "description" : "Noha elsődlegesen az eddig megismert technológiákban szeretnék mélyebben elmerülni, hevesen érdeklődöm újak iránt is.",
       "percentage" : 0,
       "itemLevel" : 1,
       "category" : 0,
@@ -337,7 +337,7 @@
       "subItems" : [
         {
           "name" : "Javascript Related",
-          "description" : "none",
+          "description" : "Legelőször a javascripttel kapcsolatos technológiák terén szeretném szélesíteni az eszköztáram.",
           "percentage" : 0,
           "itemLevel" : 1,
           "category" : 0,
@@ -348,7 +348,7 @@
           "subItems" : [
             {
               "name" : "Nodejs",
-              "description" : "none",
+              "description" : "Fontosnak tartom, hogy legyen rálátásom a szerver oldal működésére is. Rövidebb ideig ismerkedtem a php alapjaival, de hosszútávon inkább a nodejs felé nyitnék.",
               "percentage" : 0,
               "itemLevel" : 1,
               "category" : 0,
@@ -362,7 +362,7 @@
             },
             {
               "name" : "React",
-              "description" : "none",
+              "description" : "Szeretek angularral dolgozni, ugyanakkor nem akarok csak erre támaszkodni. A react több szempontból is vonzó alternatíva.",
               "percentage" : 0,
               "itemLevel" : 1,
               "category" : 0,
@@ -378,7 +378,7 @@
         },
         {
           "name" : "Golang",
-          "description" : "none",
+          "description" : "Személyes tapasztalat hiányában kénytelen vagyok csupán cikkekben olvasott véleményekre és leírásokra támaszkodni, amik alapján a go-nak abszolút az eszköztáramban a helye.",
           "percentage" : 0,
           "itemLevel" : 1,
           "category" : 0,
@@ -392,7 +392,7 @@
         },
         {
           "name" : "Dart",
-          "description" : "none",
+          "description" : "Mobil alkalmazások fejlesztésre, jelenleg a legjobb, kompromisszumos megoldásnak a dart-ot találom, ha mak, ilyen irányba mozdulni, vele tenném.",
           "percentage" : 0,
           "itemLevel" : 1,
           "category" : 0,

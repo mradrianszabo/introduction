@@ -1,13 +1,12 @@
-import { AfterViewInit, Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Observable} from 'rxjs';
 import { GENERAL_ANIMATION } from '../animations/general-animation';
 import { RATING_ANIMATION } from '../animations/rating-animation';
 import { ResolutionService } from '../services/resolution.service';
 import { NotificationService } from '../services/notification.service';
 import { RatingService } from '../services/rating.service';
 import { Rating } from './rating';
-import { MenuService } from '../services/menu.service';
 
 @Component({
   selector: 'app-rate-me',
@@ -23,7 +22,7 @@ export class RateMeComponent implements OnInit {
   public rating : Rating = new Rating();
   public isMobile : Observable<boolean>;
 
-  constructor(private rateMeService : RatingService, private notification: NotificationService, private router : Router, private resolutionService : ResolutionService) {
+  constructor(private rateMeService : RatingService, private notification: NotificationService, private resolutionService : ResolutionService) {
     rateMeService.getRating.subscribe(data=>this.rating[data.name] = data.point);
    }
 
@@ -31,11 +30,12 @@ export class RateMeComponent implements OnInit {
     this.setIsScreenSmall();
   }
 
-  public submit(form){
+  public submit(){
     if(this.validation()){
-      this.rateMeService.postRating(this.rating).subscribe(response=>this.notification.handleResponse(response));
-      this.router.navigate(['/techMap']);
-      setTimeout(()=>this.rateMeService.refreshRatings(),1000);
+      this.rateMeService.postRating(this.rating).subscribe(response=>{
+        this.notification.handleResponse(response)
+        this.rateMeService.refreshRatings()
+      });
     }
     else{
       this.notification.error('Legalább a pontozós részeket töltsd ki, kérlek!')

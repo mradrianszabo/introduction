@@ -1,9 +1,9 @@
-@import '/src/scss/appearance';
-@import '/src/scss/flex';
-@import '/src/scss/fonts';
-@import '/src/scss/media';
+@import "/src/scss/appearance";
+@import "/src/scss/flex";
+@import "/src/scss/fonts";
+@import "/src/scss/media";
 
-.container{
+.container {
   width: 100%;
   background-color: background(4);
   @include flex(column nowrap, initial, initial);
@@ -13,37 +13,41 @@
   margin-bottom: 10px;
   cursor: pointer;
 }
-.containerOdd{
+.containerOdd {
   background-color: background(2);
   text-align: end;
 }
-.content{
+.content {
   @include flex(row nowrap, initial);
 }
-.contentOdd{
+.contentOdd {
   flex-direction: row-reverse;
 }
-.text{
+.text {
   width: 50%;
-  & h2{
+  & h2 {
     align-self: flex-start;
   }
+  span {
+    line-height: 1.3em;
+    font-family: $clear;
+  }
 }
-h1, h2{
+h1,
+h2 {
   font-family: $impact;
   font-weight: normal;
 }
-img{
-  width:50px;
+img {
+  width: 50px;
   margin: 10px;
 }
 
-@include mobile{
-  .content{
+@include mobile {
+  .content {
     font-size: 0.9em;
   }
-  .text{
+  .text {
     width: initial;
   }
-
 }

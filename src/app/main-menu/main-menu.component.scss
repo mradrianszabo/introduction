@@ -1,9 +1,9 @@
-@import '/src/scss/appearance';
-@import '/src/scss/flex';
-@import '/src/scss/fonts';
-@import '/src/scss/media';
+@import "/src/scss/appearance";
+@import "/src/scss/flex";
+@import "/src/scss/fonts";
+@import "/src/scss/media";
 
-.container{
+.container {
   position: relative;
   width: 700px;
   height: 400px;
@@ -14,13 +14,13 @@
   background-color: background(3);
   @include flex(column nowrap, space-between, initial);
 }
-.expanded{
+.expanded {
   width: 900px;
   height: 600px;
   transition: 500ms all ease;
 }
 
-.item{
+.item {
   position: absolute;
   list-style-type: none;
   border-radius: radius("circle");
@@ -28,14 +28,13 @@
   height: 60px;
   z-index: -1;
   transition: 500ms all ease;
-
 }
-.menuOpened{
+.menuOpened {
   width: 80px;
   height: 80px;
   border: 1px solid rgb(170, 244, 255);
   box-shadow: 0 0 10px -3px rgb(0, 221, 255);
-  background: url('../../assets/images/brainPng.png') center/contain;
+  background: url("../../assets/images/brainPng.png") center/cover no-repeat;
   border-radius: radius("circle");
   left: 50%;
   top: 50%;
@@ -43,27 +42,25 @@
   transition: 500ms all ease;
 }
 
-
-
-.menuClosed{
-  width: 250px;
+.menuClosed {
+  width: 400px;
   height: 250px;
-  background: url('../../assets/images/profilePic.jpg') center/cover no-repeat;
+  background: url("../../assets/images/profilePic.png") 50% 50% / cover
+    no-repeat;
   box-shadow: 0 0 10px 2px #182132 inset;
   border-radius: 10px 100px 10px 100px;
   top: 60%;
-  left: 56%;
+  left: 37%;
   transform: translate(4%, -45%);
   transition: 500ms all ease;
-
 }
 
-.openButton{
+.openButton {
   position: absolute;
   cursor: pointer;
 }
 
-.menu{
+.menu {
   position: absolute;
   width: 80px;
   height: 80px;
@@ -72,38 +69,43 @@
   top: 50%;
 }
 
-.name{
+.name {
   font-family: $impact;
   font-size: 2em;
   width: max-content;
 }
-.titleBox{
+.titleBox {
   margin-left: 17px;
 }
-.title{
+.title {
   color: #1b6687;
+  font-family: $clear;
 }
-.about{
-  width: 300px;
-  display: inline-block;
+.about {
+  width: 200px;
+  font-size: 1.1em;
+  line-height: 1.3em;
+  text-align: center;
+  font-family: $clear;
 }
 
-.header{
+.header {
   padding: 10px;
   @include flex(row nowrap, flex-start);
   box-sizing: border-box;
 }
-.article{
-  padding: 40px;
+.article {
+  padding-left: 39px;
+  padding-bottom: 78px;
   box-sizing: border-box;
   @include flex(row nowrap, flex-start, initial);
 }
 
-.mobileView{
+.mobileView {
   display: none;
 }
 
-.mapLabels{
+.mapLabels {
   @include flex(row nowrap, space-between);
   width: 800px;
   height: 550px;
@@ -112,14 +114,14 @@
   left: 50%;
   transform: translateX(-50%);
   transition: 500ms all ease;
-  & .rightSide{
+  & .rightSide {
     @include flex(column nowrap, space-evenly, initial);
     text-align: end;
     height: 100%;
   }
 }
 
-.mapLabel{
+.mapLabel {
   writing-mode: vertical-lr;
   text-orientation: upright;
   font-size: 1.5em;
@@ -127,50 +129,51 @@
   opacity: 0.1;
   text-shadow: 0 3px color("blue");
 }
-@include tablet{
-  .container{
+@include tablet {
+  .container {
     display: none;
   }
-  .mobileView{
+  .mobileView {
     @include flex(column nowrap, $align: center);
   }
-  .hero{
-    width:100vw;
-    height:500px;
+  .hero {
+    width: 100vw;
+    height: 500px;
     overflow: hidden;
     @include flex(column nowrap, space-between);
     text-align: center;
-    background: linear-gradient(to right bottom, background(1), color("pink"))
+    background: linear-gradient(to right bottom, background(1), color("pink"));
   }
-  .profilePic{
-    background: url('../../assets/images/profilePic.jpg') center/cover no-repeat;
-    width:130%;
-    height:300px;
+  .profilePic {
+    background: url("../../assets/images/profilePic.png") center/cover no-repeat;
+    width: 130%;
+    height: 300px;
     border-radius: 50% 50% 0 0;
   }
 
-  .titleBox, .about{
+  .titleBox,
+  .about {
     margin: 0;
     position: relative;
     z-index: 1;
   }
-  .titleBox{
+  .titleBox {
     margin-top: 20px;
   }
-  .about{
+  .about {
     width: 80vw;
     display: inline-block;
   }
 
-  article{
+  article {
     width: 100vw;
     height: 500px;
   }
-  .middle{
+  .middle {
     @include flex(row nowrap, $align: initial);
     width: 100vw;
   }
-  .safari-wrapper{
+  .safari-wrapper {
     width: 79px;
     height: 711px;
   }
