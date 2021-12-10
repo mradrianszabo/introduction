@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DESCRIPTION_ANIMATION } from '../animations/description-animation';
 
 @Component({
@@ -9,13 +9,10 @@ import { DESCRIPTION_ANIMATION } from '../animations/description-animation';
     DESCRIPTION_ANIMATION.percentageChange
   ]
 })
-export class PercentageIndicatorComponent implements OnInit {
+export class PercentageIndicatorComponent {
 
   @Input() public percentage : number;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

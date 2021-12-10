@@ -23,7 +23,7 @@ export class ItemService {
 
   constructor() {}
 
-  public getPositionOfSubitems( items, parentRadius, parentIndex, depth){
+  public getPositionOfSubitems( items : MenuItem[], parentRadius : number, parentIndex : number, depth : number) : Map<MenuItem, ItemAddition>{
     let itemMap: Map<MenuItem, ItemAddition> = new Map();
     let sizeOfItems = this.getSizeOfItems(items);
     this.start = this.getStartPointOnArc(items[0], sizeOfItems[0], parentIndex, depth+1);
@@ -32,8 +32,8 @@ export class ItemService {
     return itemMap;
   }
 
-  private getSizeOfItems(items: MenuItem[]){
-    let itemSize = [];
+  private getSizeOfItems(items: MenuItem[]) : number[]{
+    let itemSize : number[]= [];
     for(let item of items){
       let level = item.percentage ? item.itemLevel : 3
       itemSize.push(ITEMD*(1 + item.percentage/100 + level)/2);
@@ -41,13 +41,13 @@ export class ItemService {
     return itemSize;
   }
 
-  private getStartPointOnArc(firstItem, firstItemSize, parentIndex, depth){
+  private getStartPointOnArc(firstItem : MenuItem, firstItemSize : number, parentIndex : number, depth : number) : number{
     return firstItem.category === Category.Tech
     ? firstItem.category + firstItemSize + parentIndex * 10 + depth * 20
     : (firstItem.category + firstItemSize - parentIndex *10) - (depth-1) *5;
   }
 
-  private addElementsToMap(items, itemMap, sizeOfItems,parentRadius, depth){
+  private addElementsToMap(items : MenuItem[], itemMap : Map<MenuItem, ItemAddition>, sizeOfItems : number[], parentRadius : number, depth : number) : void{
     for(let [index, item] of items.entries()){
       let itemSize = sizeOfItems[index];
       let positions = this.calculatePosition(itemSize, parentRadius, depth, index, item.category);
@@ -61,7 +61,7 @@ export class ItemService {
     }
   }
 
-  private calculatePosition(itemSize, parentRadius, depth, index, category){
+  private calculatePosition(itemSize : number, parentRadius : number, depth : number, index : number, category : number){
     let radius = this.getDistanceBetweenItemAndParent(depth, category, index, itemSize, parentRadius);
     let posX = (radius * Math.cos(ANGLEINRADIANT * this.start) + parentRadius) ;
     let posY = (radius * Math.sin(ANGLEINRADIANT * this.start) + parentRadius) ;
@@ -70,11 +70,11 @@ export class ItemService {
     return {itemPos: {'top' : posY+'px', 'left' : posX+'px'}, lineSvg : svgLine};
   }
 
-  private getItemStyleObject(position, size, background){
+  private getItemStyleObject(position, size : number, background : string){
     return {'top' : position.top, 'left' : position.left, 'width' : size+'px', 'height' : size+'px', 'background-image' : `url('${background}')`}
   }
 
-  private getDistanceOfNextItemOnArc(category, depth, sizeOfItems, index){
+  private getDistanceOfNextItemOnArc(category : number, depth : number, sizeOfItems : number[], index : number) : number{
     let sizeOfItem = sizeOfItems[index];
     let sizeOfNext = sizeOfItems[index+1];
 
@@ -91,7 +91,7 @@ export class ItemService {
     }
   }
 
-  private getDistanceBetweenItemAndParent(depth, category, index, itemSize, parentRadius){
+  private getDistanceBetweenItemAndParent(depth : number, category : number, index : number, itemSize : number, parentRadius : number) : number{
     let isOdd = depth%2 ? 1 : 2.5
     let isIndexOdd = category === Category.Tech ? index%2 ? 1 : 1.8 : index%2 ? 1.5 : 0.8
     let modifier = isOdd + isIndexOdd;
@@ -101,11 +101,11 @@ export class ItemService {
     return radius
   }
 
-  private getRandomNumber(min, max){
+  private getRandomNumber(min : number, max : number) : number{
     return Math.random() * (max - min) + min;
   }
 
-  private getSvgLinePath(size, x, y, parentRadius){
+  private getSvgLinePath(size : number, x : number, y : number, parentRadius : number){
     return `M ${parentRadius},${parentRadius} L ${x+size/2}, ${y+size/2}`;
   }
 

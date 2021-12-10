@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PdfData, PdfService } from '../services/pdf.service';
 import { NotificationService } from '../services/notification.service';
 
@@ -8,7 +8,6 @@ import { NotificationService } from '../services/notification.service';
   styleUrls: ['./pdf-viewer.component.scss']
 })
 export class PdfViewerComponent implements OnInit {
-  //@Input() public pdfData : PdfData;
   public pdfData : PdfData;
   public visible: boolean;
 
@@ -19,11 +18,11 @@ export class PdfViewerComponent implements OnInit {
     this.pdfService.pdfData.subscribe(params=>this.pdfData = params);
   }
 
-  closePdf(){
+  public closePdf() : void{
     this.pdfService.sendPdf(null);
   }
 
-  downloadPdf(){
+  public downloadPdf() : void{
     this.pdfService.getPdf(this.pdfData.url).subscribe((data : any)=>{
       try{
       let downloadURL = window.URL.createObjectURL(data);

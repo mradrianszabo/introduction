@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { NotificationInterface } from '../notification/notification.component';
@@ -16,17 +17,16 @@ export class NotificationService {
     let notification = {message : message, type : 'error'}
     this.getMessage.next(notification);
   }
-  public success(message : string){
+  public success(message : string) : void{
     let notification = {message : message, type : 'success'}
     this.getMessage.next(notification)
   }
-  public info(message : string){
+  public info(message : string) : void{
     let notification = {message : message, type : 'info'}
     this.getMessage.next(notification)
   }
 
-  public handleResponse(response){
-    console.log(response)
+  public handleResponse(response : HttpResponse<any>) : void{
     if(response.status === 200){
       this.success('Köszönöm az értékelésed, a feltöltés sikeresen megtörtént!')
     }else{

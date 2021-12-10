@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Observable} from 'rxjs';
 import { GENERAL_ANIMATION } from '../animations/general-animation';
 import { RATING_ANIMATION } from '../animations/rating-animation';
@@ -30,7 +29,7 @@ export class RateMeComponent implements OnInit {
     this.setIsScreenSmall();
   }
 
-  public submit(){
+  public submit() : void{
     if(this.validation()){
       this.rateMeService.postRating(this.rating).subscribe(response=>{
         this.notification.handleResponse(response)
@@ -42,14 +41,14 @@ export class RateMeComponent implements OnInit {
     }
   }
 
-  private validation(){
+  private validation() : boolean{
     if(this.rating.design && this.rating.usability && this.rating.overall){
       return true;
     }
     return false;
   }
 
-  private setIsScreenSmall(){
+  private setIsScreenSmall() : void{
     this.isMobile = this.resolutionService.getIsMobile();
   }
 

@@ -12,10 +12,6 @@
   </div>
 </div>
 
-<!--
-#F61A97
-#6ecaff
- -->
 
 
  <ng-template #skillMap>
@@ -32,14 +28,3 @@
  <ng-template #rateMe>
   <svg class="cardSvg" width="90px" height="50px" viewBox="0 0 80 65"><path class="cls-1" d="M60.64,40.8A5.41,5.41,0,0,1,61,42.72c0,4.26-4.92,7.72-11,7.72S39,47,39,42.72a5.67,5.67,0,0,1,.14-1.17c-.21-.19-.43-.38-.64-.59v26.7h23V39.87C61.23,40.19,60.93,40.49,60.64,40.8Z" transform="translate(-19 -17.19)"/><path class="cls-1 cls-2" d="M49.9,17.19c-7.23,0-13.09,6.65-13.09,14.84S42.67,46.88,49.9,46.88,63,40.23,63,32,57.14,17.19,49.9,17.19Zm1.72,13.67.75-.69a2.9,2.9,0,0,0,.15-4.08l-.7-.75a.41.41,0,0,1,0-.57l.51-.47a.41.41,0,0,1,.57,0l.69.75a2.89,2.89,0,0,0,4.08.15l.89-.82a.39.39,0,0,1,.57,0l.47.5a.42.42,0,0,1,0,.58l-.89.82a2.89,2.89,0,0,0-.15,4.07l.82.89a.39.39,0,0,1,0,.57l-.5.47a.42.42,0,0,1-.58,0l-.82-.89a2.89,2.89,0,0,0-4.07-.15l-.75.7a.41.41,0,0,1-.57,0l-.47-.5A.42.42,0,0,1,51.62,30.86Zm-11.08.21.73-.68a2.81,2.81,0,0,0,.14-4l-.67-.73a.4.4,0,0,1,0-.56l.49-.45a.4.4,0,0,1,.56,0l.67.73a2.82,2.82,0,0,0,4,.14l.86-.8a.4.4,0,0,1,.56,0l.45.49a.4.4,0,0,1,0,.56l-.86.8a2.81,2.81,0,0,0-.14,4l.8.86a.4.4,0,0,1,0,.56l-.49.45a.4.4,0,0,1-.56,0l-.8-.86a2.81,2.81,0,0,0-4-.14l-.73.67a.4.4,0,0,1-.56,0l-.45-.49A.4.4,0,0,1,40.54,31.07ZM50,44.5c-6.08,0-11-4.25-11-9.5H61C61,40.25,56.08,44.5,50,44.5Z" transform="translate(-19 -17.19)"/><path [@hoverCard2]="{value : animationStatus, params : {delay: '0ms'}}" class="cls-1" d="M31,74.2l6.88-34.35c-4.8-1-6.51,4.46-6.51,4.46L25.61,73.12Z" transform="translate(-19 -17.19)"/><path [@hoverCard2]="{value : animationStatus, params : {delay: '100ms'}}" (@hoverCard2.done)="animationStatus = false" class="cls-1" d="M68.72,73.21,62.38,38.76c4.8-.89,6.43,4.56,6.43,4.56l5.31,28.89Z" transform="translate(-19 -17.19)"/><path class="cls-1" d="M62,29.5v.06c0-.07,0-.14,0-.2A.66.66,0,0,1,62,29.5Z" transform="translate(-19 -17.19)"/><path class="cls-1 cls-2" d="M91,78H29L19,70H78Z" transform="translate(-19 -17.19)"/></svg>
  </ng-template>
-
-<!--  <ng-template #aboutMe>
-  <ng-container #other *ngIf="card.svgString === 'aboutMe'; else rateMe">
-
-    <svg class="cardSvg" width="90px" height="50px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.5 58.5"><defs><style>.cls-1,.cls-2{fill:none;}.cls-1{stroke:#6ecaff;}.cls-1,.cls-2,.cls-3{stroke-miterlimit:10;stroke-width:1.5px;}.cls-2,.cls-3{stroke:#f61a97;}.cls-3{fill:#6ecaff;}</style></defs><path class="cls-1" d="M29.64,24.8A5.24,5.24,0,0,1,30,26.72c0,4.26-4.92,7.72-11,7.72S8,31,8,26.72a5.76,5.76,0,0,1,.14-1.17c-.21-.19-.43-.38-.64-.59v26.7h23V23.87C30.23,24.19,29.93,24.49,29.64,24.8Z" transform="translate(0.75 0.75)"/><path class="cls-2" d="M32,14.84C32,23,26.13,29.69,18.9,29.69S5.81,23,5.81,14.84,11.67,0,18.9,0,32,6.68,32,14.84Z" transform="translate(0.75 0.75)"/><path class="cls-1" d="M31,13.63a2.77,2.77,0,0,1-2.5,3,2.77,2.77,0,0,1-2.5-3,2.54,2.54,0,0,1,5-.9A2.72,2.72,0,0,1,31,13.63Z" transform="translate(0.75 0.75)"/><ellipse [@hoverCard1]="animationStatus" (@hoverCard1.done)="animationStatus = false"  class="cls-2 head" cx="10.25" cy="14.41" rx="2.5" ry="3"/><path class="cls-1" d="M30,17.81c0,5.25-4.92,9.5-11,9.5S8,23.06,8,17.81Z" transform="translate(0.75 0.75)"/><path class="cls-1" d="M5.5,57V22C.61,22,0,27.65,0,27.65V57Z" transform="translate(0.75 0.75)"/><path class="cls-3" d="M32.5,57V22c4.89,0,5.5,5.65,5.5,5.65V57Z" transform="translate(0.75 0.75)"/></svg>
-
-</ng-container>
- </ng-template>
-
- -->
-

@@ -24,7 +24,7 @@ export class TileComponent implements OnInit, OnDestroy {
     this.resolutionSubscription.unsubscribe();
   }
 
-  callAction(){
+  public callAction(){
     if(this.isMobile && this.tile.mobileAction){
       this.tile.mobileAction();
     }else{

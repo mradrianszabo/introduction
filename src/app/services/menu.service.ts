@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable } from '@angular/core';
-import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
-import { distinctUntilChanged, map } from 'rxjs/operators';
-import { Category, ItemLevel, MenuItem } from '../menu-item/menuItem';
-import { SideMenuCard } from '../side-menu-card/side-menu-card';
+import { Injectable } from '@angular/core';
+import { ReplaySubject, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Summary } from '../item-summary/summary';
+import { MenuItem, MenuItemModel } from '../menu-item/menuItem';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ import { SideMenuCard } from '../side-menu-card/side-menu-card';
 export class MenuService {
   private mainMenu: MenuItem;
   private selectionChainLength = 0;
-  public itemSummary : Subject<any> = new Subject();
+  public itemSummary : Subject<Summary> = new Subject();
   public mainMenu$: ReplaySubject<MenuItem>;
 
   constructor(private http : HttpClient) {
@@ -19,22 +19,21 @@ export class MenuService {
    }
 
 
-   public setMenu(){
+   public setMenu() : void{
      if(!this.mainMenu$){
       this.mainMenu$ = new ReplaySubject<MenuItem>();
      }
-    this.http.get('/assets/data/techStack.json').pipe(map(raw=>this.getConvertedMenu(raw))).subscribe(data=>{
+    this.http.get<MenuItemModel>('/assets/data/techStack.json').pipe(map(raw=>this.getConvertedMenu(raw))).subscribe(data=>{
       this.mainMenu = data;
       this.mainMenu$.next(this.mainMenu);
     });
-    //this.mainMenu$.subscribe(data=>{this.mainMenu = data; console.log("data", data)});
    }
 
-   private convertToRating(raw){
+   private convertToRating(raw : MenuItemModel) : MenuItem{
     return new MenuItem(raw.name, raw.description, raw.percentage, raw.itemLevel, raw.category, raw.imageUrl, raw.isOpen, raw.isInspected, raw.isSelected, [], raw?.fileUrl)
    }
 
-   private getConvertedMenu(raw, parent?: MenuItem){
+   private getConvertedMenu(raw : MenuItemModel, parent?: MenuItem) : MenuItem{
     let converted = this.convertToRating(raw);
     if(!!parent){
       parent.subItems.push(converted)
@@ -64,13 +63,13 @@ export class MenuService {
 }
 
 
-public getSelectionLength(){
+public getSelectionLength() : number{
   return this.selectionChainLength;
 }
-public resetSelectionLength(){
+public resetSelectionLength() : void{
   this.selectionChainLength = 0;
 }
-public getParent(selected, parent = this.mainMenu){
+public getParent(selected, parent = this.mainMenu) : MenuItem | void{
   if(parent.subItems.find(elem=>elem.name === selected.name)){
     return parent
   }
@@ -81,7 +80,7 @@ public getParent(selected, parent = this.mainMenu){
     }
   }
 }
-public getItemByName(selected, parent){
+public getItemByName(selected : MenuItem, parent : MenuItem){
   let result = parent.subItems.find(elem => selected.name === elem.name);
   if(result){
     return result
@@ -93,7 +92,7 @@ public getItemByName(selected, parent){
     }
   }
 }
-public closeAll(item : MenuItem = this.mainMenu){
+public closeAll(item : MenuItem = this.mainMenu) : void{
   if(item.isInspected || item.isSelected){
     item.isInspected = item.isSelected = false;
 
@@ -108,12 +107,12 @@ public closeAll(item : MenuItem = this.mainMenu){
   }
 }
 
-public setMenuAsOpened(){
+public setMenuAsOpened() : void{
     this.mainMenu.isOpen = true;
 }
 
 
-nextSummary(summaryData){
+nextSummary(summaryData : Summary) : void{
   this.itemSummary.next(summaryData);
 }
 

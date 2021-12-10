@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Rating } from '../rate-me/rating';
 import { UrlService } from './url.service';
-import { distinctUntilChanged, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 export interface ratingInterface{
   name : string;
@@ -25,18 +25,18 @@ export class RatingService {
    }
 
 
-  setRatingValue(rating){
+  setRatingValue(rating : ratingInterface) : void{
     this.getRating.next(rating);
   }
 
-  postRating(rating : Rating){
+  postRating(rating : Rating) : Observable<HttpResponse<Rating>>{
     let response = this.http.post<Rating>(this.url.getListUrl(), rating, {observe : 'response'});
     return response;
 
   }
 
-  fetchRatings(){
-    return this.http.get(this.url.getListUrl())
+  fetchRatings() : Observable<Rating[]>{
+    return this.http.get<ratingInterface>(this.url.getListUrl())
     .pipe(
       map(data=>{
         let ratings = [];
@@ -50,7 +50,7 @@ export class RatingService {
     )
   }
 
-  refreshRatings(){
+  refreshRatings() : void{
     this.fetchRatings().subscribe(ratings=>this.getRatings.next(ratings));
   }
 

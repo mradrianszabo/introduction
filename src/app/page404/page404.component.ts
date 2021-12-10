@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuService } from '../services/menu.service';
 
 @Component({
   selector: 'app-page404',
@@ -9,7 +8,7 @@ import { MenuService } from '../services/menu.service';
 })
 export class Page404Component implements OnInit {
 
-  constructor(private router : Router, private menuService : MenuService) { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
     setTimeout(()=>this.router.navigate(['/techMap']), 4000)

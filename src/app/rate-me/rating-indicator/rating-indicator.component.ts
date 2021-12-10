@@ -1,5 +1,4 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { GENERAL_ANIMATION } from 'src/app/animations/general-animation';
 import { RATING_ANIMATION } from 'src/app/animations/rating-animation';
 import { RatingService } from 'src/app/services/rating.service';
 
@@ -35,7 +34,15 @@ export class RatingIndicatorComponent implements OnInit, OnChanges {
     }
   }
 
-  private createRating(){
+    public sendRating(indexOfSelected : number) : void{
+      if(this.name){
+        this.setRatingValue(indexOfSelected);
+        let rating = {name : this.name, point : indexOfSelected + 1}
+        this.ratingService.setRatingValue(rating);
+      }
+    }
+
+  private createRating() : void{
     this.rating = new Array<boolean>(this.length);
     for(let i = 0; i< this.rating.length; i++){
       this.rating[i]= false;
@@ -45,16 +52,8 @@ export class RatingIndicatorComponent implements OnInit, OnChanges {
     }
   }
 
-  private setRatingValue(indexOfSelected){
+  private setRatingValue(indexOfSelected : number) : void{
     this.rating = this.rating.map((elem, index)=> index <= indexOfSelected ? true : false)
-  }
-
-  public sendRating(indexOfSelected){
-    if(this.name){
-      this.setRatingValue(indexOfSelected);
-      let rating = {name : this.name, point : indexOfSelected + 1}
-      this.ratingService.setRatingValue(rating);
-    }
   }
 
   private injectRating(){

@@ -1,7 +1,6 @@
 import { ViewportScroller } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { SideMenuCard } from '../side-menu-card/side-menu-card';
 import { MenuService } from './menu.service';
 import { ResolutionService } from './resolution.service';
@@ -17,7 +16,7 @@ export class CardService {
     this.resolutionService.getIsMobile().subscribe(data=>this.isMobile = data);
    }
 
-  public getCards(){
+  public getCards() : SideMenuCard[]{
     let cards = [];
     cards.push(
       new SideMenuCard(

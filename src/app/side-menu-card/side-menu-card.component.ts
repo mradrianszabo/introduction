@@ -1,6 +1,5 @@
-import { Component, Input, OnDestroy, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SIDE_CARD_ANIMATION } from '../animations/side-menu-card-animation';
-import { MenuService } from '../services/menu.service';
 import { SideMenuCard } from './side-menu-card';
 
 @Component({
@@ -13,7 +12,7 @@ import { SideMenuCard } from './side-menu-card';
     SIDE_CARD_ANIMATION.hoverSkillMap,
   ]
 })
-export class SideMenuCardComponent implements OnInit, OnDestroy {
+export class SideMenuCardComponent implements OnInit {
   @Input() public card : SideMenuCard;
   public animationStatus : boolean = false;
   public cardAnimationHelper: boolean;
@@ -24,8 +23,6 @@ export class SideMenuCardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.cardAnimationHelper = true;
     setTimeout(()=>this.cardAnimationHelper = false, 500)
-  }
-  ngOnDestroy(): void{
   }
 
 }

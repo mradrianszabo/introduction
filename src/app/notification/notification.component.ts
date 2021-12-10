@@ -31,19 +31,19 @@ export class NotificationComponent implements OnInit, OnDestroy {
     this.notificationSubscription.unsubscribe();
   }
 
-  private subscribeMessage(){
+    public setImage() : string{
+      let error = '/assets/images/sadLogo.png';
+      let success = '/assets/images/happyLogo.png';
+      let info = '/assets/images/infoLogo.png';
+      return this.notification.type === 'error' ? error : this.notification.type === 'success' ? success : info;
+    }
+
+  private subscribeMessage() : void{
     this.notificationSubscription = this.notificationService.getMessage.subscribe(data=>{
       this.notification = data;
       this.visible = true;
       setTimeout(()=>this.visible = false, 4000);
     })
-  }
-
-  setImage(){
-    let error = '/assets/images/sadLogo.png';
-    let success = '/assets/images/happyLogo.png';
-    let info = '/assets/images/infoLogo.png';
-    return this.notification.type === 'error' ? error : this.notification.type === 'success' ? success : info;
   }
 
 }

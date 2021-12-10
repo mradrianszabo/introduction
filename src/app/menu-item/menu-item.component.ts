@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MENU_ITEM_ANIMATION } from '../animations/menu-item-animation';
 import { ItemAddition, ItemService, } from '../services/item.service';
@@ -16,7 +16,7 @@ import { MenuItem } from './menuItem';
     MENU_ITEM_ANIMATION.highlightItem
   ]
 })
-export class MenuItemComponent implements OnInit, OnDestroy {
+export class MenuItemComponent implements OnInit{
   public itemMap :  Map<MenuItem, ItemAddition>;
   @Input() public menuItem: MenuItem;
   @Input() public parentRadius : number;
@@ -31,34 +31,20 @@ export class MenuItemComponent implements OnInit, OnDestroy {
     if(!!this.menuItem.subItems.length){
       this.itemMap = this.itemService.getPositionOfSubitems(this.menuItem.subItems, this.parentRadius, this.index, this.depth);
     }
-
-  }
-
-  ngOnDestroy(): void {
-    //this.menuService.closeAll();
-
   }
 
   public getRadius(item: MenuItem) : number{
     return parseInt(this.itemMap.get(item).style.width)/2;
   }
 
-  inspecting(item: MenuItem){
+  public inspecting(item: MenuItem) : void{
     this.highlightInspectedFamily(item);
     item.isInspected
       ?this.menuService.nextSummary({name : item.name, itemLevel : item.itemLevel, percentage : item.percentage, hasFile : item.fileUrl ? true : false})
       :this.menuService.nextSummary(null);
   }
-  private highlightInspectedFamily(item: MenuItem){
-    item.isInspected = !item.isInspected;
-    if(item.subItems.length){
-      for(let subitem of item.subItems){
-        this.highlightInspectedFamily(subitem);
-      }
-    }
-  }
 
-  selectItem(selected: MenuItem){
+  public selectItem(selected: MenuItem) : void{
     this.menuService.nextSummary(null);
     selected.isSelected = true;
     this.menuService.setSelected(selected);
@@ -69,8 +55,16 @@ export class MenuItemComponent implements OnInit, OnDestroy {
     this.menuService.resetSelectionLength();
   }
 
-  navigateToSelected(item){
+  navigateToSelected(item : MenuItem) : void{
     this.router.navigate(['/description/', item.name])
   }
 
+  private highlightInspectedFamily(item: MenuItem) : void{
+    item.isInspected = !item.isInspected;
+    if(item.subItems.length){
+      for(let subitem of item.subItems){
+        this.highlightInspectedFamily(subitem);
+      }
+    }
+  }
 }

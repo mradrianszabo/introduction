@@ -10,7 +10,21 @@ export enum Category{
   Future =  0,
   Tech = 90,
 }
-export class MenuItem{
+
+export interface MenuItemModel{
+  name : string;
+  description : string;
+  percentage : number;
+  itemLevel : number;
+  category : number;
+  imageUrl?: string;
+  isOpen : boolean;
+  isInspected : boolean;
+  isSelected : boolean;
+  subItems : MenuItem[];
+  fileUrl?: string;
+}
+export class MenuItem implements MenuItemModel{
   constructor(
     public name: string,
     public description: string,

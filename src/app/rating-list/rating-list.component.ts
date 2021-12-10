@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { GENERAL_ANIMATION } from '../animations/general-animation';
+import { Observable } from 'rxjs';
 import { RATING_ANIMATION } from '../animations/rating-animation';
 import { Rating } from '../rate-me/rating';
 import { RatingService } from '../services/rating.service';
@@ -23,7 +22,7 @@ export class RatingListComponent implements OnInit {
 
   }
 
-  getRatings(){
+  private getRatings() : void{
     this.ratingService.refreshRatings();
     this.ratings = this.ratingService.getRatings;
   }

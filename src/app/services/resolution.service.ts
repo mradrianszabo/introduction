@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, fromEvent, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, fromEvent } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 
 function isScreenMobile() {
@@ -18,7 +18,7 @@ export class ResolutionService {
     fromEvent(window, 'resize').pipe(map(isScreenMobile)).subscribe(sizeOfWindow);
   }
 
-  getIsMobile(){
+  getIsMobile() : Observable<boolean>{
     return this.isMobile;
   }
 

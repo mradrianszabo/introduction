@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 export interface PdfData{
   name : string;
@@ -17,11 +17,11 @@ export class PdfService {
     this.pdfData = new Subject();
    }
 
-  public sendPdf(data : PdfData){
+  public sendPdf(data : PdfData) : void{
     this.pdfData.next(data);
   }
 
-  public getPdf(url : string){
+  public getPdf(url : string) : Observable<any>{
     return this.http.get(url, {responseType : 'blob' as 'json'});
   }
 }

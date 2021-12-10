@@ -15,12 +15,12 @@ export class FooterComponent implements OnInit {
     this.getData();
   }
 
-  getData(){
-    this.footerService.getFooterData().subscribe(data=> this.footerData = data);
-  }
+    public action(url : string) : void{
+      window.open(url, '_blank');
+    }
 
-  action(url){
-    window.open(url, '_blank');
+  private getData() : void{
+    this.footerService.getFooterData().subscribe(data=> this.footerData = data);
   }
 
 }

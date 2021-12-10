@@ -17,7 +17,7 @@ export class TileListComponent implements OnInit {
     this.setTileList();
   }
 
-  setTileList(){
+  private setTileList() : void{
     this.tileService.getTileList().subscribe(data=> this.tileList = data);
   }
 
